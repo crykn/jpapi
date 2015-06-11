@@ -2,9 +2,13 @@ package de.damios.jpapi.method;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
+
+import de.damios.jpapi.exception.JpapiInternalException;
+import de.damios.util.ApiRequest;
 
 /**
  * <b>Klasse wird noch umbenannt!</b> <br>
@@ -28,19 +32,22 @@ public class ImageXY {
 	 *            Die Bildbreite
 	 * @param height
 	 *            Die Bildhöhe
-	 * @return BufferedImage oder null, wenn ein Fehler auftritt
+	 * @return BufferedImage
+	 * @throws IOException
+	 *             wenn ein Fehler beim Lesen des Bilds auftritt
+	 * @see ImageIO#read(URL)
 	 * 
 	 */
 	public static BufferedImage get(int gameid, String filename, int width,
-			int height) {
+			int height) throws IOException {
+		URL url;
 		try {
-			return ImageIO.read(new URL("http://pewn.de/image/projects/"
-					+ gameid + "/files/" + filename + "?width=" + width
-					+ "&height=" + height));
-		} catch (IOException e) {
-			e.printStackTrace();
+			url = new URL(ApiRequest.HOST + "image/projects/" + gameid
+					+ "/files/" + filename + "?width=" + width + "&height="
+					+ height);
+		} catch (MalformedURLException e) {
+			throw new JpapiInternalException(e);
 		}
-		return null;
+		return ImageIO.read(url);
 	}
-
 }

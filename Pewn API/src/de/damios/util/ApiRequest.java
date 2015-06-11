@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 
+import de.damios.jpapi.exception.JpapiInternalException;
 import de.damios.jpapi.exception.JpapiRequestException;
 import de.damios.jpapi.object.Project;
 
@@ -20,9 +21,13 @@ import de.damios.jpapi.object.Project;
  *
  */
 public class ApiRequest {
-	private static final String URL_PREFIX = "http://pewn.de/api/";
-	private static final String URL_POSTFIX = "?format=json";
-	private static final String VERSION = "v1";
+	
+	/**
+	 * Enthält die Adresse des Hosts, an den alle Anfragen gehen ({@value})
+	 */
+	public static final String HOST = "http://pewn.de/";
+	private static final String API_REQUEST = "api/v1/";
+	private static final String PARAMETER = "?format=json";
 	private static Gson gson;
 
 	static {
@@ -43,9 +48,9 @@ public class ApiRequest {
 	 * Liest den Inhalt einer Seite aus und parst ihn zur gegebenen Java-Klasse
 	 * 
 	 * @throws JsonSyntaxException
-	 *             Wenn ein Problem beim Verarbeiten der Json-Elemente auftritt
+	 *             wenn ein Problem beim Verarbeiten der Json-Elemente auftritt
 	 * @throws IOException
-	 *             Wenn ein Fehler beim Lesen der Seite auftritt
+	 *             wenn ein Fehler beim Lesen der Seite auftritt
 	 * @see UrlReader#read(URL)
 	 */
 	private static <T> T readJson(URL url, Class<T> clazz)
@@ -57,7 +62,7 @@ public class ApiRequest {
 	 * Führt einen API-Request aus
 	 * 
 	 * @param request
-	 *            Der Teil der Request URL nach {@value #URL_PREFIX} im Format
+	 *            Der Teil der Request URL nach {@value #API_REQUEST} im Format
 	 *            "x/y/z" (Beispiel: "{@linkplain Project#getRandom()
 	 *            game/random/}") <br>
 	 * 
@@ -65,7 +70,9 @@ public class ApiRequest {
 	 *            Die Klasse des Rückgabewerts
 	 * @return
 	 * @throws JpapiRequestException
+	 *             wenn ein Fehler beim Verarbeiten der Anfrage auftritt
 	 * @throws JsonSyntaxException
+	 *             wenn ein Fehler beim Parsen auftritt
 	 * @see #readJson(URL, Class)
 	 */
 	public static <A> A execute(String request, Class<A> clazz) {
@@ -73,18 +80,17 @@ public class ApiRequest {
 				|| request.startsWith("/") || request.endsWith("/"))
 			throw new IllegalArgumentException(
 					"Der Paramter darf weder 'null' und noch leer sein und darf nicht mit '/' anfangen und enden");
-
+		
 		URL url;
 		try {
-			url = new URL(URL_PREFIX + VERSION + "/" + request + URL_POSTFIX);
+			url = new URL(HOST + API_REQUEST + request + PARAMETER);
 		} catch (MalformedURLException e) {
-			throw new JpapiRequestException(e);
+			throw new JpapiInternalException(e);
 		}
 
 		try {
 			return (A) readJson(url, clazz);
 		} catch (IOException e) {
-			// nicht doch lieber schmeißen?
 			throw new JpapiRequestException(e);
 		}
 	}

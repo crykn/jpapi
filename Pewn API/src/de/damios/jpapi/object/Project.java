@@ -96,7 +96,7 @@ public class Project implements Serializable {
 	 * @see ApiRequest#execute(String, Class)
 	 */
 	public static Project getLatest() {
-		return ApiRequest.execute("game/last/", Project.class);
+		return ApiRequest.execute("game/last", Project.class);
 	}
 
 	/**
@@ -106,7 +106,7 @@ public class Project implements Serializable {
 	 * @see ApiRequest#execute(String, Class)
 	 */
 	public static Project getRandom() {
-		return ApiRequest.execute("game/random/", Project.class);
+		return ApiRequest.execute("game/random", Project.class);
 	}
 
 	/**

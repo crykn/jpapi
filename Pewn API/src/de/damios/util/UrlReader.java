@@ -20,6 +20,8 @@ public class UrlReader {
 	 *            Die URL
 	 * @return Seiteninhalt
 	 * @throws IOException
+	 *             wenn ein Fehler beim Öffnen des Streams oder beim Lesen der
+	 *             Seite auftritt
 	 */
 	public static String read(URL url) throws IOException {
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(

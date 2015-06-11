@@ -1,8 +1,8 @@
 package de.damios.jpapi.exception;
 
 /**
- * Wird geschmissen wenn ein Fehler beim Verarbeiten eines Requests für die
- * Pewn-Api auftritt<br>
+ * Wird geschmissen wenn ein Fehler bei einer Anfrage an die Pewn-Api auftritt.<br>
+ * <i>Ist momentan aus Gründen der Bequemlichkeit keine checked Exception</i>
  * 
  * @author damios
  * @version 1.0
