@@ -66,7 +66,7 @@ public class ApiRequest {
 	 * @return
 	 * @throws JpapiRequestException
 	 * @throws JsonSyntaxException
-	 * @see #readJson(String, Class)
+	 * @see #readJson(URL, Class)
 	 */
 	public static <A> A execute(String request, Class<A> clazz) {
 		if (request == null || request.equalsIgnoreCase("")
