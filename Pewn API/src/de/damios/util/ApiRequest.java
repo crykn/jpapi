@@ -21,9 +21,9 @@ import de.damios.jpapi.object.Project;
  *
  */
 public class ApiRequest {
-	
+
 	/**
-	 * Enthält die Adresse des Hosts, an den alle Anfragen gehen ({@value})
+	 * Enthält die Adresse des Hosts, an den alle Anfragen gehen ({@value} )
 	 */
 	public static final String HOST = "http://pewn.de/";
 	private static final String API_REQUEST = "api/v1/";
@@ -47,6 +47,13 @@ public class ApiRequest {
 	/**
 	 * Liest den Inhalt einer Seite aus und parst ihn zur gegebenen Java-Klasse
 	 * 
+	 * @param <T>
+	 *            Typ des Rückgabewerts
+	 * @param url
+	 *            Request-URL
+	 * @param clazz
+	 *            Die Klasse des Rückgabewerts
+	 * @return Geparstes Objekt
 	 * @throws JsonSyntaxException
 	 *             wenn ein Problem beim Verarbeiten der Json-Elemente auftritt
 	 * @throws IOException
@@ -61,26 +68,27 @@ public class ApiRequest {
 	/**
 	 * Führt einen API-Request aus
 	 * 
+	 * @param <T>
+	 *            Typ des Rückgabewerts
 	 * @param request
 	 *            Der Teil der Request URL nach {@value #API_REQUEST} im Format
 	 *            "x/y/z" (Beispiel: "{@linkplain Project#getRandom()
 	 *            game/random/}") <br>
-	 * 
 	 * @param clazz
 	 *            Die Klasse des Rückgabewerts
-	 * @return
+	 * @return Ergebnis der Anfrage
 	 * @throws JpapiRequestException
 	 *             wenn ein Fehler beim Verarbeiten der Anfrage auftritt
 	 * @throws JsonSyntaxException
 	 *             wenn ein Fehler beim Parsen auftritt
 	 * @see #readJson(URL, Class)
 	 */
-	public static <A> A execute(String request, Class<A> clazz) {
+	public static <T> T execute(String request, Class<T> clazz) {
 		if (request == null || request.equalsIgnoreCase("")
 				|| request.startsWith("/") || request.endsWith("/"))
 			throw new IllegalArgumentException(
 					"Der Paramter darf weder 'null' und noch leer sein und darf nicht mit '/' anfangen und enden");
-		
+
 		URL url;
 		try {
 			url = new URL(HOST + API_REQUEST + request + PARAMETER);
@@ -89,7 +97,7 @@ public class ApiRequest {
 		}
 
 		try {
-			return (A) readJson(url, clazz);
+			return (T) readJson(url, clazz);
 		} catch (IOException e) {
 			throw new JpapiRequestException(e);
 		}
