@@ -13,6 +13,10 @@ Hier ist ein kleines Beispiel zur Verwendung des Wrappers.
 Project project = Project.getRandom();
 User author = project.author;
 System.out.println(author.username);
+
 project = Project.getAll(OrderedBy.RATING)[0];
 System.out.println(project.images[0].fileName);
 ```
+
+##Abhängigkeiten
+* [gson]{http://search.maven.org/#artifactdetails%7Ccom.google.code.gson%7Cgson%7C2.3.1%7Cjar}
