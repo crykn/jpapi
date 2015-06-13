@@ -19,4 +19,4 @@ System.out.println(project.images[0].fileName);
 ```
 
 ##Abhängigkeiten
-* [gson]{http://search.maven.org/#artifactdetails%7Ccom.google.code.gson%7Cgson%7C2.3.1%7Cjar}
+* [gson](http://search.maven.org/#artifactdetails%7Ccom.google.code.gson%7Cgson%7C2.3.1%7Cjar)
