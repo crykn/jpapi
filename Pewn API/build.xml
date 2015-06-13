@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<project name="Pewn API" default="doit">
+	<!-- CHANGE VERSION HERE -->
+	<property name="version" value="1.0.0" />
+
+	<!-- PROPERTIES -->
+	<property name="src.dir" value="src" />
+	<property name="build.dir" value="build" />
+	<property name="classes.dir" value="${build.dir}/classes" />
+	<property name="jar.dir" value="${build.dir}/jar" />
+	<property name="jar.name" value="jpapi-${version}" />
+
+	<!-- JAR FILE -->
+	<target name="clean">
+		<delete dir="${build.dir}" />
+	</target>
+
+	<target name="compile" depends="clean">
+		<mkdir dir="build/classes" />
+		<javac srcdir="${src.dir}" destdir="build/classes" classpath="libs/gson-2.3.1.jar" includeantruntime="false" />
+	</target>
+
+	<target name="jar" depends="compile">
+		<mkdir dir="${jar.dir}" />
+		<jar destfile="${jar.dir}/${jar.name}.jar" basedir="build/classes" />
+	</target>
+
+	<!-- JAVADOC -->
+	<target name="pack_docs">
+		<javadoc access="private" author="true" classpath="libs/gson-2.3.1.jar" destdir="doc" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="de.damios.jpapi.method,de.damios.jpapi.object,de.damios.util,de.damios.jpapi.exception" source="1.7" sourcepath="src" splitindex="true" use="true" version="true" />
+	</target>
+
+	<target name="javadoc" depends="pack_docs" description="build javadoc jar">
+		<jar compress="true" destfile="${jar.dir}/${jar.name}-javadoc.jar" basedir="doc" />
+	</target>
+
+	<!-- DO IT -->
+	<target name="doit" depends="jar,javadoc">
+	</target>
+</project>
