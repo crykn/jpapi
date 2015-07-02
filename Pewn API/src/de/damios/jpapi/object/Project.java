@@ -23,7 +23,8 @@ public class Project implements Serializable {
 	public int id;
 	@SerializedName("content")
 	public String description;
-	public String headline;
+	@SerializedName("headline")
+	public String title;
 	// TODO convert date
 	public String creationDate;
 	@SerializedName("lastUpdate")
