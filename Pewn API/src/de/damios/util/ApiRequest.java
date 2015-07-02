@@ -23,7 +23,7 @@ import de.damios.jpapi.object.Project;
 public class ApiRequest {
 
 	/**
-	 * Enthält die Adresse des Hosts, an den alle Anfragen gehen ({@value} )
+	 * Enthält die Adresse des Hosts, an den alle Anfragen gehen ({@value})
 	 */
 	public static final String HOST = "http://pewn.de/";
 	private static final String API_REQUEST = "api/v1/";
@@ -87,7 +87,7 @@ public class ApiRequest {
 		if (request == null || request.equalsIgnoreCase("")
 				|| request.startsWith("/") || request.endsWith("/"))
 			throw new IllegalArgumentException(
-					"Der Paramter darf weder 'null' und noch leer sein und darf nicht mit '/' anfangen und enden");
+					"Der Paramter darf weder 'null' und noch leer sein und darf nicht mit '/' anfangen oder enden");
 
 		URL url;
 		try {

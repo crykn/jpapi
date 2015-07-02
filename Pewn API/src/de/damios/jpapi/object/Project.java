@@ -129,7 +129,18 @@ public class Project implements Serializable {
 	 *
 	 */
 	public static enum OrderedBy {
-		CREATION_DATE("creation"), UPDATE_DATE("update"), RATING("rating");
+		/**
+		 * Nach Erstellungsdatum sortieren (Neuestes zuerst)
+		 */
+		CREATION_DATE("creation"),
+		/**
+		 * Nach Datum des letzten Updates sortieren (Neuestes zuerst)
+		 */
+		UPDATE_DATE("update"),
+		/**
+		 * Nach Bewertung sortieren (Höhere Bewertung zuerst)
+		 */
+		RATING("rating");
 
 		String parameter;
 
