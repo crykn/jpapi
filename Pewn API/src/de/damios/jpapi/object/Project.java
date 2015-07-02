@@ -50,11 +50,10 @@ public class Project implements Serializable {
 	 */
 	public Set<String> getHashtags() {
 		Set<String> tmp = new HashSet<String>();
-		String regexPattern = "(#\\w+)";
-		Pattern p = Pattern.compile(regexPattern);
-		Matcher m = p.matcher(description);
-		while (m.find()) {
-			String hashtag = m.group(1);
+		Pattern pattern = Pattern.compile("(#\\w+)");
+		Matcher matcher = pattern.matcher(description);
+		while (matcher.find()) {
+			String hashtag = matcher.group(1);
 			boolean alreadyUsed = true;
 			for (String tag : tmp) {
 				if (hashtag.equals(tag))
