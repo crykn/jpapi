@@ -49,20 +49,20 @@ public class Project implements Serializable {
 	 * @return HashSet{@literal<String>}
 	 */
 	public Set<String> getHashtags() {
-		Set<String> tmp = new HashSet<String>();
+		Set<String> tags = new HashSet<String>();
 		Pattern pattern = Pattern.compile("(#\\w+)");
 		Matcher matcher = pattern.matcher(description);
 		while (matcher.find()) {
 			String hashtag = matcher.group(1);
-			boolean alreadyUsed = true;
-			for (String tag : tmp) {
+			boolean alreadyAdded = false;
+			for (String tag : tags) {
 				if (hashtag.equals(tag))
-					alreadyUsed = false;
+					alreadyAdded = true;
 			}
-			if (alreadyUsed)
-				tmp.add(hashtag);
+			if (!alreadyAdded)
+				tags.add(hashtag);
 		}
-		return tmp;
+		return tags;
 	}
 
 	/**
