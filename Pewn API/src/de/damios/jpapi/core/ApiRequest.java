@@ -1,4 +1,4 @@
-package de.damios.util;
+package de.damios.jpapi.core;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -11,6 +11,7 @@ import com.google.gson.JsonSyntaxException;
 import de.damios.jpapi.exception.JpapiInternalException;
 import de.damios.jpapi.exception.JpapiRequestException;
 import de.damios.jpapi.object.Project;
+import de.damios.util.UrlReader;
 
 /**
  * Diese Klasse führt die Anfragen an die <a

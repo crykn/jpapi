@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 
 import com.google.gson.annotations.SerializedName;
 
-import de.damios.util.ApiRequest;
+import de.damios.jpapi.core.ApiRequest;
 
 /**
  * Java Repräsentierung des Json-Projekt-Objekts

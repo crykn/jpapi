@@ -7,8 +7,8 @@ import java.net.URL;
 
 import javax.imageio.ImageIO;
 
+import de.damios.jpapi.core.ApiRequest;
 import de.damios.jpapi.exception.JpapiInternalException;
-import de.damios.util.ApiRequest;
 
 /**
  * <b>Klasse wird noch umbenannt!</b> <br>

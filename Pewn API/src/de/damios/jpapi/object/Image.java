@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import com.google.gson.annotations.SerializedName;
 
-import de.damios.util.ApiRequest;
+import de.damios.jpapi.core.ApiRequest;
 
 /**
  * Java Repräsentierung des Json-Bild-Objekts
