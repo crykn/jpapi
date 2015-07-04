@@ -5,7 +5,7 @@ package de.damios.jpapi.exception;
  * konfigurierte URL)
  * 
  * @author damios
- * @version 1.0
+ * @since 1.0 
  *
  */
 public class JpapiInternalException extends RuntimeException {

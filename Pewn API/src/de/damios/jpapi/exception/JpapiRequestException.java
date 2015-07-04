@@ -5,7 +5,7 @@ package de.damios.jpapi.exception;
  * <i>Ist momentan aus Gründen der Bequemlichkeit keine checked Exception</i>
  * 
  * @author damios
- * @version 1.0
+ * @since 1.0
  *
  */
 public class JpapiRequestException extends RuntimeException {
