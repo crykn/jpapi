@@ -11,7 +11,6 @@ import de.damios.jpapi.core.ApiRequest;
  * 
  * @author damios
  * @version 1.0
- *
  */
 public class Image implements Serializable {
 

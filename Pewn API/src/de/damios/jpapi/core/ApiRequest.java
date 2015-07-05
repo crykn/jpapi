@@ -19,7 +19,6 @@ import de.damios.util.UrlReader;
  * 
  * @author damios
  * @since 1.0
- *
  */
 public class ApiRequest {
 

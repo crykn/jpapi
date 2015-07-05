@@ -10,7 +10,6 @@ import java.net.URL;
  * 
  * @author damios
  * @since 1.0
- *
  */
 public class UrlReader {
 	/**

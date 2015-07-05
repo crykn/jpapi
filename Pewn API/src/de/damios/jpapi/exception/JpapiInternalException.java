@@ -6,7 +6,6 @@ package de.damios.jpapi.exception;
  * 
  * @author damios
  * @since 1.0 
- *
  */
 public class JpapiInternalException extends RuntimeException {
 

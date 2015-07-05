@@ -16,7 +16,6 @@ import de.damios.jpapi.core.ApiRequest;
  * 
  * @author damios
  * @version 1.0
- *
  */
 public class Project implements Serializable {
 	private static final long serialVersionUID = 100L;
