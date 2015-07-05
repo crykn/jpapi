@@ -3,6 +3,9 @@
 /build/
 /doc/
 
+#Libs
+/libs/
+
 #Eclipse project files
 /.classpath
 /.project
