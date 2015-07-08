@@ -20,6 +20,7 @@ import de.damios.jpapi.core.ApiRequest;
  * @version 1.0
  */
 public class Project implements Serializable {
+	
 	private static final long serialVersionUID = 100L;
 	public int id;
 	@SerializedName("content")

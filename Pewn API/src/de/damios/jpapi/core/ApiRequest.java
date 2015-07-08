@@ -20,6 +20,9 @@ import de.damios.util.UrlReader;
  * @since 1.0
  */
 public class ApiRequest {
+	
+	private ApiRequest(){
+	}
 
 	/**
 	 * Enthält die Adresse des Hosts, an den alle Anfragen gehen ({@value} )

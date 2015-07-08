@@ -17,6 +17,7 @@ import de.damios.jpapi.exception.JpapiInternalException;
  * @version 1.0
  */
 public class ImageProvider {
+	
 	private ImageProvider() {
 	}
 

@@ -11,6 +11,7 @@ import com.google.gson.annotations.SerializedName;
  * @version 1.0
  */
 public class User implements Serializable{
+	
 	private static final long serialVersionUID = 100L;
 	public int id;
 	public String username;
