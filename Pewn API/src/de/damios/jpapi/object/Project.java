@@ -1,5 +1,6 @@
 package de.damios.jpapi.object;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.net.URL;
 import java.util.HashSet;
@@ -7,6 +8,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.annotations.SerializedName;
 
 import de.damios.jpapi.core.ApiRequest;
@@ -70,9 +72,13 @@ public class Project implements Serializable {
 	 * @param username
 	 *            Nutzername
 	 * @return Project-Array
+	 * @throws IOException
+	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
+	 * @throws JsonSyntaxException
+	 *             wenn ein Fehler beim Parsen auftritt
 	 * @see ApiRequest#execute(String, Class)
 	 */
-	public static Project[] get(String username) {
+	public static Project[] get(String username) throws JsonSyntaxException, IOException {
 		return ApiRequest.execute("game/user/" + username, Project[].class);
 	}
 
@@ -82,9 +88,13 @@ public class Project implements Serializable {
 	 * @param gameid
 	 *            Die Spieleid
 	 * @return Project-Objekt
+	 * @throws IOException
+	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
+	 * @throws JsonSyntaxException
+	 *             wenn ein Fehler beim Parsen auftritt
 	 * @see ApiRequest#execute(String, Class)
 	 */
-	public static Project get(int gameid) {
+	public static Project get(int gameid) throws JsonSyntaxException, IOException {
 		return ApiRequest.execute("game/id/" + gameid, Project.class);
 	}
 
@@ -92,9 +102,13 @@ public class Project implements Serializable {
 	 * Liefert das neueste Spiel
 	 * 
 	 * @return Project-Objekt
+	 * @throws IOException
+	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
+	 * @throws JsonSyntaxException
+	 *             wenn ein Fehler beim Parsen auftritt
 	 * @see ApiRequest#execute(String, Class)
 	 */
-	public static Project getLatest() {
+	public static Project getLatest() throws JsonSyntaxException, IOException {
 		return ApiRequest.execute("game/last", Project.class);
 	}
 
@@ -102,9 +116,13 @@ public class Project implements Serializable {
 	 * Liefert ein zufälliges Spiel
 	 * 
 	 * @return Project-Object
+	 * @throws IOException
+	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
+	 * @throws JsonSyntaxException
+	 *             wenn ein Fehler beim Parsen auftritt
 	 * @see ApiRequest#execute(String, Class)
 	 */
-	public static Project getRandom() {
+	public static Project getRandom() throws JsonSyntaxException, IOException {
 		return ApiRequest.execute("game/random", Project.class);
 	}
 
@@ -114,9 +132,13 @@ public class Project implements Serializable {
 	 * @param ord
 	 *            Reihenfolge
 	 * @return Project-Array
+	 * @throws IOException
+	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
+	 * @throws JsonSyntaxException
+	 *             wenn ein Fehler beim Parsen auftritt
 	 * @see ApiRequest#execute(String, Class)
 	 */
-	public static Project[] getAll(OrderedBy ord) {
+	public static Project[] getAll(OrderedBy ord) throws JsonSyntaxException, IOException {
 		return ApiRequest.execute("game/all/" + ord.parameter, Project[].class);
 	}
 

@@ -1,7 +1,9 @@
 package de.damios.jpapi.object;
 
+import java.io.IOException;
 import java.io.Serializable;
 
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.annotations.SerializedName;
 
 import de.damios.jpapi.core.ApiRequest;
@@ -28,10 +30,13 @@ public class Image implements Serializable {
 	 * @param gameid
 	 *            Die Spieleid
 	 * @return Image-Array
+	 * @throws IOException
+	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
+	 * @throws JsonSyntaxException
+	 *             wenn ein Fehler beim Parsen auftritt
 	 * @see ApiRequest#execute(String, Class)
-	 * 
 	 */
-	public static Image[] get(int gameid) {
+	public static Image[] get(int gameid) throws JsonSyntaxException, IOException {
 		return ApiRequest.execute("game/id/" + gameid + "/images",
 				Image[].class);
 	}

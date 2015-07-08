@@ -9,7 +9,6 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 
 import de.damios.jpapi.exception.JpapiInternalException;
-import de.damios.jpapi.exception.JpapiRequestException;
 import de.damios.jpapi.object.Project;
 import de.damios.util.UrlReader;
 
@@ -23,7 +22,7 @@ import de.damios.util.UrlReader;
 public class ApiRequest {
 
 	/**
-	 * Enthält die Adresse des Hosts, an den alle Anfragen gehen ({@value})
+	 * Enthält die Adresse des Hosts, an den alle Anfragen gehen ({@value} )
 	 */
 	public static final String HOST = "http://pewn.de/";
 	private static final String API_REQUEST = "api/v1/";
@@ -77,13 +76,13 @@ public class ApiRequest {
 	 * @param clazz
 	 *            Die Klasse des Rückgabewerts
 	 * @return Ergebnis der Anfrage
-	 * @throws JpapiRequestException
-	 *             wenn ein Fehler beim Verarbeiten der Anfrage auftritt
+	 * @throws IOException
+	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
 	 * @throws JsonSyntaxException
 	 *             wenn ein Fehler beim Parsen auftritt
 	 * @see #readJson(URL, Class)
 	 */
-	public static <T> T execute(String request, Class<T> clazz) {
+	public static <T> T execute(String request, Class<T> clazz) throws IOException, JsonSyntaxException{
 		if (request == null || request.equalsIgnoreCase("")
 				|| request.startsWith("/") || request.endsWith("/"))
 			throw new IllegalArgumentException(
@@ -96,10 +95,6 @@ public class ApiRequest {
 			throw new JpapiInternalException(e);
 		}
 
-		try {
-			return (T) readJson(url, clazz);
-		} catch (IOException e) {
-			throw new JpapiRequestException(e);
-		}
+		return (T) readJson(url, clazz);
 	}
 }
