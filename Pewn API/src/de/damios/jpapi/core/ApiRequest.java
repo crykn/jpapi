@@ -30,12 +30,8 @@ public class ApiRequest {
 	public static final String HOST = "http://pewn.de/";
 	private static final String API_REQUEST = "api/v1/";
 	private static final String PARAMETER = "?format=json";
-	private static Gson gson;
-
-	static {
-		GsonBuilder gsonBuilder = new GsonBuilder();
-		gson = gsonBuilder.setDateFormat("yyyy-MM-dd'T'HH:mm:ssX").create();
-	}
+	private static Gson gson = new GsonBuilder().setDateFormat(
+			"yyyy-MM-dd'T'HH:mm:ssX").create();
 
 	/**
 	 * Liest den Inhalt einer Seite aus und parst ihn zur gegebenen Java-Klasse
