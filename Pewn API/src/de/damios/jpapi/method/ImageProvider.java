@@ -11,14 +11,13 @@ import de.damios.jpapi.core.ApiRequest;
 import de.damios.jpapi.exception.JpapiInternalException;
 
 /**
- * <b>Klasse wird noch umbenannt!</b> <br>
  * Liefert Methoden um auf der Seite gespeicherte Bilder zu erhalten
  * 
  * @author damios
  * @version 1.0
  */
-public class ImageXY {
-	private ImageXY() {
+public class ImageProvider {
+	private ImageProvider() {
 	}
 
 	/**
