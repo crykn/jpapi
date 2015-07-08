@@ -3,6 +3,7 @@ package de.damios.jpapi.object;
 import java.io.IOException;
 import java.io.Serializable;
 import java.net.URL;
+import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Matcher;
@@ -20,17 +21,16 @@ import de.damios.jpapi.core.ApiRequest;
  * @version 1.0
  */
 public class Project implements Serializable {
-	
+
 	private static final long serialVersionUID = 100L;
 	public int id;
 	@SerializedName("content")
 	public String description;
 	@SerializedName("headline")
 	public String title;
-	// TODO convert date
-	public String creationDate;
+	public Timestamp creationDate;
 	@SerializedName("lastUpdate")
-	public String lastUpdateDate;
+	public Timestamp lastUpdateDate;
 	@SerializedName("customer")
 	public User author;
 	public int rating;
@@ -79,7 +79,8 @@ public class Project implements Serializable {
 	 *             wenn ein Fehler beim Parsen auftritt
 	 * @see ApiRequest#execute(String, Class)
 	 */
-	public static Project[] get(String username) throws JsonSyntaxException, IOException {
+	public static Project[] get(String username) throws JsonSyntaxException,
+			IOException {
 		return ApiRequest.execute("game/user/" + username, Project[].class);
 	}
 
@@ -95,7 +96,8 @@ public class Project implements Serializable {
 	 *             wenn ein Fehler beim Parsen auftritt
 	 * @see ApiRequest#execute(String, Class)
 	 */
-	public static Project get(int gameid) throws JsonSyntaxException, IOException {
+	public static Project get(int gameid) throws JsonSyntaxException,
+			IOException {
 		return ApiRequest.execute("game/id/" + gameid, Project.class);
 	}
 
@@ -139,7 +141,8 @@ public class Project implements Serializable {
 	 *             wenn ein Fehler beim Parsen auftritt
 	 * @see ApiRequest#execute(String, Class)
 	 */
-	public static Project[] getAll(OrderedBy ord) throws JsonSyntaxException, IOException {
+	public static Project[] getAll(OrderedBy ord) throws JsonSyntaxException,
+			IOException {
 		return ApiRequest.execute("game/all/" + ord.parameter, Project[].class);
 	}
 

@@ -20,8 +20,8 @@ import de.damios.util.UrlReader;
  * @since 1.0
  */
 public class ApiRequest {
-	
-	private ApiRequest(){
+
+	private ApiRequest() {
 	}
 
 	/**
@@ -34,16 +34,7 @@ public class ApiRequest {
 
 	static {
 		GsonBuilder gsonBuilder = new GsonBuilder();
-		gson = gsonBuilder.create();
-
-		// gson.registerTypeAdapter(MyType2.class, new MyTypeAdapter());
-		/*
-		 * private class DateTimeDeserializer implements
-		 * JsonDeserializer<DateTime> { public DateTime deserialize(JsonElement
-		 * json, Type typeOfT, JsonDeserializationContext context) throws
-		 * JsonParseException { return new
-		 * DateTime(json.getAsJsonPrimitive().getAsString()); } }
-		 */
+		gson = gsonBuilder.setDateFormat("yyyy-MM-dd'T'HH:mm:ssX").create();
 	}
 
 	/**
@@ -85,7 +76,8 @@ public class ApiRequest {
 	 *             wenn ein Fehler beim Parsen auftritt
 	 * @see #readJson(URL, Class)
 	 */
-	public static <T> T execute(String request, Class<T> clazz) throws IOException, JsonSyntaxException{
+	public static <T> T execute(String request, Class<T> clazz)
+			throws IOException, JsonSyntaxException {
 		if (request == null || request.equalsIgnoreCase("")
 				|| request.startsWith("/") || request.endsWith("/"))
 			throw new IllegalArgumentException(
