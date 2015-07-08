@@ -17,12 +17,13 @@ import de.damios.jpapi.exception.JpapiInternalException;
  * @version 1.0
  */
 public class ImageProvider {
-	
+
 	private ImageProvider() {
 	}
 
 	/**
-	 * Liefert ein Bild
+	 * Liefert ein Bild<br>
+	 * Das Seitenverhältnis bleibt immer erhalten
 	 * 
 	 * @param gameid
 	 *            Die Spieleid
@@ -35,19 +36,41 @@ public class ImageProvider {
 	 * @return BufferedImage
 	 * @throws IOException
 	 *             wenn ein Fehler beim Lesen des Bilds auftritt
+	 * @see get(int, String)
 	 * @see ImageIO#read(URL)
-	 * 
 	 */
 	public static BufferedImage get(int gameid, String filename, int width,
 			int height) throws IOException {
 		URL url;
 		try {
-			url = new URL(Constants.HOST + "image/projects/" + gameid
-					+ "/files/" + filename + "?width=" + width + "&height="
-					+ height);
+			url = new URL(Constants.HOST
+					+ "image/projects/"
+					+ gameid
+					+ "/files/"
+					+ filename
+					+ ((width < 0 || height < 0) ? "" : ("?width=" + width
+							+ "&height=" + height)));
 		} catch (MalformedURLException e) {
 			throw new JpapiInternalException(e);
 		}
 		return ImageIO.read(url);
+	}
+
+	/**
+	 * Liefert ein Bild Das Seitenverhältnis bleibt immer erhalten
+	 * 
+	 * @param gameid
+	 *            Die Spieleid
+	 * @param filename
+	 *            Der Dateiname des Bildes
+	 * @return BufferedImage
+	 * @throws IOException
+	 *             wenn ein Fehler beim Lesen des Bilds auftritt
+	 * @see #get(int, String, int, int)
+	 * @see ImageIO#read(URL)
+	 */
+	public static BufferedImage get(int gameid, String filename)
+			throws IOException {
+		return get(gameid, filename, -1, -1);
 	}
 }
