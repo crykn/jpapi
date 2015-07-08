@@ -7,7 +7,7 @@ import java.net.URL;
 
 import javax.imageio.ImageIO;
 
-import de.damios.jpapi.core.ApiRequest;
+import de.damios.jpapi.core.Constants;
 import de.damios.jpapi.exception.JpapiInternalException;
 
 /**
@@ -42,7 +42,7 @@ public class ImageProvider {
 			int height) throws IOException {
 		URL url;
 		try {
-			url = new URL(ApiRequest.HOST + "image/projects/" + gameid
+			url = new URL(Constants.HOST + "image/projects/" + gameid
 					+ "/files/" + filename + "?width=" + width + "&height="
 					+ height);
 		} catch (MalformedURLException e) {

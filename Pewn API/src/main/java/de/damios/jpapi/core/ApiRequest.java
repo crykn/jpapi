@@ -24,12 +24,6 @@ public class ApiRequest {
 	private ApiRequest() {
 	}
 
-	/**
-	 * Enthält die Adresse des Hosts, an den alle Anfragen gehen ({@value} )
-	 */
-	public static final String HOST = "http://pewn.de/";
-	private static final String API_REQUEST = "api/v1/";
-	private static final String PARAMETER = "?format=json";
 	private static Gson gson = new GsonBuilder().setDateFormat(
 			"yyyy-MM-dd'T'HH:mm:ssX").create();
 
@@ -39,7 +33,7 @@ public class ApiRequest {
 	 * @param <T>
 	 *            Typ des Rückgabewerts
 	 * @param url
-	 *            Request-URL
+	 *            URL des Json-Dokuments
 	 * @param clazz
 	 *            Die Klasse des Rückgabewerts
 	 * @return Geparstes Objekt
@@ -60,9 +54,9 @@ public class ApiRequest {
 	 * @param <T>
 	 *            Typ des Rückgabewerts
 	 * @param request
-	 *            Der Teil der Request URL nach {@value #API_REQUEST} im Format
-	 *            "x/y/z" (Beispiel: "{@linkplain Project#getRandom()
-	 *            game/random/}") <br>
+	 *            Der Teil der Request URL nach "api/" im Format
+	 *            "v123/x/y/z" (Beispiel: "{@linkplain Project#getRandom()
+	 *            v1/game/random/}") <br>
 	 * @param clazz
 	 *            Die Klasse des Rückgabewerts
 	 * @return Ergebnis der Anfrage
@@ -81,7 +75,7 @@ public class ApiRequest {
 
 		URL url;
 		try {
-			url = new URL(HOST + API_REQUEST + request + PARAMETER);
+			url = new URL(Constants.HOST + "api/" +  request + "?format=json");
 		} catch (MalformedURLException e) {
 			throw new JpapiInternalException(e);
 		}

@@ -37,7 +37,7 @@ public class Image implements Serializable {
 	 * @see ApiRequest#execute(String, Class)
 	 */
 	public static Image[] get(int gameid) throws JsonSyntaxException, IOException {
-		return ApiRequest.execute("game/id/" + gameid + "/images",
+		return ApiRequest.execute("v1/game/id/" + gameid + "/images",
 				Image[].class);
 	}
 

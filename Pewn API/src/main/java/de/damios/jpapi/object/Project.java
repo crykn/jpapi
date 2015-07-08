@@ -81,7 +81,7 @@ public class Project implements Serializable {
 	 */
 	public static Project[] get(String username) throws JsonSyntaxException,
 			IOException {
-		return ApiRequest.execute("game/user/" + username, Project[].class);
+		return ApiRequest.execute("v1/game/user/" + username, Project[].class);
 	}
 
 	/**
@@ -98,7 +98,7 @@ public class Project implements Serializable {
 	 */
 	public static Project get(int gameid) throws JsonSyntaxException,
 			IOException {
-		return ApiRequest.execute("game/id/" + gameid, Project.class);
+		return ApiRequest.execute("v1/game/id/" + gameid, Project.class);
 	}
 
 	/**
@@ -112,7 +112,7 @@ public class Project implements Serializable {
 	 * @see ApiRequest#execute(String, Class)
 	 */
 	public static Project getLatest() throws JsonSyntaxException, IOException {
-		return ApiRequest.execute("game/last", Project.class);
+		return ApiRequest.execute("v1/game/last", Project.class);
 	}
 
 	/**
@@ -126,7 +126,7 @@ public class Project implements Serializable {
 	 * @see ApiRequest#execute(String, Class)
 	 */
 	public static Project getRandom() throws JsonSyntaxException, IOException {
-		return ApiRequest.execute("game/random", Project.class);
+		return ApiRequest.execute("v1/game/random", Project.class);
 	}
 
 	/**
@@ -143,7 +143,7 @@ public class Project implements Serializable {
 	 */
 	public static Project[] getAll(OrderedBy ord) throws JsonSyntaxException,
 			IOException {
-		return ApiRequest.execute("game/all/" + ord.parameter, Project[].class);
+		return ApiRequest.execute("v1/game/all/" + ord.parameter, Project[].class);
 	}
 
 	/**
