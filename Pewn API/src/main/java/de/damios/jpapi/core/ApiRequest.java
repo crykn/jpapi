@@ -55,7 +55,7 @@ public class ApiRequest {
 	 *            Typ des Rückgabewerts
 	 * @param request
 	 *            Der Teil der Request URL nach "api/" im Format
-	 *            "v123/x/y/z" (Beispiel: "{@linkplain Project#getRandom()
+	 *            "v123/x/y" (Beispiel: "{@linkplain Project#getRandom()
 	 *            v1/game/random/}") <br>
 	 * @param clazz
 	 *            Die Klasse des Rückgabewerts
