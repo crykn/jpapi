@@ -1,13 +1,12 @@
 #Generated files
 /bin/
 /build/
-/doc/
-
-#Libs
-/libs/
 
 #Eclipse project files
 /.classpath
 /.project
-/.externalToolBuilders/
 /.settings/
+
+#Gradlew files
+/.gradle/
+/gradle/
