@@ -9,16 +9,16 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
-    mavenCentral()
+	mavenCentral()
 }
 
 dependencies {
-   compile  'com.google.code.gson:gson:2.3.1'
+	compile 'com.google.code.gson:gson:2.3.1'
 }
 
 jar {
-    baseName = archivename
-    version =  version
+	baseName = archivename
+	version =  version
 }
 
 //TASKS
@@ -26,6 +26,6 @@ jar {
 task javadocJar(type: Jar, dependsOn: javadoc) {
 	description 'Packs the javadoc in a jar.'
 	baseName = archivename
-    classifier = 'javadoc'
-    from javadoc.destinationDir
+	classifier = 'javadoc'
+	from javadoc.destinationDir
 }
