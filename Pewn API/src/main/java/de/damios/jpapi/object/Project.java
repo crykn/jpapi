@@ -48,7 +48,7 @@ public class Project implements Serializable {
 	/**
 	 * Liefert alle Hashtags in der {@linkplain description Spielebeschreibung}
 	 * 
-	 * @return HashSet{@literal<String>}
+	 * @return Alle Hashtags als HashSet{@literal<String>}
 	 */
 	public Set<String> getHashtags() {
 		Set<String> tags = new HashSet<String>();
@@ -72,7 +72,7 @@ public class Project implements Serializable {
 	 * 
 	 * @param username
 	 *            Nutzername
-	 * @return Project-Array
+	 * @return Die Projekte als Project-Array
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
 	 * @throws JsonSyntaxException
@@ -89,7 +89,7 @@ public class Project implements Serializable {
 	 * 
 	 * @param gameid
 	 *            Die Spieleid
-	 * @return Project-Objekt
+	 * @return Das Projekt
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
 	 * @throws JsonSyntaxException
@@ -104,7 +104,7 @@ public class Project implements Serializable {
 	/**
 	 * Liefert das neueste Spiel
 	 * 
-	 * @return Project-Objekt
+	 * @return Das Projekt
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
 	 * @throws JsonSyntaxException
@@ -118,7 +118,7 @@ public class Project implements Serializable {
 	/**
 	 * Liefert ein zufälliges Spiel
 	 * 
-	 * @return Project-Object
+	 * @return Das Projekt
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
 	 * @throws JsonSyntaxException
@@ -134,7 +134,7 @@ public class Project implements Serializable {
 	 * 
 	 * @param ord
 	 *            Reihenfolge
-	 * @return Project-Array
+	 * @return Alle Projekte als Project-Array
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
 	 * @throws JsonSyntaxException

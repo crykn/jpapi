@@ -23,7 +23,7 @@ public class ImageProvider {
 
 	/**
 	 * Liefert ein Bild<br>
-	 * Das Seitenverhältnis bleibt immer erhalten
+	 * <i>Das Seitenverhältnis bleibt immer erhalten</i>
 	 * 
 	 * @param gameid
 	 *            Die Spieleid
@@ -33,7 +33,7 @@ public class ImageProvider {
 	 *            Die Bildbreite
 	 * @param height
 	 *            Die Bildhöhe
-	 * @return BufferedImage
+	 * @return Das Bild
 	 * @throws IOException
 	 *             wenn ein Fehler beim Lesen des Bilds auftritt
 	 * @see get(int, String)
@@ -57,13 +57,14 @@ public class ImageProvider {
 	}
 
 	/**
-	 * Liefert ein Bild Das Seitenverhältnis bleibt immer erhalten
+	 * Liefert ein Bild<br>
+	 * <i>Das Seitenverhältnis bleibt immer erhalten</i>
 	 * 
 	 * @param gameid
 	 *            Die Spieleid
 	 * @param filename
 	 *            Der Dateiname des Bildes
-	 * @return BufferedImage
+	 * @return Das Bild
 	 * @throws IOException
 	 *             wenn ein Fehler beim Lesen des Bilds auftritt
 	 * @see #get(int, String, int, int)
