@@ -2,6 +2,7 @@ package de.damios.jpapi.object;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.annotations.SerializedName;
@@ -20,7 +21,7 @@ public class Image implements Serializable {
 	public int id;
 	public String fileName;
 	public int fileSize;
-	public String uploadDate;
+	public Timestamp uploadDate;
 	@SerializedName("customer")
 	public User author;
 
