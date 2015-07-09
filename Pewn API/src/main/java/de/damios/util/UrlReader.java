@@ -12,10 +12,10 @@ import java.net.URL;
  * @since 1.0
  */
 public class UrlReader {
-	
-	private UrlReader(){
+
+	private UrlReader() {
 	}
-	
+
 	/**
 	 * Liefert den Inhalt einer Seite als String
 	 * 

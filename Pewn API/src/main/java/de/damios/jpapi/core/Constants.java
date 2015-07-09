@@ -7,12 +7,12 @@ package de.damios.jpapi.core;
  * @since 1.0
  */
 public class Constants {
-	
-	private Constants(){
+
+	private Constants() {
 	}
 
 	/**
-	 * Enthält die Adresse des Hosts, an den alle Anfragen gehen ({@value})
+	 * Enthält die Adresse des Hosts, an den alle Anfragen gehen ({@value} )
 	 */
 	public static final String HOST = "http://pewn.de/";
 

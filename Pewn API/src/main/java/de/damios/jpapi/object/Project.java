@@ -143,7 +143,8 @@ public class Project implements Serializable {
 	 */
 	public static Project[] getAll(OrderedBy ord) throws JsonSyntaxException,
 			IOException {
-		return ApiRequest.execute("v1/game/all/" + ord.parameter, Project[].class);
+		return ApiRequest.execute("v1/game/all/" + ord.parameter,
+				Project[].class);
 	}
 
 	/**

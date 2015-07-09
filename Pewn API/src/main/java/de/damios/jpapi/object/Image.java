@@ -15,7 +15,7 @@ import de.damios.jpapi.core.ApiRequest;
  * @version 1.0
  */
 public class Image implements Serializable {
-	
+
 	private static final long serialVersionUID = 100L;
 	public int id;
 	public String fileName;
@@ -36,7 +36,8 @@ public class Image implements Serializable {
 	 *             wenn ein Fehler beim Parsen auftritt
 	 * @see ApiRequest#execute(String, Class)
 	 */
-	public static Image[] get(int gameid) throws JsonSyntaxException, IOException {
+	public static Image[] get(int gameid) throws JsonSyntaxException,
+			IOException {
 		return ApiRequest.execute("v1/game/id/" + gameid + "/images",
 				Image[].class);
 	}

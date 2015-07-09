@@ -54,9 +54,8 @@ public class ApiRequest {
 	 * @param <T>
 	 *            Typ des Rückgabewerts
 	 * @param request
-	 *            Der Teil der Request URL nach "api/" im Format
-	 *            "v123/x/y" (Beispiel: "{@linkplain Project#getRandom()
-	 *            v1/game/random/}") <br>
+	 *            Der Teil der Request URL nach "api/" im Format "v123/x/y"
+	 *            (Beispiel: "{@linkplain Project#getRandom() v1/game/random/}") <br>
 	 * @param clazz
 	 *            Die Klasse des Rückgabewerts
 	 * @return Ergebnis der Anfrage
@@ -75,7 +74,7 @@ public class ApiRequest {
 
 		URL url;
 		try {
-			url = new URL(Constants.HOST + "api/" +  request + "?format=json");
+			url = new URL(Constants.HOST + "api/" + request + "?format=json");
 		} catch (MalformedURLException e) {
 			throw new JpapiInternalException(e);
 		}

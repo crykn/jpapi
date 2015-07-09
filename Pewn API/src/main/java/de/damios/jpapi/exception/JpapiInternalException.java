@@ -5,7 +5,7 @@ package de.damios.jpapi.exception;
  * konfigurierte URL) und sollte im Normalfall <i>nie</i> auftreten
  * 
  * @author damios
- * @since 1.0 
+ * @since 1.0
  */
 public class JpapiInternalException extends RuntimeException {
 
