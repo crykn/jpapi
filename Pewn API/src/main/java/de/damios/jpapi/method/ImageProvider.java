@@ -36,7 +36,7 @@ public class ImageProvider {
 	 * @return Das Bild
 	 * @throws IOException
 	 *             wenn ein Fehler beim Lesen des Bilds auftritt
-	 * @see get(int, String)
+	 * @see #get(int, String)
 	 * @see ImageIO#read(URL)
 	 */
 	public static BufferedImage get(int gameid, String filename, int width,
@@ -68,7 +68,6 @@ public class ImageProvider {
 	 * @throws IOException
 	 *             wenn ein Fehler beim Lesen des Bilds auftritt
 	 * @see #get(int, String, int, int)
-	 * @see ImageIO#read(URL)
 	 */
 	public static BufferedImage get(int gameid, String filename)
 			throws IOException {
