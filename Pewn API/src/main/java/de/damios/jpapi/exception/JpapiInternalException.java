@@ -1,7 +1,7 @@
 package de.damios.jpapi.exception;
 
 /**
- * Wird geschmissen wenn ein interner Fehler auftritt (z.B. eine falsch
+ * Wird geschmissen, wenn ein interner Fehler auftritt (z.B. eine falsch
  * konfigurierte URL) und sollte im Normalfall <i>nie</i> auftreten
  * 
  * @author damios
