@@ -7,6 +7,6 @@
 /.project
 /.settings/
 
-#Gradlew files
+#Gradle directories
 /.gradle/
 /gradle/
