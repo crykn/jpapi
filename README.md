@@ -16,7 +16,8 @@ System.out.println(project.images[0].fileName);
 ```
 
 ##Downloads
-[Beta 1.1.0](https://github.com/crykn/jpapi/releases/tag/1.1.0)
+[Beta 1.1.0](https://github.com/crykn/jpapi/releases/tag/1.1.0) <br>
+[Ältere Versionen...](https://github.com/crykn/jpapi/releases)
 
 ##Abhängigkeiten
 * [gson](http://search.maven.org/#artifactdetails%7Ccom.google.code.gson%7Cgson%7C2.3.1%7Cjar)
