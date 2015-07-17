@@ -22,10 +22,33 @@ jar {
 }
 
 //TASKS
+//Generate Javadoc
+task generateJavadoc(type: Javadoc) {
+	description 'Generates the javadoc.'
+	title = "$project.name $version"
+	classpath = configurations.compile
+  	source = sourceSets.main.allJava
+}
+
 //Javadoc Jar
-task javadocJar(type: Jar, dependsOn: javadoc) {
+task javadocJar(type: Jar, dependsOn: generateJavadoc) {
 	description 'Packs the javadoc in a jar.'
 	baseName = archivename
 	classifier = 'javadoc'
 	from javadoc.destinationDir
 }
+
+//Copy Javadoc
+task copyJavadoc(type: Copy) {
+    into '../../jpapi-javadoc'
+    from 'build/docs/javadoc'
+}
+
+//Publish
+task publish() {
+	description 'Does everything needed for publishing.'
+	println 'All files ready for publishing (jar, javadoc-jar, javadoc-pages)!'
+}
+publish.dependsOn build
+publish.dependsOn javadocJar
+publish.dependsOn copyJavadoc
