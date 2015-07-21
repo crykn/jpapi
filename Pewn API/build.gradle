@@ -25,7 +25,7 @@ jar {
 //Changed Tasks:
 //Javadoc
 javadoc {
-	title = "$project.name $version"
+	title = "jpapi $version"
     options.encoding = 'cp1252' 
 	options.docEncoding = 'UTF-8'
 	options.charSet = 'UTF-8'
@@ -45,6 +45,7 @@ task copyJavadoc(type: Copy) {
     into '../../jpapi-javadoc'
     from 'build/docs/javadoc'
 }
+copyJavadoc.dependsOn javadocJar
 
 //Publish
 task publish() {
@@ -52,5 +53,4 @@ task publish() {
 	println 'All files ready for publishing (jar, javadoc-jar, javadoc-pages)!'
 }
 publish.dependsOn build
-publish.dependsOn javadocJar
 publish.dependsOn copyJavadoc
