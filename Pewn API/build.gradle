@@ -19,6 +19,9 @@ dependencies {
 jar {
 	baseName = archivename
 	version =  version
+	from {
+		'../LICENSE'
+	}
 }
 
 //TASKS
