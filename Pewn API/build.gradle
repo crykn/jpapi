@@ -29,7 +29,7 @@ jar {
 //Javadoc
 javadoc {
 	title = "jpapi $version"
-    options.encoding = 'cp1252' 
+	options.encoding = 'cp1252' 
 	options.docEncoding = 'UTF-8'
 	options.charSet = 'UTF-8'
 }
@@ -45,8 +45,8 @@ javadocJar.dependsOn javadoc
 
 //Copy Javadoc
 task copyJavadoc(type: Copy) {
-    into '../../jpapi-javadoc'
-    from 'build/docs/javadoc'
+	into '../../jpapi-javadoc'
+	from 'build/docs/javadoc'
 }
 copyJavadoc.dependsOn javadocJar
 
