@@ -55,7 +55,7 @@ public class ApiRequest {
 	 *            Typ des Rückgabewerts
 	 * @param request
 	 *            Der Teil der Request URL nach "api/" im Format "v123/x/y"
-	 *            (Beispiel: "{@linkplain Project#getRandom() v1/game/random/}") <br>
+	 *            (Beispiel: "{@linkplain Project#getRandom() v1/game/random}") <br>
 	 * @param clazz
 	 *            Die Klasse des Rückgabewerts
 	 * @return Ergebnis der Anfrage
@@ -70,7 +70,7 @@ public class ApiRequest {
 		if (request == null || request.equalsIgnoreCase("")
 				|| request.startsWith("/") || request.endsWith("/"))
 			throw new IllegalArgumentException(
-					"Der Paramter darf weder 'null' und noch leer sein und darf nicht mit '/' anfangen oder enden");
+					"Der Paramter darf weder 'null' noch leer sein und darf nicht mit '/' anfangen oder enden");
 
 		URL url;
 		try {
