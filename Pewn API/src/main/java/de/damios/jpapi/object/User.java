@@ -13,10 +13,30 @@ import com.google.gson.annotations.SerializedName;
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 100L;
-	public int id;
-	public String username;
-	public String about;
+	private int id;
+	private String username;
+	private String about;
 	@SerializedName("gamificationLevel")
-	public int level;
-	public int xp;
+	private int level;
+	private int xp;
+
+	public int getId() {
+		return id;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public String getAboutText() {
+		return about;
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public int getXp() {
+		return xp;
+	}
 }

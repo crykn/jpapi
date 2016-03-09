@@ -23,27 +23,101 @@ import de.damios.jpapi.core.ApiRequest;
 public class Project implements Serializable {
 
 	private static final long serialVersionUID = 100L;
-	public int id;
+	private int id;
 	@SerializedName("content")
-	public String description;
+	private String description;
 	@SerializedName("headline")
-	public String title;
-	public Timestamp creationDate;
+	private String title;
+	private Timestamp creationDate;
 	@SerializedName("lastUpdate")
-	public Timestamp lastUpdateDate;
+	private Timestamp lastUpdateDate;
 	@SerializedName("customer")
-	public User author;
-	public int rating;
-	public URL downloadWindows;
-	public URL downloadLinux;
-	public URL downloadMacOs;
-	public URL downloadAndroid;
-	public URL downloadIos;
-	public URL downloadWindowsPhone;
-	public URL downloadWeb;
-	public String version;
+	private User author;
+	private int rating;
+	private URL downloadWindows;
+	private URL downloadLinux;
+	private URL downloadMacOs;
+	private URL downloadAndroid;
+	private URL downloadIos;
+	private URL downloadWindowsPhone;
+	private URL downloadWeb;
+	private String version;
 	@SerializedName("fileContainers")
-	public Image[] images;
+	private Image[] images;
+
+	public int getId() {
+		return id;
+	}
+
+	public String getDescriptionText() {
+		return description;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public Timestamp getCreationDate() {
+		return creationDate;
+	}
+
+	public Timestamp getLastUpdateDate() {
+		return lastUpdateDate;
+	}
+
+	public User getAuthor() {
+		return author;
+	}
+
+	/**
+	 * Der Rückgabetyp wird in naher Zukunft wahrscheinlich zu float geändert!
+	 * 
+	 * @return
+	 */
+	public int getRating() {
+		return rating;
+	}
+
+	public URL getWindowsDownloadUrl() {
+		return downloadWindows;
+	}
+
+	public URL getLinuxDownloadUrl() {
+		return downloadLinux;
+	}
+
+	public URL getMacOSDownloadUrl() {
+		return downloadMacOs;
+	}
+
+	public URL getAndroidDownloadUrl() {
+		return downloadAndroid;
+	}
+
+	public URL getIosDownloadUrl() {
+		return downloadIos;
+	}
+
+	public URL getWindowsPhoneDownloadUrl() {
+		return downloadWindowsPhone;
+	}
+
+	/**
+	 * Liefert den Link zum Ausführen des Spiels im Browser
+	 * 
+	 * @return
+	 */
+	public URL getWebDownloadUrl() {
+		return downloadWeb;
+	}
+
+	public String getVersion() {
+		return version;
+	}
+
+	public Image[] getImages() {
+		return images;
+	}
 
 	/**
 	 * Liefert alle Hashtags in der {@linkplain description Spielebeschreibung}

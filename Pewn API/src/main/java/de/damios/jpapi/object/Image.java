@@ -18,12 +18,32 @@ import de.damios.jpapi.core.ApiRequest;
 public class Image implements Serializable {
 
 	private static final long serialVersionUID = 100L;
-	public int id;
-	public String fileName;
-	public int fileSize;
-	public Timestamp uploadDate;
+	private int id;
+	private String fileName;
+	private int fileSize;
+	private Timestamp uploadDate;
 	@SerializedName("customer")
-	public User author;
+	private User author;
+
+	public int getId() {
+		return id;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public int getFileSize() {
+		return fileSize;
+	}
+
+	public Timestamp getUploadDate() {
+		return uploadDate;
+	}
+
+	public User getAuthor() {
+		return author;
+	}
 
 	/**
 	 * Liefert ein Array aller Bilder eines Spiels
