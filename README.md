@@ -1,6 +1,9 @@
 # jpapi
 Ein Java Wrapper für die [Pewn API](http://pewn.de/papi/)
 
+## Wichtig!
+Die zur Zeit auftretenden *MalformedURLExceptions* werden nicht durch jpapi, sondern durch fehlerhafte Downloadlinks auf Pewn verursacht.
+
 ##Funktionsweise
 jpapi sendet die Anfragen an die offizielle Pewn API und erhält die Antwort im JSON Format. Die Antwort wird dann mit [gson](https://github.com/google/gson) zu den entsprechenden Java Objekten geparst.
 
