@@ -5,7 +5,7 @@ import java.io.Serializable;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Java Repräsentierung des Json-Benutzer-Objekts
+ * Java Repräsentierung des JSON-Benutzer-Objekts
  * 
  * @author damios
  * @version 1.0
