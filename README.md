@@ -10,16 +10,22 @@ jpapi sendet die Anfragen an die offizielle Pewn API und erhält die Antwort im 
 ##Beispiel
 Hier ist ein kleines Beispiel zur Verwendung des Wrappers.
 ```java
-Project project = Project.getRandom();
-User author = project.author;
-System.out.println(author.username);
+Project project = null;
+project = Project.get(8568);
 
-project = Project.getAll(OrderedBy.RATING)[0];
-System.out.println(project.images[0].fileName);
+User author = project.getAuthor();
+System.out.println(author.getUsername());
+
+Set<String> hashtags = project.getHashtags();
+for (String s : hashtags) {
+		System.out.println(s);
+	}
+
+System.out.println(Project.getRandom().getImages()[0].getFileName());
 ```
 
 ##Downloads
-[Beta 1.1.0](https://github.com/crykn/jpapi/releases/tag/1.1.0) <br>
+[Beta 1.2.0](https://github.com/crykn/jpapi/releases/tag/1.2.0) <br>
 [Ältere Versionen...](https://github.com/crykn/jpapi/releases)
 
 ##Abhängigkeiten
