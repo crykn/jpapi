@@ -33,6 +33,9 @@ public class Image implements Serializable {
 		return fileName;
 	}
 
+	/**
+	 * @return Größe des Bilds in Kilobyte
+	 */
 	public int getFileSize() {
 		return fileSize;
 	}
