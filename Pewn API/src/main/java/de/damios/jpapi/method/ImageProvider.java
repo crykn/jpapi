@@ -23,7 +23,10 @@ public class ImageProvider {
 
 	/**
 	 * Liefert ein Bild<br>
-	 * <i>Das Seitenverhältnis bleibt immer erhalten</i>
+	 * <i>Von Breite und Höhe wird nur der Wert verwendet, dessen relative
+	 * Veränderung zum Ursprungswert am kleinsten ist (auch negativ Werte werden
+	 * beachtet!), um das ursprüngliche Seitenverhältnis des Bildes
+	 * beizubehalten.</i>
 	 * 
 	 * @param gameid
 	 *            Die Spieleid
@@ -57,8 +60,7 @@ public class ImageProvider {
 	}
 
 	/**
-	 * Liefert ein Bild<br>
-	 * <i>Das Seitenverhältnis bleibt immer erhalten</i>
+	 * Liefert ein Bild
 	 * 
 	 * @param gameid
 	 *            Die Spieleid
