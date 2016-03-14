@@ -10,8 +10,7 @@ jpapi sendet die Anfragen an die offizielle Pewn API und erhält die Antwort im 
 ##Beispiel
 Hier ist ein kleines Beispiel zur Verwendung des Wrappers.
 ```java
-Project project = null;
-project = Project.get(8568);
+Project project = Project.get(8568);
 
 User author = project.getAuthor();
 System.out.println(author.getUsername());
