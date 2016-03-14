@@ -15,7 +15,7 @@ import com.google.gson.annotations.SerializedName;
 import de.damios.jpapi.core.ApiRequest;
 
 /**
- * Java Repräsentierung des Json-Projekt-Objekts
+ * Java Repräsentierung des JSON-Projekt-Objekts
  * 
  * @author damios
  * @version 1.0
@@ -70,9 +70,11 @@ public class Project implements Serializable {
 	}
 
 	/**
-	 * Der Rückgabetyp wird in naher Zukunft wahrscheinlich zu float geändert!
+	 * Der Rückgabetyp wird noch zu float geändert, sobald die Pewn-API auch die
+	 * Nachkommastellen der Bewertungen liefert.
 	 * 
-	 * @return
+	 * @return Die Durchschnitts-Bewertung des Spiels (Nachkommastellen
+	 *         weggelassen)
 	 */
 	public int getRating() {
 		return rating;

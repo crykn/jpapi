@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import de.damios.jpapi.core.ApiRequest;
 
 /**
- * Java Repräsentierung des Json-Bild-Objekts
+ * Java Repräsentierung des JSON-Bild-Objekts
  * 
  * @author damios
  * @version 1.0

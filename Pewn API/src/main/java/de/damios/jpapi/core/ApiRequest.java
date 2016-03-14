@@ -33,12 +33,12 @@ public class ApiRequest {
 	 * @param <T>
 	 *            Typ des Rückgabewerts
 	 * @param url
-	 *            URL des Json-Dokuments
+	 *            URL des JSON-Dokuments
 	 * @param clazz
 	 *            Die Klasse des Rückgabewerts
 	 * @return Geparstes Objekt
 	 * @throws JsonSyntaxException
-	 *             wenn ein Problem beim Verarbeiten der Json-Elemente auftritt
+	 *             wenn ein Problem beim Verarbeiten der JSON-Elemente auftritt
 	 * @throws IOException
 	 *             wenn ein Fehler beim Lesen der Seite auftritt
 	 * @see UrlReader#read(URL)
