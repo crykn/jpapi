@@ -53,7 +53,7 @@ public class Project implements Serializable {
 		return description;
 	}
 
-	public String getTitle() {
+	public String getName() {
 		return title;
 	}
 
