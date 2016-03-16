@@ -29,7 +29,6 @@ public class ApiRequest {
 
 	/**
 	 * Liest den Inhalt einer Seite aus und parst ihn zur gegebenen Java-Klasse <br>
-	 * Bei Strings ist der dabei verwendete Zeichensatz "ISO-8859-1".
 	 * 
 	 * @param <T>
 	 *            Typ des Rückgabewerts

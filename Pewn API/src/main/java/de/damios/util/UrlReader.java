@@ -28,7 +28,7 @@ public class UrlReader {
 	 */
 	public static String read(URL url) throws IOException {
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(
-				url.openStream()))) {
+				url.openStream(), "UTF-8"))) {
 			StringBuffer buffer = new StringBuffer();
 			int read;
 			char[] chars = new char[1024];
