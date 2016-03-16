@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 
 import javax.imageio.ImageIO;
 
@@ -50,7 +51,7 @@ public class ImageProvider {
 					+ "image/projects/"
 					+ gameid
 					+ "/files/"
-					+ filename
+					+ URLEncoder.encode(filename, "UTF-8")
 					+ ((width < 0 || height < 0) ? "" : ("?width=" + width
 							+ "&height=" + height)));
 		} catch (MalformedURLException e) {
