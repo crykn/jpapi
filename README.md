@@ -23,12 +23,12 @@ for (String s : hashtags) {
 System.out.println(Project.getRandom().getImages()[0].getFileName());
 ```
 
-##Downloads
-[Beta 1.2.0](https://github.com/crykn/jpapi/releases/tag/1.2.0) <br>
+##Download
+[0.3.1](https://github.com/crykn/jpapi/releases/tag/0.3.1) <br>
 [Ältere Versionen...](https://github.com/crykn/jpapi/releases)
 
 ##Abhängigkeiten
-* [gson](http://search.maven.org/#artifactdetails%7Ccom.google.code.gson%7Cgson%7C2.3.1%7Cjar)
+* [gson](http://search.maven.org/#artifactdetails%7Ccom.google.code.gson%7Cgson%7C2.6.2%7Cjar)
 
 ##Dokumentation
 [Javadoc](http://crykn.github.io/jpapi-javadoc/)
