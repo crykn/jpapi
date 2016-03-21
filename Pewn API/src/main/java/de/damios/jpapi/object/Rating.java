@@ -77,7 +77,7 @@ public class Rating implements Serializable {
 	 * @author damios
 	 * @version 0.4.0
 	 */
-	public class RatingComment {
+	public class RatingComment implements Serializable {
 
 		private static final long serialVersionUID = 100L;
 		private int id;
