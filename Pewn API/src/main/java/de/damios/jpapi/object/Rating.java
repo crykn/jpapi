@@ -79,6 +79,7 @@ public class Rating implements Serializable {
 	 */
 	public class RatingComment {
 
+		private static final long serialVersionUID = 100L;
 		private int id;
 		@SerializedName("content")
 		private String text;
