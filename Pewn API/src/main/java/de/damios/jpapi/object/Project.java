@@ -4,10 +4,6 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.net.URL;
 import java.sql.Timestamp;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.annotations.SerializedName;
@@ -122,25 +118,31 @@ public class Project implements Serializable {
 	}
 
 	/**
-	 * Liefert alle Hashtags in der {@linkplain description Spielebeschreibung}
+	 * Liefert alle Bewertungen eines Spiels
 	 * 
 	 * @return Alle Hashtags als HashSet{@literal<String>}
+	 * @throws IOException
+	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
+	 * @throws JsonSyntaxException
+	 *             wenn ein Fehler beim Parsen auftritt
+	 * @see Rating#get(int)
 	 */
-	public Set<String> getHashtags() {
-		Set<String> tags = new HashSet<String>();
-		Pattern pattern = Pattern.compile("(#\\w+)");
-		Matcher matcher = pattern.matcher(description);
-		while (matcher.find()) {
-			String hashtag = matcher.group(1);
-			boolean alreadyAdded = false;
-			for (String tag : tags) {
-				if (hashtag.equals(tag))
-					alreadyAdded = true;
-			}
-			if (!alreadyAdded)
-				tags.add(hashtag);
-		}
-		return tags;
+	public Rating[] getRatings() throws JsonSyntaxException, IOException {
+		return Rating.get(id);
+	}
+
+	/**
+	 * Liefert alle Hashtags Spielebeschreibung
+	 * 
+	 * @return Alle Hashtags als HashSet{@literal<String>}
+	 * @throws IOException
+	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
+	 * @throws JsonSyntaxException
+	 *             wenn ein Fehler beim Parsen auftritt
+	 * @see Hashtag#get(int)
+	 */
+	public Hashtag[] getHashtags() throws JsonSyntaxException, IOException {
+		return Hashtag.get(id);
 	}
 
 	/**
