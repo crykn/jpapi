@@ -229,7 +229,7 @@ public class Project implements Serializable {
 	 * @author damios
 	 * @see Project#getAll(OrderedBy)
 	 */
-	public static enum OrderedBy {
+	public static enum OrderedBy implements Serializable {
 		/**
 		 * Nach Erstellungsdatum sortieren (Neuestes zuerst)
 		 */
