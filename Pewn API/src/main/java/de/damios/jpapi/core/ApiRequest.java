@@ -25,7 +25,7 @@ public class ApiRequest {
 	}
 
 	private static Gson gson = new GsonBuilder().setDateFormat(
-			"yyyy-MM-dd'T'HH:mm:ssX").create();
+			"yyyy-MM-dd HH:mm:ss").create();
 
 	/**
 	 * Liest den Inhalt einer Seite aus und parst ihn zur gegebenen Java-Klasse <br>
