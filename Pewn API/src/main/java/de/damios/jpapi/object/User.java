@@ -1,6 +1,7 @@
 package de.damios.jpapi.object;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -19,6 +20,7 @@ public class User implements Serializable {
 	@SerializedName("gamificationLevel")
 	private int level;
 	private int xp;
+	private Timestamp registrationDate;
 
 	public int getId() {
 		return id;
@@ -39,4 +41,9 @@ public class User implements Serializable {
 	public int getXp() {
 		return xp;
 	}
+	
+	public Timestamp getRegistrationDate() {
+		return registrationDate;
+	}
+	
 }
