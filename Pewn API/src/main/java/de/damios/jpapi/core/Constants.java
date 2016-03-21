@@ -4,7 +4,7 @@ package de.damios.jpapi.core;
  * Enthält Konstanten, die im Wrapper verwendet werden
  *
  * @author damios
- * @since 1.0
+ * @since 0.1.0
  */
 public class Constants {
 

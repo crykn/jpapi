@@ -9,7 +9,7 @@ import java.net.URL;
  * Bietet Methoden zum Auslesen des Inhalts einer Seite
  * 
  * @author damios
- * @since 1.0
+ * @since 0.1.0
  */
 public class UrlReader {
 

@@ -17,7 +17,7 @@ import de.damios.util.UrlReader;
  * href="http://pewn.de/papi/">Pewn-API</a> aus
  * 
  * @author damios
- * @since 1.0
+ * @since 0.1.0
  */
 public class ApiRequest {
 

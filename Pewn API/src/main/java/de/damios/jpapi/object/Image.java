@@ -13,7 +13,7 @@ import de.damios.jpapi.core.ApiRequest;
  * Java Repräsentierung des JSON-Bild-Objekts
  * 
  * @author damios
- * @version 1.0
+ * @version 0.1.0
  */
 public class Image implements Serializable {
 

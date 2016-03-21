@@ -18,7 +18,7 @@ import de.damios.jpapi.core.ApiRequest;
  * Java Repräsentierung des JSON-Projekt-Objekts
  * 
  * @author damios
- * @version 1.0
+ * @version 0.1.0
  */
 public class Project implements Serializable {
 

@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
  * Java Repräsentierung des JSON-Benutzer-Objekts
  * 
  * @author damios
- * @version 1.0
+ * @version 0.1.0
  */
 public class User implements Serializable {
 

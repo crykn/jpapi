@@ -15,7 +15,7 @@ import de.damios.jpapi.exception.JpapiInternalException;
  * Liefert Methoden um auf der Seite gespeicherte Bilder zu erhalten
  * 
  * @author damios
- * @version 1.0
+ * @version 0.1.0
  */
 public class ImageProvider {
 
