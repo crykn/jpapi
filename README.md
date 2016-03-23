@@ -15,16 +15,16 @@ Project project = Project.get(8568);
 User author = project.getAuthor();
 System.out.println(author.getUsername());
 
-Set<String> hashtags = project.getHashtags();
-for (String s : hashtags) {
-		System.out.println(s);
-	}
+Hashtag[] hashtags = project.getHashtags();
+for (Hashtag h : hashtags) {
+	System.out.println(h.getName());
+}
 
 System.out.println(Project.getRandom().getImages()[0].getFileName());
 ```
 
 ##Download
-[0.3.1](https://github.com/crykn/jpapi/releases/tag/0.3.1) <br>
+[0.4.0](https://github.com/crykn/jpapi/releases/tag/0.4.0) <br>
 [Ältere Versionen...](https://github.com/crykn/jpapi/releases)
 
 ##Abhängigkeiten
