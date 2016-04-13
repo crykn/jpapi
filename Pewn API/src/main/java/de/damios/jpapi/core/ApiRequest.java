@@ -28,7 +28,7 @@ public class ApiRequest {
 	private ApiRequest() {
 	}
 
-	public static final TypeAdapter<URL> URL = new TypeAdapter<URL>() {
+	private static final TypeAdapter<URL> URL = new TypeAdapter<URL>() {
 		@Override
 		public URL read(JsonReader in) throws IOException {
 			if (in.peek() == JsonToken.NULL) {
