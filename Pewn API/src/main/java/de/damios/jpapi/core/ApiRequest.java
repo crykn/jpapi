@@ -28,6 +28,9 @@ public class ApiRequest {
 	private ApiRequest() {
 	}
 
+	/**
+	 * URL-Type-Adapter
+	 */
 	private static final TypeAdapter<URL> URL = new TypeAdapter<URL>() {
 		@Override
 		public URL read(JsonReader in) throws IOException {
