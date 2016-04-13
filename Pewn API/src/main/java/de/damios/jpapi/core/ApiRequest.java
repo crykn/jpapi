@@ -7,6 +7,10 @@ import java.net.URL;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonToken;
+import com.google.gson.stream.JsonWriter;
 
 import de.damios.jpapi.exception.JpapiInternalException;
 import de.damios.jpapi.object.Project;
@@ -24,8 +28,27 @@ public class ApiRequest {
 	private ApiRequest() {
 	}
 
-	private static Gson gson = new GsonBuilder().setDateFormat(
-			"yyyy-MM-dd HH:mm:ss").create();
+	public static final TypeAdapter<URL> URL = new TypeAdapter<URL>() {
+		@Override
+		public URL read(JsonReader in) throws IOException {
+			if (in.peek() == JsonToken.NULL) {
+				in.nextNull();
+				return null;
+			}
+			String nextString = in.nextString();
+			return ("".equals(nextString) || "null".equals(nextString)) ? null
+					: new URL(nextString);
+		}
+
+		@Override
+		public void write(JsonWriter out, URL value) throws IOException {
+			out.value(value == null ? null : value.toExternalForm());
+		}
+	};
+
+	private static GsonBuilder builder = new GsonBuilder().setDateFormat(
+			"yyyy-MM-dd HH:mm:ss").registerTypeAdapter(URL.class, URL);
+	private static Gson gson = builder.create();
 
 	/**
 	 * Liest den Inhalt einer Seite aus und parst ihn zur gegebenen Java-Klasse <br>
