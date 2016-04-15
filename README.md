@@ -10,7 +10,7 @@ Hier ist ein kleines Beispiel zur Verwendung des Wrappers:
 Project project = Project.get(8568);
 
 User author = project.getAuthor();
-System.out.println(author.getUsername());
+System.out.println(author.getName());
 
 Hashtag[] hashtags = project.getHashtags();
 for (Hashtag h : hashtags) {
