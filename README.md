@@ -19,6 +19,7 @@ for (Hashtag h : hashtags) {
 
 System.out.println(Project.getRandom().getImages()[0].getFileName());
 ```
+Weitere Beispiele sind im [Wiki](http://crykn.github.io/jpapi-javadoc/) zu finden.
 
 ##Download
 [0.4.1](https://github.com/crykn/jpapi/releases/tag/0.4.1) <br>
@@ -28,5 +29,5 @@ System.out.println(Project.getRandom().getImages()[0].getFileName());
 * [gson](http://search.maven.org/#artifactdetails%7Ccom.google.code.gson%7Cgson%7C2.6.2%7Cjar)
 
 ##Dokumentation
-[Wiki](http://crykn.github.io/jpapi-javadoc/)
+[Wiki](http://crykn.github.io/jpapi-javadoc/) <br>
 [Javadoc](https://github.com/crykn/jpapi/wiki)
