@@ -76,6 +76,7 @@ public class Rating implements Serializable {
 	 * 
 	 * @author damios
 	 * @version 0.4.0
+	 * @see Rating
 	 */
 	public class RatingComment implements Serializable {
 

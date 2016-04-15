@@ -229,6 +229,7 @@ public class Project implements Serializable {
 	 * Gibt die Reihenfolge an, in der Spiele sortiert sein sollen
 	 * 
 	 * @author damios
+	 * @version 0.1.0
 	 * @see Project#getAll(OrderedBy)
 	 */
 	public static enum OrderedBy implements Serializable {

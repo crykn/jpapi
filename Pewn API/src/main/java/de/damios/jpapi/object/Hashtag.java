@@ -31,6 +31,11 @@ public class Hashtag implements Serializable {
 		return name;
 	}
 
+	/**
+	 * Liefert Anzahl der Projekte, in denen der Hashtag benutzt wurde
+	 * 
+	 * @return Anzahl der Benutzungen
+	 */
 	public int getUsedInProjectsCount() {
 		return usedInProjectsCount;
 	}
