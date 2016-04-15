@@ -36,7 +36,7 @@ public class Hashtag implements Serializable {
 	 * 
 	 * @return Anzahl der Benutzungen
 	 */
-	public int getUsedInProjectsCount() {
+	public int getUsageCount() {
 		return usedInProjectsCount;
 	}
 

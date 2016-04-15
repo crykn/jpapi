@@ -26,7 +26,7 @@ public class User implements Serializable {
 		return id;
 	}
 
-	public String getUsername() {
+	public String getName() {
 		return username;
 	}
 

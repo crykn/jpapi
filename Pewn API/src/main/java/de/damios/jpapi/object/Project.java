@@ -76,27 +76,27 @@ public class Project implements Serializable {
 		return rating;
 	}
 
-	public URL getWindowsDownloadUrl() {
+	public URL getDownloadUrlWindows() {
 		return downloadWindows;
 	}
 
-	public URL getLinuxDownloadUrl() {
+	public URL getDownloadUrlLinux() {
 		return downloadLinux;
 	}
 
-	public URL getMacOSDownloadUrl() {
+	public URL getDownloadUrlMacOS() {
 		return downloadMacOs;
 	}
 
-	public URL getAndroidDownloadUrl() {
+	public URL getDownloadUrlAndroid() {
 		return downloadAndroid;
 	}
 
-	public URL getIosDownloadUrl() {
+	public URL getDownloadUrlIos() {
 		return downloadIos;
 	}
 
-	public URL getWindowsPhoneDownloadUrl() {
+	public URL getDownloadUrlWindowsPhone() {
 		return downloadWindowsPhone;
 	}
 
