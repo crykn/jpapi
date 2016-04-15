@@ -27,7 +27,8 @@ public class Rating implements Serializable {
 	@SerializedName("ratingReason")
 	private String text;
 	@SerializedName("ratingComment")
-	private RatingComment comment;
+	private RatingComment comment;	
+	private String ratedVersion;
 
 	public int getId() {
 		return id;
@@ -51,6 +52,10 @@ public class Rating implements Serializable {
 
 	public RatingComment getComment() {
 		return comment;
+	}
+	
+	public String getRatedVersion(){
+		return ratedVersion;
 	}
 
 	/**
