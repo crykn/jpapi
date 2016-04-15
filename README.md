@@ -28,4 +28,5 @@ System.out.println(Project.getRandom().getImages()[0].getFileName());
 * [gson](http://search.maven.org/#artifactdetails%7Ccom.google.code.gson%7Cgson%7C2.6.2%7Cjar)
 
 ##Dokumentation
-[Javadoc](http://crykn.github.io/jpapi-javadoc/)
+[Wiki](http://crykn.github.io/jpapi-javadoc/)
+[Javadoc](https://github.com/crykn/jpapi/wiki)
