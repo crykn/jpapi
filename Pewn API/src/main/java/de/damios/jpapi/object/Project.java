@@ -103,7 +103,7 @@ public class Project implements Serializable {
 	/**
 	 * Liefert den Link zum Ausführen des Spiels im Browser
 	 * 
-	 * @return
+	 * @return URL
 	 */
 	public URL getWebDownloadUrl() {
 		return downloadWeb;
