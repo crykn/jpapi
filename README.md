@@ -22,7 +22,7 @@ System.out.println(Project.getRandom().getImages()[0].getFileName());
 Weitere Beispiele sind im [Wiki](https://github.com/crykn/jpapi/wiki) zu finden.
 
 ##Download
-[0.4.1](https://github.com/crykn/jpapi/releases/tag/0.4.1) <br>
+[0.4.2](https://github.com/crykn/jpapi/releases/tag/0.4.2) <br>
 [Ältere Versionen...](https://github.com/crykn/jpapi/releases)
 
 ##Abhängigkeiten
