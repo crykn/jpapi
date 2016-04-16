@@ -120,7 +120,7 @@ public class Project implements Serializable {
 	/**
 	 * Liefert alle Bewertungen eines Spiels
 	 * 
-	 * @return Alle Hashtags als HashSet{@literal<String>}
+	 * @return Rating-Array
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
 	 * @throws JsonSyntaxException
@@ -132,9 +132,9 @@ public class Project implements Serializable {
 	}
 
 	/**
-	 * Liefert alle Hashtags Spielebeschreibung
+	 * Liefert alle Hashtags in der Spielebeschreibung
 	 * 
-	 * @return Alle Hashtags als HashSet{@literal<String>}
+	 * @return Hashtag-Array
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
 	 * @throws JsonSyntaxException
