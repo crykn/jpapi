@@ -22,6 +22,8 @@ public class Hashtag implements Serializable {
 	private int usedInProjectsCount;
 	@SerializedName("hashtagCategory")
 	private HashtagCategory category;
+	@SerializedName("hashtagMetaTag")
+	private HashtagMetatag metatag;
 
 	public int getId() {
 		return id;
@@ -42,6 +44,10 @@ public class Hashtag implements Serializable {
 
 	public HashtagCategory getCategory() {
 		return category;
+	}
+	
+	public HashtagMetatag getMetatag() {
+		return metatag;
 	}
 
 	/**
@@ -69,6 +75,27 @@ public class Hashtag implements Serializable {
 	 * @version 0.4.0
 	 */
 	public class HashtagCategory implements Serializable {
+
+		private static final long serialVersionUID = 100L;
+		private int id;
+		private String name;
+
+		public int getId() {
+			return id;
+		}
+
+		public String getName() {
+			return name;
+		}
+	}
+	
+	/**
+	 * Java Repräsentierung des JSON-Hashtag-Metatag-Objekts
+	 * 
+	 * @author damios
+	 * @version 0.4.2
+	 */
+	public class HashtagMetatag implements Serializable {
 
 		private static final long serialVersionUID = 100L;
 		private int id;
