@@ -1,8 +1,10 @@
 package de.damios.jpapi.object;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -41,9 +43,24 @@ public class User implements Serializable {
 	public int getXp() {
 		return xp;
 	}
-	
+
 	public Timestamp getRegistrationDate() {
 		return registrationDate;
 	}
-	
+
+	/**
+	 * Liefert alle Spiele des Nutzers
+	 * 
+	 * @return Die Projekte als Project-Array, wenn ein Nutzer keine Projekte
+	 *         hat, ist das Array leer
+	 * @throws IOException
+	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
+	 * @throws JsonSyntaxException
+	 *             wenn ein Fehler beim Parsen auftritt
+	 * @see Project#get(String)
+	 */
+	public Project[] getProjects() throws JsonSyntaxException, IOException {
+		return Project.get(username);
+	}
+
 }

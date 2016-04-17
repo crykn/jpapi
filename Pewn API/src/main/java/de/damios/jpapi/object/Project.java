@@ -150,7 +150,8 @@ public class Project implements Serializable {
 	 * 
 	 * @param username
 	 *            Nutzername
-	 * @return Die Projekte als Project-Array
+	 * @return Die Projekte als Project-Array, wenn ein Nutzer keine Projekte
+	 *         hat, ist das Array leer
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
 	 * @throws JsonSyntaxException
