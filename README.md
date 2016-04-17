@@ -1,33 +1,11 @@
 # jpapi
-Ein Java Wrapper für die [Pewn API](http://pewn.de/papi/)
+jpapi ist ein Java Wrapper für die [Pewn API](http://pewn.de/papi/). Ziel ist es, eine möglichst übersichtliche und intuitiv benutzbare Schnittstelle bereitzustellen, die in Java einen einfachen Zugriff auf die Funktionen der API erlaubt.
 
-##Funktionsweise
-jpapi sendet die Anfragen an die offizielle Pewn API und erhält die Antwort im JSON Format. Die Antwort wird dann mit [gson](https://github.com/google/gson) zu den entsprechenden Java Objekten geparst.
+## Erste Schritte
+[Das jpapi Wiki](https://github.com/crykn/jpapi/wiki) enthält ausführliche Informationen zum Aufsetzen eines Projekts, der Funktionsweise des Wrappers und einige aufschlussreiche Beispiele. Die Java Dokumentation lässt sich [hier](http://crykn.github.io/jpapi-javadoc/) finden.
 
-##Beispiel
-Hier ist ein kleines Beispiel zur Verwendung des Wrappers:
-```java
-Project project = Project.get(8568);
+## Download
+Die aktuellste Version steht [hier](https://github.com/crykn/jpapi/releases/) zum Download bereit.
 
-User author = project.getAuthor();
-System.out.println(author.getName());
-
-Hashtag[] hashtags = project.getHashtags();
-for (Hashtag h : hashtags) {
-	System.out.println(h.getName());
-}
-
-System.out.println(Project.getRandom().getImages()[0].getFileName());
-```
-Weitere Beispiele sind im [Wiki](https://github.com/crykn/jpapi/wiki) zu finden.
-
-##Download
-[0.4.2](https://github.com/crykn/jpapi/releases/tag/0.4.2) <br>
-[Ältere Versionen...](https://github.com/crykn/jpapi/releases)
-
-##Abhängigkeiten
+## Abhängigkeiten
 * [gson](http://search.maven.org/#artifactdetails%7Ccom.google.code.gson%7Cgson%7C2.6.2%7Cjar)
-
-##Dokumentation
-[Wiki](https://github.com/crykn/jpapi/wiki) <br>
-[Javadoc](http://crykn.github.io/jpapi-javadoc/)
