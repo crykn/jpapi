@@ -32,6 +32,9 @@ public class User implements Serializable {
 		return username;
 	}
 
+	/**
+	 * @return Liefert die Profilbeschreibung des Nutzers
+	 */
 	public String getAboutText() {
 		return about;
 	}
