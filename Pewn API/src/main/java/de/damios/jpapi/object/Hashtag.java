@@ -45,7 +45,7 @@ public class Hashtag implements Serializable {
 	public HashtagCategory getCategory() {
 		return category;
 	}
-	
+
 	public HashtagMetatag getMetatag() {
 		return metatag;
 	}
@@ -55,7 +55,8 @@ public class Hashtag implements Serializable {
 	 * 
 	 * @param gameid
 	 *            Die Spieleid
-	 * @return Hashtag-Array
+	 * @return Die Hashtags als Hashtag-Array; wenn eine Projekt mit keinerlei
+	 *         Hashtags versehen ist, ein leeres Array
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
 	 * @throws JsonSyntaxException
@@ -88,7 +89,7 @@ public class Hashtag implements Serializable {
 			return name;
 		}
 	}
-	
+
 	/**
 	 * Java Repräsentierung des JSON-Hashtag-Metatag-Objekts
 	 * 

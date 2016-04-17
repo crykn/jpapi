@@ -63,7 +63,8 @@ public class Rating implements Serializable {
 	 * 
 	 * @param gameid
 	 *            Die Spieleid
-	 * @return Rating-Array
+	 * @return Die Bewertungen als Rating-Array; wenn eine Projekt noch keine
+	 *         Bewertung erhalten hat, ein leeres Array
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
 	 * @throws JsonSyntaxException

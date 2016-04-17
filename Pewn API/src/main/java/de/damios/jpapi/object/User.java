@@ -51,8 +51,8 @@ public class User implements Serializable {
 	/**
 	 * Liefert alle Spiele des Nutzers
 	 * 
-	 * @return Die Projekte als Project-Array, wenn ein Nutzer keine Projekte
-	 *         hat, ist das Array leer
+	 * @return Die Projekte als Project-Array; wenn ein Nutzer keine Projekte
+	 *         hat, ein leeres Array
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
 	 * @throws JsonSyntaxException

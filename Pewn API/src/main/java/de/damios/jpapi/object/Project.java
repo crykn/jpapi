@@ -120,7 +120,8 @@ public class Project implements Serializable {
 	/**
 	 * Liefert alle Bewertungen eines Spiels
 	 * 
-	 * @return Rating-Array
+	 * @return Die Bewertungen als Rating-Array; wenn eine Projekt noch keine
+	 *         Bewertung erhalten hat, ein leeres Array
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
 	 * @throws JsonSyntaxException
@@ -134,7 +135,8 @@ public class Project implements Serializable {
 	/**
 	 * Liefert alle Hashtags in der Spielebeschreibung
 	 * 
-	 * @return Hashtag-Array
+	 * @return Die Hashtags als Hashtag-Array; wenn eine Projekt mit keinerlei
+	 *         Hashtags versehen ist, ein leeres Array
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
 	 * @throws JsonSyntaxException
@@ -150,8 +152,8 @@ public class Project implements Serializable {
 	 * 
 	 * @param username
 	 *            Nutzername
-	 * @return Die Projekte als Project-Array, wenn ein Nutzer keine Projekte
-	 *         hat, ist das Array leer
+	 * @return Die Projekte als Project-Array; wenn ein Nutzer keine Projekte
+	 *         hat, ein leeres Array
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
 	 * @throws JsonSyntaxException
@@ -170,7 +172,8 @@ public class Project implements Serializable {
 	 *            Die Spieleid
 	 * @return Das Projekt
 	 * @throws IOException
-	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
+	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt, speziell
+	 *             eine FileNotFoundException, wenn das Spiel nicht existiert
 	 * @throws JsonSyntaxException
 	 *             wenn ein Fehler beim Parsen auftritt
 	 * @see ApiRequest#execute(String, Class)
