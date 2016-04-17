@@ -36,10 +36,35 @@ public class User implements Serializable {
 		return about;
 	}
 
+	/**
+	 * Liefert das Level eines Nutzers <br>
+	 * Neue Nutzer starten mit Level 0; alle 1000 erreichte XP erhöht sich das
+	 * Level
+	 * 
+	 * @return Das Level
+	 * @see #getXp()
+	 */
 	public int getLevel() {
 		return level;
 	}
 
+	/**
+	 * Liefert die Anzahl der XP eines Nutzers
+	 * <p>
+	 * Erfahrung erhält man für die folgenden Aktionen:
+	 * <ul>
+	 * <li>Spiele hochladen (500 XP)
+	 * <li>Blogeinträge verfassen (100 XP)
+	 * <li>Designs einreichen (100 XP)
+	 * <li>Spiele bewerten (75 XP)
+	 * <li>Blogeinträge kommentieren (50 XP)
+	 * <li>Forenbeiträge verfassen (10 XP)
+	 * </ul>
+	 * <p>
+	 * 
+	 * @return Die Anzahl der XP
+	 * @see #getLevel()
+	 */
 	public int getXp() {
 		return xp;
 	}
