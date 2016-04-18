@@ -29,12 +29,19 @@ public class Image implements Serializable {
 		return id;
 	}
 
+	/**
+	 * Liefert den Namen der Datei
+	 * 
+	 * @return Dateiname
+	 */
 	public String getFileName() {
 		return fileName;
 	}
 
 	/**
-	 * @return Größe des Bilds in Kilobyte
+	 * Liefert die Größe des Bildes
+	 * 
+	 * @return Bildgröße in Kilobyte
 	 */
 	public int getFileSize() {
 		return fileSize;
