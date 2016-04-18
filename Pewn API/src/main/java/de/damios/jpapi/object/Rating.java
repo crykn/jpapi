@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import de.damios.jpapi.core.ApiRequest;
 
 /**
- * Java Repräsentierung des JSON-Bewertungs-Objekts
+ * <i>Java Repräsentierung des JSON-Bewertungs-Objekts</i>
  * 
  * @author damios
  * @version 0.4.0
@@ -27,7 +27,7 @@ public class Rating implements Serializable {
 	@SerializedName("ratingReason")
 	private String text;
 	@SerializedName("ratingComment")
-	private RatingComment comment;	
+	private RatingComment comment;
 	private String ratedVersion;
 
 	public int getId() {
@@ -50,11 +50,21 @@ public class Rating implements Serializable {
 		return text;
 	}
 
+	/**
+	 * Liefert den Kommentar des Entwicklers
+	 * 
+	 * @return Kommentar des Entwicklers; null wenn keiner vorhanden ist
+	 */
 	public RatingComment getComment() {
 		return comment;
 	}
-	
-	public String getRatedVersion(){
+
+	/**
+	 * Liefert die Version des Spiels, die bewertet wurde
+	 * 
+	 * @return Bewertete Version
+	 */
+	public String getRatedVersion() {
 		return ratedVersion;
 	}
 
@@ -78,7 +88,7 @@ public class Rating implements Serializable {
 	}
 
 	/**
-	 * Java Repräsentierung des JSON-Bewertungskommentar-Objekts
+	 * <i>Java Repräsentierung des JSON-Bewertungskommentar-Objekts</i>
 	 * 
 	 * @author damios
 	 * @version 0.4.0

@@ -11,7 +11,7 @@ import com.google.gson.annotations.SerializedName;
 import de.damios.jpapi.core.ApiRequest;
 
 /**
- * Java Repräsentierung des JSON-Projekt-Objekts
+ * <i>Java Repräsentierung des JSON-Projekt-Objekts</i>
  * 
  * @author damios
  * @version 0.1.0

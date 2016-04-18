@@ -8,7 +8,7 @@ import com.google.gson.JsonSyntaxException;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Java Repräsentierung des JSON-Benutzer-Objekts
+ * <i>Java Repräsentierung des JSON-Benutzer-Objekts</i>
  * 
  * @author damios
  * @version 0.1.0

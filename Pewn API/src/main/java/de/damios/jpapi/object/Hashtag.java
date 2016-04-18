@@ -42,10 +42,22 @@ public class Hashtag implements Serializable {
 		return usedInProjectsCount;
 	}
 
+	/**
+	 * Liefert die Kategorie, der der Hashtags zugeordnet wurde
+	 * 
+	 * @return Kategorie des Hashtags
+	 */
 	public HashtagCategory getCategory() {
 		return category;
 	}
 
+	/**
+	 * Liefert den Metatag des Hashtags, der dazu dient synonyme Hashtags unter
+	 * einem Überbegriff zusammenzufassen. Wenn ein Metatag vorhanden ist,
+	 * sollte der Metatag anstelle des eigentlichen Hashtags verwendet werden.
+	 * 
+	 * @return Der Metatag des Hashtags; null wenn keiner vorhanden ist
+	 */
 	public HashtagMetatag getMetatag() {
 		return metatag;
 	}
@@ -70,7 +82,7 @@ public class Hashtag implements Serializable {
 	}
 
 	/**
-	 * Java Repräsentierung des JSON-Hashtag-Kategorie-Objekts
+	 * <i>Java Repräsentierung des JSON-Hashtag-Kategorie-Objekts</i>
 	 * 
 	 * @author damios
 	 * @version 0.4.0
@@ -91,7 +103,8 @@ public class Hashtag implements Serializable {
 	}
 
 	/**
-	 * Java Repräsentierung des JSON-Hashtag-Metatag-Objekts
+	 * <i>Java Repräsentierung des JSON-Hashtag-Metatag-Objekts</i><br>
+	 * Dient dazu, synonyme Hashtags unter einem Überbegriff zusammenzufassen.
 	 * 
 	 * @author damios
 	 * @version 0.4.2
