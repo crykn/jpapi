@@ -10,10 +10,10 @@ import com.google.gson.annotations.SerializedName;
 import de.damios.jpapi.core.ApiRequest;
 
 /**
- * <i>Java Repräsentierung des JSON-Bewertungs-Objekts</i>
+ * <i>Java Repräsentierung des JSON-Bewertungs-Objekts.</i>
  * 
  * @author damios
- * @version 0.4.0
+ * @since 0.4.0
  */
 public class Rating implements Serializable {
 
@@ -50,35 +50,31 @@ public class Rating implements Serializable {
 		return text;
 	}
 
-	/**
-	 * Liefert den Kommentar des Entwicklers
-	 * 
-	 * @return Kommentar des Entwicklers; null wenn keiner vorhanden ist
+	/** 
+	 * @return Liefert den Kommentar des Entwicklers; null wenn keiner vorhanden ist.
 	 */
 	public RatingComment getComment() {
 		return comment;
 	}
 
 	/**
-	 * Liefert die Version des Spiels, die bewertet wurde
-	 * 
-	 * @return Bewertete Version
+	 * @return Liefert die Version des Spiels, die bewertet wurde.
 	 */
 	public String getRatedVersion() {
 		return ratedVersion;
 	}
 
 	/**
-	 * Liefert ein Array aller Bewertungen eines Spiels
+	 * Liefert ein Array aller Bewertungen eines Spiels.
 	 * 
 	 * @param gameid
 	 *            Die Spieleid
 	 * @return Die Bewertungen als Rating-Array; wenn eine Projekt noch keine
-	 *         Bewertung erhalten hat, ein leeres Array
+	 *         Bewertung erhalten hat, ein leeres Array.
 	 * @throws IOException
-	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
+	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
 	 * @throws JsonSyntaxException
-	 *             wenn ein Fehler beim Parsen auftritt
+	 *             wenn ein Fehler beim Parsen auftritt.
 	 * @see ApiRequest#execute(String, Class)
 	 */
 	public static Rating[] get(int gameid) throws JsonSyntaxException,
@@ -88,10 +84,10 @@ public class Rating implements Serializable {
 	}
 
 	/**
-	 * <i>Java Repräsentierung des JSON-Bewertungskommentar-Objekts</i>
+	 * <i>Java Repräsentierung des JSON-Bewertungskommentar-Objekts.</i>
 	 * 
 	 * @author damios
-	 * @version 0.4.0
+	 * @since 0.4.0
 	 * @see Rating
 	 */
 	public class RatingComment implements Serializable {

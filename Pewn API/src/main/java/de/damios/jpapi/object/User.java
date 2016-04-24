@@ -8,10 +8,10 @@ import com.google.gson.JsonSyntaxException;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * <i>Java Repräsentierung des JSON-Benutzer-Objekts</i>
+ * <i>Java Repräsentierung des JSON-Benutzer-Objekts.</i>
  * 
  * @author damios
- * @version 0.1.0
+ * @since 0.1.0
  */
 public class User implements Serializable {
 
@@ -33,18 +33,18 @@ public class User implements Serializable {
 	}
 
 	/**
-	 * @return Liefert die Profilbeschreibung des Nutzers
+	 * @return Liefert die Profilbeschreibung des Nutzers.
 	 */
 	public String getAboutText() {
 		return about;
 	}
 
 	/**
-	 * Liefert das Level eines Nutzers <br>
+	 * Liefert das Level eines Nutzers. <br>
 	 * Neue Nutzer starten mit Level 0; alle 1000 erreichte XP erhöht sich das
-	 * Level
+	 * Level.
 	 * 
-	 * @return Das Level
+	 * @return Das Level.
 	 * @see #getXp()
 	 */
 	public int getLevel() {
@@ -52,7 +52,7 @@ public class User implements Serializable {
 	}
 
 	/**
-	 * Liefert die Anzahl der XP eines Nutzers
+	 * Liefert die Anzahl der XP eines Nutzers.
 	 * <p>
 	 * Erfahrung erhält man für die folgenden Aktionen:
 	 * <ul>
@@ -65,7 +65,7 @@ public class User implements Serializable {
 	 * </ul>
 	 * <p>
 	 * 
-	 * @return Die Anzahl der XP
+	 * @return Die Anzahl der XP.
 	 * @see #getLevel()
 	 */
 	public int getXp() {
@@ -77,14 +77,14 @@ public class User implements Serializable {
 	}
 
 	/**
-	 * Liefert alle Spiele des Nutzers
+	 * Liefert alle Spiele des Nutzers.
 	 * 
 	 * @return Die Projekte als Project-Array; wenn ein Nutzer keine Projekte
-	 *         hat, ein leeres Array
+	 *         hat, ein leeres Array.
 	 * @throws IOException
-	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
+	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
 	 * @throws JsonSyntaxException
-	 *             wenn ein Fehler beim Parsen auftritt
+	 *             wenn ein Fehler beim Parsen auftritt.
 	 * @see Project#get(String)
 	 */
 	public Project[] getProjects() throws JsonSyntaxException, IOException {

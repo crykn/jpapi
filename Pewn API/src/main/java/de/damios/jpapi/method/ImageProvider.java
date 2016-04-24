@@ -14,10 +14,10 @@ import de.damios.jpapi.object.Image;
 import de.damios.jpapi.object.Project;
 
 /**
- * Liefert Methoden um auf der Seite gespeicherte Bilder zu erhalten
+ * Beinhaltet Methoden, um auf der Seite gespeicherte Bilder zu erhalten.
  * 
  * @author damios
- * @version 0.1.0
+ * @since 0.1.0
  */
 public class ImageProvider {
 
@@ -32,16 +32,16 @@ public class ImageProvider {
 	 * beizubehalten.</i>
 	 * 
 	 * @param gameid
-	 *            Die Spieleid
+	 *            Die Spieleid.
 	 * @param filename
-	 *            Der Dateiname des Bildes
+	 *            Der Dateiname des Bildes.
 	 * @param width
-	 *            Die Bildbreite
+	 *            Die Bildbreite.
 	 * @param height
-	 *            Die Bildhöhe
-	 * @return Das Bild
+	 *            Die Bildhöhe.
+	 * @return Das Bild.
 	 * @throws IOException
-	 *             wenn ein Fehler beim Lesen des Bilds auftritt
+	 *             wenn ein Fehler beim Lesen des Bilds auftritt.
 	 * @see #get(int, String)
 	 * @see #get(Project, Image)
 	 * @see ImageIO#read(URL)
@@ -67,14 +67,14 @@ public class ImageProvider {
 	 * Liefert ein Bild, dass auf Pewn hochgeladen wurde.
 	 * 
 	 * @param gameid
-	 *            Die Spieleid
+	 *            Die Spieleid.
 	 * @param filename
-	 *            Der Dateiname des Bildes
-	 * @return Das Bild
+	 *            Der Dateiname des Bildes.
+	 * @return Das Bild.
 	 * @throws IOException
-	 *             wenn ein Fehler beim Lesen des Bilds auftritt
+	 *             wenn ein Fehler beim Lesen des Bilds auftritt.
 	 * @see #get(int, String, int, int)
-	 * @deprecated Stattdessen {@link #get(Project, Image)} benutzen
+	 * @deprecated Stattdessen {@link #get(Project, Image)} benutzen.
 	 */
 	@Deprecated
 	public static BufferedImage get(int gameid, String filename)
@@ -86,12 +86,12 @@ public class ImageProvider {
 	 * Liefert ein Bild, dass auf Pewn hochgeladen wurde.
 	 * 
 	 * @param project
-	 *            Das Projekt zu dem das Bild gehört
+	 *            Das Projekt zu dem das Bild gehört.
 	 * @param filename
-	 *            Das Image-Objekt des Bildes
-	 * @return Das Bild
+	 *            Das Image-Objekt des Bildes.
+	 * @return Das Bild.
 	 * @throws IOException
-	 *             wenn ein Fehler beim Lesen des Bilds auftritt
+	 *             wenn ein Fehler beim Lesen des Bilds auftritt.
 	 * @see #get(int, String, int, int)
 	 */
 	public static BufferedImage get(Project project, Image image)

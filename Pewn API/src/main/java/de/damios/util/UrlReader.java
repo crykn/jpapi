@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 
 /**
- * Bietet Methoden zum Auslesen des Inhalts einer Seite
+ * Bietet Methoden zum Auslesen des Inhalts einer Seite.
  * 
  * @author damios
  * @since 0.1.0
@@ -17,14 +17,14 @@ public class UrlReader {
 	}
 
 	/**
-	 * Liefert den Inhalt einer Seite als String
+	 * Liefert den Inhalt einer Seite als String.
 	 * 
 	 * @param url
-	 *            Die URL
-	 * @return Seiteninhalt
+	 *            Die URL.
+	 * @return Inhalt der Seite als Text.
 	 * @throws IOException
 	 *             wenn ein Fehler beim Öffnen des Streams oder beim Lesen der
-	 *             Seite auftritt
+	 *             Seite auftritt.
 	 */
 	public static String read(URL url) throws IOException {
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(

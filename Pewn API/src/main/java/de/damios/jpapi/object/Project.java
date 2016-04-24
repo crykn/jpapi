@@ -11,10 +11,10 @@ import com.google.gson.annotations.SerializedName;
 import de.damios.jpapi.core.ApiRequest;
 
 /**
- * <i>Java Repräsentierung des JSON-Projekt-Objekts</i>
+ * <i>Java Repräsentierung des JSON-Projekt-Objekts.</i>
  * 
  * @author damios
- * @version 0.1.0
+ * @since 0.1.0
  */
 public class Project implements Serializable {
 
@@ -66,11 +66,11 @@ public class Project implements Serializable {
 	}
 
 	/**
-	 * Der Rückgabetyp wird noch zu float geändert, sobald die Pewn-API auch die
-	 * Nachkommastellen der Bewertungen liefert.
+	 * Der Rückgabetyp wird eventuell noch zu float geändert, sobald die
+	 * Pewn-API auch die Nachkommastellen der Bewertungen liefert.
 	 * 
 	 * @return Die Durchschnitts-Bewertung des Spiels (Nachkommastellen
-	 *         weggelassen)
+	 *         weggelassen).
 	 */
 	public int getRating() {
 		return rating;
@@ -101,9 +101,7 @@ public class Project implements Serializable {
 	}
 
 	/**
-	 * Liefert den Link zum Ausführen des Spiels im Browser
-	 * 
-	 * @return URL
+	 * @return Liefert den Link zum Ausführen des Spiels im Browser.
 	 */
 	public URL getWebDownloadUrl() {
 		return downloadWeb;
@@ -118,14 +116,14 @@ public class Project implements Serializable {
 	}
 
 	/**
-	 * Liefert alle Bewertungen eines Spiels
+	 * Liefert alle Bewertungen eines Spiels.
 	 * 
 	 * @return Die Bewertungen als Rating-Array; wenn eine Projekt noch keine
-	 *         Bewertung erhalten hat, ein leeres Array
+	 *         Bewertung erhalten hat, ein leeres Array.
 	 * @throws IOException
-	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
+	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
 	 * @throws JsonSyntaxException
-	 *             wenn ein Fehler beim Parsen auftritt
+	 *             wenn ein Fehler beim Parsen auftritt.
 	 * @see Rating#get(int)
 	 */
 	public Rating[] getRatings() throws JsonSyntaxException, IOException {
@@ -133,14 +131,14 @@ public class Project implements Serializable {
 	}
 
 	/**
-	 * Liefert alle Hashtags in der Spielebeschreibung
+	 * Liefert alle Hashtags in der Spielebeschreibung.
 	 * 
 	 * @return Die Hashtags als Hashtag-Array; wenn eine Projekt mit keinerlei
-	 *         Hashtags versehen ist, ein leeres Array
+	 *         Hashtags versehen ist, ein leeres Array.
 	 * @throws IOException
-	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
+	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
 	 * @throws JsonSyntaxException
-	 *             wenn ein Fehler beim Parsen auftritt
+	 *             wenn ein Fehler beim Parsen auftritt.
 	 * @see Hashtag#get(int)
 	 */
 	public Hashtag[] getHashtags() throws JsonSyntaxException, IOException {
@@ -149,16 +147,16 @@ public class Project implements Serializable {
 
 	/**
 	 * Liefert alle Projekte eines bestimmten Nutzers, aufsteigend nach
-	 * Erstellungsdatum sortiert
+	 * Erstellungsdatum sortiert.
 	 * 
 	 * @param username
 	 *            Nutzername
 	 * @return Die Projekte als Project-Array; wenn ein Nutzer keine Projekte
-	 *         hat, ein leeres Array
+	 *         hat, ein leeres Array.
 	 * @throws IOException
-	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
+	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
 	 * @throws JsonSyntaxException
-	 *             wenn ein Fehler beim Parsen auftritt
+	 *             wenn ein Fehler beim Parsen auftritt.
 	 * @see ApiRequest#execute(String, Class)
 	 */
 	public static Project[] get(String username) throws JsonSyntaxException,
@@ -167,16 +165,16 @@ public class Project implements Serializable {
 	}
 
 	/**
-	 * Liefert ein bestimmtes Spiel anhand seiner Id
+	 * Liefert ein bestimmtes Spiel anhand seiner Id.
 	 * 
 	 * @param gameid
-	 *            Die Spieleid
-	 * @return Das Projekt
+	 *            Die Spieleid.
+	 * @return Das Projekt.
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt, speziell
-	 *             eine FileNotFoundException, wenn das Spiel nicht existiert
+	 *             eine FileNotFoundException, wenn das Spiel nicht existiert.
 	 * @throws JsonSyntaxException
-	 *             wenn ein Fehler beim Parsen auftritt
+	 *             wenn ein Fehler beim Parsen auftritt.
 	 * @see ApiRequest#execute(String, Class)
 	 */
 	public static Project get(int gameid) throws JsonSyntaxException,
@@ -185,13 +183,13 @@ public class Project implements Serializable {
 	}
 
 	/**
-	 * Liefert das neueste Spiel
+	 * Liefert das neueste Spiel.
 	 * 
-	 * @return Das Projekt
+	 * @return Das Projekt.
 	 * @throws IOException
-	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
+	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
 	 * @throws JsonSyntaxException
-	 *             wenn ein Fehler beim Parsen auftritt
+	 *             wenn ein Fehler beim Parsen auftritt.
 	 * @see ApiRequest#execute(String, Class)
 	 */
 	public static Project getLatest() throws JsonSyntaxException, IOException {
@@ -199,13 +197,13 @@ public class Project implements Serializable {
 	}
 
 	/**
-	 * Liefert ein zufälliges Spiel
+	 * Liefert ein zufälliges Spiel.
 	 * 
 	 * @return Das Projekt
 	 * @throws IOException
-	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
+	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
 	 * @throws JsonSyntaxException
-	 *             wenn ein Fehler beim Parsen auftritt
+	 *             wenn ein Fehler beim Parsen auftritt.
 	 * @see ApiRequest#execute(String, Class)
 	 */
 	public static Project getRandom() throws JsonSyntaxException, IOException {
@@ -213,15 +211,16 @@ public class Project implements Serializable {
 	}
 
 	/**
-	 * Liefert alle Spiele {@link OrderedBy sortiert}
+	 * Liefert alle Spiele auf Pewn in einer {@link OrderedBy bestimmten
+	 * Reihenfolge}.
 	 * 
 	 * @param ord
-	 *            Reihenfolge
-	 * @return Alle Projekte als Project-Array
+	 *            Reihenfolge, in der die Spiele sortiert sein sollen.
+	 * @return Alle Projekte als Project-Array.
 	 * @throws IOException
-	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
+	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
 	 * @throws JsonSyntaxException
-	 *             wenn ein Fehler beim Parsen auftritt
+	 *             wenn ein Fehler beim Parsen auftritt.
 	 * @see ApiRequest#execute(String, Class)
 	 */
 	public static Project[] getAll(OrderedBy ord) throws JsonSyntaxException,
@@ -231,23 +230,25 @@ public class Project implements Serializable {
 	}
 
 	/**
-	 * Gibt die Reihenfolge an, in der Spiele sortiert sein sollen
+	 * Gibt die Reihenfolge an, in der Spiele sortiert sein sollen. <li>
+	 * {@link #CREATION_DATE Erstellungsdatum}</li> <li>{@link #UPDATE_DATE
+	 * Letztes Update}</li> <li>{@link #RATING Bewertung}</li>
 	 * 
 	 * @author damios
-	 * @version 0.1.0
+	 * @since 0.1.0
 	 * @see Project#getAll(OrderedBy)
 	 */
 	public static enum OrderedBy implements Serializable {
 		/**
-		 * Nach Erstellungsdatum sortieren (Neuestes zuerst)
+		 * Nach Erstellungsdatum sortieren (Neuestes zuerst).
 		 */
 		CREATION_DATE("creation"),
 		/**
-		 * Nach Datum des letzten Updates sortieren (Neuestes zuerst)
+		 * Nach Datum des letzten Updates sortieren (Neuestes zuerst).
 		 */
 		UPDATE_DATE("update"),
 		/**
-		 * Nach Bewertung sortieren (Höhere Bewertung zuerst)
+		 * Nach Bewertung sortieren (Höhere Bewertung zuerst).
 		 */
 		RATING("rating");
 

@@ -18,7 +18,7 @@ import de.damios.util.UrlReader;
 
 /**
  * Diese Klasse führt die Anfragen an die <a
- * href="http://pewn.de/papi/">Pewn-API</a> aus
+ * href="http://pewn.de/papi/">Pewn-API</a> aus.
  * 
  * @author damios
  * @since 0.1.0
@@ -29,7 +29,7 @@ public class ApiRequest {
 	}
 
 	/**
-	 * URL-Type-Adapter
+	 * URL-Type-Adapter.
 	 */
 	private static final TypeAdapter<URL> URL = new TypeAdapter<URL>() {
 		@Override
@@ -54,19 +54,19 @@ public class ApiRequest {
 	private static Gson gson = builder.create();
 
 	/**
-	 * Liest den Inhalt einer Seite aus und parst ihn zur gegebenen Java-Klasse <br>
+	 * Liest den Inhalt einer Seite aus und parst ihn zur gegebenen Java-Klasse.
 	 * 
 	 * @param <T>
-	 *            Typ des Rückgabewerts
+	 *            Typ des Rückgabewerts.
 	 * @param url
-	 *            URL des JSON-Dokuments
+	 *            URL des JSON-Dokuments.
 	 * @param clazz
-	 *            Die Klasse des Rückgabewerts
-	 * @return Geparstes Objekt
+	 *            Die Klasse des Rückgabewerts.
+	 * @return Geparstes Objekt.
 	 * @throws JsonSyntaxException
-	 *             wenn ein Problem beim Verarbeiten der JSON-Elemente auftritt
+	 *             wenn ein Problem beim Verarbeiten der JSON-Elemente auftritt.
 	 * @throws IOException
-	 *             wenn ein Fehler beim Lesen der Seite auftritt
+	 *             wenn ein Fehler beim Lesen der Seite auftritt.
 	 * @see UrlReader#read(URL)
 	 */
 	private static <T> T readJson(URL url, Class<T> clazz)
@@ -75,21 +75,21 @@ public class ApiRequest {
 	}
 
 	/**
-	 * Führt einen API-Request aus
+	 * Führt einen API-Request aus.
 	 * 
 	 * @param <T>
-	 *            Typ des Rückgabewerts
+	 *            Typ des Rückgabewerts.
 	 * @param request
 	 *            API-Request (Der Teil der Request-URL nach "api/", im Format
 	 *            "v123/x/y", Beispiel: "{@linkplain Project#getRandom()
-	 *            v1/game/random}"),
+	 *            v1/game/random}").
 	 * @param clazz
-	 *            Die Klasse des Rückgabewerts
-	 * @return Ergebnis der Anfrage
+	 *            Die Klasse des Rückgabewerts.
+	 * @return Ergebnis der Anfrage.
 	 * @throws IOException
-	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
+	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
 	 * @throws JsonSyntaxException
-	 *             wenn ein Fehler beim Parsen auftritt
+	 *             wenn ein Fehler beim Parsen auftritt.
 	 * @see #readJson(URL, Class)
 	 */
 	public static <T> T execute(String request, Class<T> clazz)

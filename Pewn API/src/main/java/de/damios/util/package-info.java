@@ -1,4 +1,4 @@
 /**
- * Beinhaltet Utility-Klassen
+ * Beinhaltet Utility-Klassen.
  */
 package de.damios.util;

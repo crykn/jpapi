@@ -9,10 +9,10 @@ import com.google.gson.annotations.SerializedName;
 import de.damios.jpapi.core.ApiRequest;
 
 /**
- * Java Repräsentierung des JSON-Hashtag-Objekts
+ * <i>Java Repräsentierung des JSON-Hashtag-Objekts.</i>
  * 
  * @author damios
- * @version 0.4.0
+ * @since 0.4.0
  */
 public class Hashtag implements Serializable {
 
@@ -34,45 +34,41 @@ public class Hashtag implements Serializable {
 	}
 
 	/**
-	 * Liefert Anzahl der Projekte, in denen der Hashtag benutzt wurde
-	 * 
-	 * @return Anzahl der Benutzungen
+	 * @return Liefert die Anzahl der Projekte, in denen der Hashtag benutzt wurde.
 	 */
 	public int getUsageCount() {
 		return usedInProjectsCount;
 	}
 
 	/**
-	 * Liefert die Kategorie, der der Hashtags zugeordnet wurde
-	 * 
-	 * @return Kategorie des Hashtags
+	 * @return Liefert die Kategorie, der der Hashtag zugeordnet wurde.
 	 */
 	public HashtagCategory getCategory() {
 		return category;
 	}
 
 	/**
-	 * Liefert den Metatag des Hashtags, der dazu dient synonyme Hashtags unter
+	 * Liefert den Metatag des Hashtags, der dazu dient, synonyme Hashtags unter
 	 * einem Überbegriff zusammenzufassen. Wenn ein Metatag vorhanden ist,
 	 * sollte der Metatag anstelle des eigentlichen Hashtags verwendet werden.
 	 * 
-	 * @return Der Metatag des Hashtags; null wenn keiner vorhanden ist
+	 * @return Der Metatag des Hashtags; null wenn keiner vorhanden ist.
 	 */
 	public HashtagMetatag getMetatag() {
 		return metatag;
 	}
 
 	/**
-	 * Liefert ein Array aller Hashtags eines Spiels
+	 * Liefert ein Array aller Hashtags eines Spiels.
 	 * 
 	 * @param gameid
-	 *            Die Spieleid
+	 *            Die Spieleid.
 	 * @return Die Hashtags als Hashtag-Array; wenn eine Projekt mit keinerlei
-	 *         Hashtags versehen ist, ein leeres Array
+	 *         Hashtags versehen ist, ein leeres Array.
 	 * @throws IOException
-	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
+	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
 	 * @throws JsonSyntaxException
-	 *             wenn ein Fehler beim Parsen auftritt
+	 *             wenn ein Fehler beim Parsen auftritt.
 	 * @see ApiRequest#execute(String, Class)
 	 */
 	public static Hashtag[] get(int gameid) throws JsonSyntaxException,
@@ -82,10 +78,10 @@ public class Hashtag implements Serializable {
 	}
 
 	/**
-	 * <i>Java Repräsentierung des JSON-Hashtag-Kategorie-Objekts</i>
+	 * <i>Java Repräsentierung des JSON-Hashtag-Kategorie-Objekts.</i>
 	 * 
 	 * @author damios
-	 * @version 0.4.0
+	 * @since 0.4.0
 	 */
 	public class HashtagCategory implements Serializable {
 
@@ -103,11 +99,11 @@ public class Hashtag implements Serializable {
 	}
 
 	/**
-	 * <i>Java Repräsentierung des JSON-Hashtag-Metatag-Objekts</i><br>
+	 * <i>Java Repräsentierung des JSON-Hashtag-Metatag-Objekts.</i><br>
 	 * Dient dazu, synonyme Hashtags unter einem Überbegriff zusammenzufassen.
 	 * 
 	 * @author damios
-	 * @version 0.4.2
+	 * @since 0.4.2
 	 */
 	public class HashtagMetatag implements Serializable {
 

@@ -10,10 +10,10 @@ import com.google.gson.annotations.SerializedName;
 import de.damios.jpapi.core.ApiRequest;
 
 /**
- * <i>Java Repräsentierung des JSON-Bild-Objekts</i>
+ * <i>Java Repräsentierung des JSON-Bild-Objekts.</i>
  * 
  * @author damios
- * @version 0.1.0
+ * @since 0.1.0
  */
 public class Image implements Serializable {
 
@@ -30,18 +30,14 @@ public class Image implements Serializable {
 	}
 
 	/**
-	 * Liefert den Namen der Datei
-	 * 
-	 * @return Dateiname
+	 * @return Liefert den Namen der Datei.
 	 */
 	public String getFileName() {
 		return fileName;
 	}
 
 	/**
-	 * Liefert die Größe des Bildes
-	 * 
-	 * @return Bildgröße in Kilobyte
+	 * @return Liefert die Größe des Bildes in Kilobyte.
 	 */
 	public int getFileSize() {
 		return fileSize;
@@ -56,15 +52,15 @@ public class Image implements Serializable {
 	}
 
 	/**
-	 * Liefert ein Array aller Bilder eines Spiels
+	 * Liefert ein Array aller Bilder eines Spiels.
 	 * 
 	 * @param gameid
-	 *            Die Spieleid
+	 *            Die Spieleid.
 	 * @return Image-Array
 	 * @throws IOException
-	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt
+	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
 	 * @throws JsonSyntaxException
-	 *             wenn ein Fehler beim Parsen auftritt
+	 *             wenn ein Fehler beim Parsen auftritt.
 	 * @see ApiRequest#execute(String, Class)
 	 */
 	public static Image[] get(int gameid) throws JsonSyntaxException,
