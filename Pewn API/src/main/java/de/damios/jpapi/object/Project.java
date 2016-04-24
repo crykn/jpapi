@@ -1,5 +1,6 @@
 package de.damios.jpapi.object;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
 import java.net.URL;
@@ -67,7 +68,7 @@ public class Project implements Serializable {
 
 	/**
 	 * Der Rückgabetyp wird eventuell noch zu float geändert, sobald die
-	 * Pewn-API auch die Nachkommastellen der Bewertungen liefert.
+	 * Pewn-API auch die Nachkommastellen der Bewertung liefert.
 	 * 
 	 * @return Die Durchschnitts-Bewertung des Spiels (Nachkommastellen
 	 *         weggelassen).
@@ -76,32 +77,71 @@ public class Project implements Serializable {
 		return rating;
 	}
 
+	/**
+	 * Liefert den Link zum Download einer Version für <i>Windows</i>.
+	 * 
+	 * @return Die Download-URL; wenn eine entsprechende Version nicht zum
+	 *         Download steht, null.
+	 */
 	public URL getDownloadUrlWindows() {
 		return downloadWindows;
 	}
 
+	/**
+	 * Liefert den Link zum Download einer Version für <i>Linux</i>.
+	 * 
+	 * @return Die Download-URL; wenn eine entsprechende Version nicht zum
+	 *         Download steht, null.
+	 */
 	public URL getDownloadUrlLinux() {
 		return downloadLinux;
 	}
 
+	/**
+	 * Liefert den Link zum Download einer Version für <i>Mac OS X</i>.
+	 * 
+	 * @return Die Download-URL; wenn eine entsprechende Version nicht zum
+	 *         Download steht, null.
+	 */
 	public URL getDownloadUrlMacOS() {
 		return downloadMacOs;
 	}
 
+	/**
+	 * Liefert den Link zum Download einer Version für <i>Android</i>.
+	 * 
+	 * @return Die Download-URL; wenn eine entsprechende Version nicht zum
+	 *         Download steht, null.
+	 */
 	public URL getDownloadUrlAndroid() {
 		return downloadAndroid;
 	}
 
+	/**
+	 * Liefert den Link zum Download einer Version für <i>iOS</i>.
+	 * 
+	 * @return Die Download-URL; wenn eine entsprechende Version nicht zum
+	 *         Download steht, null.
+	 */
 	public URL getDownloadUrlIos() {
 		return downloadIos;
 	}
 
+	/**
+	 * Liefert den Link zum Download einer Version für <i>Windows Phone</i>.
+	 * 
+	 * @return Die Download-URL; wenn eine entsprechende Version nicht zum
+	 *         Download steht, null.
+	 */
 	public URL getDownloadUrlWindowsPhone() {
 		return downloadWindowsPhone;
 	}
 
 	/**
-	 * @return Liefert den Link zum Ausführen des Spiels im Browser.
+	 * Liefert den Link zum Ausführen des Spiels im Browser.
+	 * 
+	 * @return Die URL; wenn eine entsprechende Version nicht verfügbar ist,
+	 *         null.
 	 */
 	public URL getWebDownloadUrl() {
 		return downloadWeb;
@@ -171,8 +211,9 @@ public class Project implements Serializable {
 	 *            Die Spieleid.
 	 * @return Das Projekt.
 	 * @throws IOException
-	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt, speziell
-	 *             eine FileNotFoundException, wenn das Spiel nicht existiert.
+	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt; speziell
+	 *             eine {@linkplain FileNotFoundException}, wenn das Spiel nicht
+	 *             existiert.
 	 * @throws JsonSyntaxException
 	 *             wenn ein Fehler beim Parsen auftritt.
 	 * @see ApiRequest#execute(String, Class)
