@@ -148,7 +148,8 @@ public class Project implements Serializable {
 	}
 
 	/**
-	 * Liefert alle Projekte eines bestimmten Nutzers
+	 * Liefert alle Projekte eines bestimmten Nutzers, aufsteigend nach
+	 * Erstellungsdatum sortiert
 	 * 
 	 * @param username
 	 *            Nutzername
