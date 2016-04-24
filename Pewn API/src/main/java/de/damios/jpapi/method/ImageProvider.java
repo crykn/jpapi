@@ -10,6 +10,8 @@ import javax.imageio.ImageIO;
 
 import de.damios.jpapi.core.Constants;
 import de.damios.jpapi.exception.JpapiInternalException;
+import de.damios.jpapi.object.Image;
+import de.damios.jpapi.object.Project;
 
 /**
  * Liefert Methoden um auf der Seite gespeicherte Bilder zu erhalten
@@ -23,7 +25,7 @@ public class ImageProvider {
 	}
 
 	/**
-	 * Liefert ein Bild<br>
+	 * Liefert ein Bild, dass auf Pewn hochgeladen wurde.<br>
 	 * <i>Von Breite und Höhe wird nur der Wert verwendet, dessen relative
 	 * Veränderung zum Ursprungswert am kleinsten ist (auch negativ Werte werden
 	 * beachtet!), um das ursprüngliche Seitenverhältnis des Bildes
@@ -41,6 +43,7 @@ public class ImageProvider {
 	 * @throws IOException
 	 *             wenn ein Fehler beim Lesen des Bilds auftritt
 	 * @see #get(int, String)
+	 * @see #get(Project, Image)
 	 * @see ImageIO#read(URL)
 	 */
 	public static BufferedImage get(int gameid, String filename, int width,
@@ -61,7 +64,7 @@ public class ImageProvider {
 	}
 
 	/**
-	 * Liefert ein Bild
+	 * Liefert ein Bild, dass auf Pewn hochgeladen wurde.
 	 * 
 	 * @param gameid
 	 *            Die Spieleid
@@ -71,9 +74,28 @@ public class ImageProvider {
 	 * @throws IOException
 	 *             wenn ein Fehler beim Lesen des Bilds auftritt
 	 * @see #get(int, String, int, int)
+	 * @deprecated Stattdessen {@link #get(Project, Image)} benutzen
 	 */
+	@Deprecated
 	public static BufferedImage get(int gameid, String filename)
 			throws IOException {
 		return get(gameid, filename, -1, -1);
+	}
+	
+	/**
+	 * Liefert ein Bild, dass auf Pewn hochgeladen wurde.
+	 * 
+	 * @param project
+	 *            Das Projekt zu dem das Bild gehört
+	 * @param filename
+	 *            Das Image-Objekt des Bildes
+	 * @return Das Bild
+	 * @throws IOException
+	 *             wenn ein Fehler beim Lesen des Bilds auftritt
+	 * @see #get(int, String, int, int)
+	 */
+	public static BufferedImage get(Project project, Image image)
+			throws IOException {
+		return get(project.getId(), image.getFileName());
 	}
 }
