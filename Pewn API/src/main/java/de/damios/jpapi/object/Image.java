@@ -11,6 +11,15 @@ import de.damios.jpapi.core.ApiRequest;
 
 /**
  * <i>Java Repr‰sentierung des JSON-Bild-Objekts.</i>
+ * <p>
+ * Zum Herunterladen des eigentlichen Bildes muss die
+ * {@linkplain de.damios.jpapi.method.ImageProvider ImageProvider}-Klasse
+ * verwendet werden. Das sieht im Normalfall folgendermaﬂen aus:
+ * <pre>
+ * {@code  
+ * BufferedImage bufferedImage = ImageProvider.get(project, image)  
+ * }
+ * </pre>
  * 
  * @author damios
  * @since 0.1.0

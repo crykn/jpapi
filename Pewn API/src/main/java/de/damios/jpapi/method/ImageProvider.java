@@ -14,7 +14,8 @@ import de.damios.jpapi.object.Image;
 import de.damios.jpapi.object.Project;
 
 /**
- * Beinhaltet Methoden, um auf der Seite gespeicherte Bilder zu erhalten.
+ * Beinhaltet ausschließlich statische Methoden zum Erhalten der auf Pewn
+ * gespeicherten Bilder.
  * 
  * @author damios
  * @since 0.1.0
@@ -25,7 +26,8 @@ public class ImageProvider {
 	}
 
 	/**
-	 * Liefert ein Bild, dass auf Pewn hochgeladen wurde.<br>
+	 * Liefert ein Bild, das auf Pewn hochgeladen wurde.
+	 * <p>
 	 * <i>Von Breite und Höhe wird nur der Wert verwendet, dessen relative
 	 * Veränderung zum Ursprungswert am kleinsten ist (auch negativ Werte werden
 	 * beachtet!), um das ursprüngliche Seitenverhältnis des Bildes
@@ -64,7 +66,7 @@ public class ImageProvider {
 	}
 
 	/**
-	 * Liefert ein Bild, dass auf Pewn hochgeladen wurde.
+	 * Liefert ein Bild, das auf Pewn hochgeladen wurde.
 	 * 
 	 * @param gameid
 	 *            Die Spieleid.
@@ -81,9 +83,9 @@ public class ImageProvider {
 			throws IOException {
 		return get(gameid, filename, -1, -1);
 	}
-	
+
 	/**
-	 * Liefert ein Bild, dass auf Pewn hochgeladen wurde.
+	 * Liefert ein Bild, das auf Pewn hochgeladen wurde.
 	 * 
 	 * @param project
 	 *            Das Projekt zu dem das Bild gehört.

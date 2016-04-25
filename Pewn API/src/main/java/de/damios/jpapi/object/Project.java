@@ -13,6 +13,8 @@ import de.damios.jpapi.core.ApiRequest;
 
 /**
  * <i>Java Repräsentierung des JSON-Projekt-Objekts.</i>
+ * <p>
+ * Die zentrale Klasse zum Umgang mit den Spielen auf Pewn.
  * 
  * @author damios
  * @since 0.1.0
@@ -20,6 +22,12 @@ import de.damios.jpapi.core.ApiRequest;
 public class Project implements Serializable {
 
 	private static final long serialVersionUID = 110L;
+	/**
+	 * Die individuelle Id eines jeden Spiels. Ist in der URL des Spiels auf
+	 * Pewn zu finden (Bsp.: "http://pewn.de/game/12345-test/" -> id: 12345).
+	 * 
+	 * @see #getId()
+	 */
 	private int id;
 	@SerializedName("content")
 	private String description;
@@ -42,6 +50,10 @@ public class Project implements Serializable {
 	@SerializedName("fileContainers")
 	private Image[] images;
 
+	/**
+	 * @return Liefert die individuelle Id eines Spiels.
+	 * @see #id
+	 */
 	public int getId() {
 		return id;
 	}
@@ -67,8 +79,10 @@ public class Project implements Serializable {
 	}
 
 	/**
-	 * Der Rückgabetyp wird eventuell noch zu float geändert, sobald die
-	 * Pewn-API auch die Nachkommastellen der Bewertung liefert.
+	 * Liefert die Durchschnitts-Bewertung des Spiels.
+	 * <p>
+	 * <i>Der Rückgabetyp wird eventuell noch zu float geändert, sobald die
+	 * Pewn-API auch die Nachkommastellen der Bewertung liefert. </i>
 	 * 
 	 * @return Die Durchschnitts-Bewertung des Spiels (Nachkommastellen
 	 *         weggelassen).
@@ -151,6 +165,9 @@ public class Project implements Serializable {
 		return version;
 	}
 
+	/**
+	 * @return Liefert alle Bilder, die dem Spiel zugeordnet sind.
+	 */
 	public Image[] getImages() {
 		return images;
 	}
@@ -186,13 +203,13 @@ public class Project implements Serializable {
 	}
 
 	/**
-	 * Liefert alle Projekte eines bestimmten Nutzers, aufsteigend nach
+	 * Liefert alle Spiele eines bestimmten Nutzers, aufsteigend nach
 	 * Erstellungsdatum sortiert.
 	 * 
 	 * @param username
 	 *            Nutzername
-	 * @return Die Projekte als Project-Array; wenn ein Nutzer keine Projekte
-	 *         hat, ein leeres Array.
+	 * @return Die Spiele als Project-Array; wenn ein Nutzer keine Spiele hat,
+	 *         ein leeres Array.
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
 	 * @throws JsonSyntaxException
@@ -205,11 +222,12 @@ public class Project implements Serializable {
 	}
 
 	/**
-	 * Liefert ein bestimmtes Spiel anhand seiner Id.
+	 * Liefert ein bestimmtes Spiel anhand dessen individueller {@linkplain #id
+	 * Id}.
 	 * 
 	 * @param gameid
 	 *            Die Spieleid.
-	 * @return Das Projekt.
+	 * @return Das Spiel.
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt; speziell
 	 *             eine {@linkplain FileNotFoundException}, wenn das Spiel nicht
@@ -226,7 +244,7 @@ public class Project implements Serializable {
 	/**
 	 * Liefert das neueste Spiel.
 	 * 
-	 * @return Das Projekt.
+	 * @return Das Spiel.
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
 	 * @throws JsonSyntaxException
@@ -240,7 +258,7 @@ public class Project implements Serializable {
 	/**
 	 * Liefert ein zufälliges Spiel.
 	 * 
-	 * @return Das Projekt
+	 * @return Das Spiel.
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
 	 * @throws JsonSyntaxException
@@ -257,7 +275,7 @@ public class Project implements Serializable {
 	 * 
 	 * @param ord
 	 *            Reihenfolge, in der die Spiele sortiert sein sollen.
-	 * @return Alle Projekte als Project-Array.
+	 * @return Alle Spiele als Project-Array.
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
 	 * @throws JsonSyntaxException
@@ -271,9 +289,11 @@ public class Project implements Serializable {
 	}
 
 	/**
-	 * Gibt die Reihenfolge an, in der Spiele sortiert sein sollen. <li>
-	 * {@link #CREATION_DATE Erstellungsdatum}</li> <li>{@link #UPDATE_DATE
-	 * Letztes Update}</li> <li>{@link #RATING Bewertung}</li>
+	 * Gibt die Reihenfolge an, in der Spiele sortiert sein sollen.
+	 * <p>
+	 * <li>{@link #CREATION_DATE Erstellungsdatum}</li>
+	 * <li>{@link #UPDATE_DATE Letztes Update}</li>
+	 * <li>{@link #RATING Bewertung}</li>
 	 * 
 	 * @author damios
 	 * @since 0.1.0
@@ -282,14 +302,17 @@ public class Project implements Serializable {
 	public static enum OrderedBy implements Serializable {
 		/**
 		 * Nach Erstellungsdatum sortieren (Neuestes zuerst).
+		 * @see Project#creationDate
 		 */
 		CREATION_DATE("creation"),
 		/**
 		 * Nach Datum des letzten Updates sortieren (Neuestes zuerst).
+		 * @see Project#lastUpdateDate
 		 */
 		UPDATE_DATE("update"),
 		/**
 		 * Nach Bewertung sortieren (Höhere Bewertung zuerst).
+		 * @see Project#rating
 		 */
 		RATING("rating");
 

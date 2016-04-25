@@ -17,8 +17,9 @@ import de.damios.jpapi.object.Project;
 import de.damios.util.UrlReader;
 
 /**
- * Diese Klasse führt die Anfragen an die <a
- * href="http://pewn.de/papi/">Pewn-API</a> aus.
+ * Diese Klasse besteht ausschließlich aus statischen Methoden, die zum
+ * Ausführen der Anfragen an die <a href="http://pewn.de/papi/">Pewn-API</a>
+ * notwendig sind.
  * 
  * @author damios
  * @since 0.1.0

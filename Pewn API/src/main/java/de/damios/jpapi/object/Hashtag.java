@@ -100,7 +100,8 @@ public class Hashtag implements Serializable {
 	}
 
 	/**
-	 * <i>Java Repräsentierung des JSON-Hashtag-Metatag-Objekts.</i><br>
+	 * <i>Java Repräsentierung des JSON-Hashtag-Metatag-Objekts.</i>
+	 * <p>
 	 * Dient dazu, synonyme Hashtags unter einem Überbegriff zusammenzufassen.
 	 * 
 	 * @author damios

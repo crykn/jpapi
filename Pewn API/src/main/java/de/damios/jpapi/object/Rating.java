@@ -50,15 +50,20 @@ public class Rating implements Serializable {
 		return text;
 	}
 
-	/** 
-	 * @return Liefert den Kommentar des Entwicklers; null wenn keiner vorhanden ist.
+	/**
+	 * @return Liefert den Kommentar des Entwicklers; null wenn keiner vorhanden
+	 *         ist.
 	 */
 	public RatingComment getComment() {
 		return comment;
 	}
 
 	/**
-	 * @return Liefert die Version des Spiels, die bewertet wurde.
+	 * Liefert die Version des Spiels, die bewertet wurde.
+	 * 
+	 * @return Die bewertete Version; bei alten Spielen null; sonderbarerweise
+	 *         manchmal einen leeren String.
+	 * @see Project#version
 	 */
 	public String getRatedVersion() {
 		return ratedVersion;
