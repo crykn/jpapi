@@ -10,6 +10,9 @@ import de.damios.jpapi.core.ApiRequest;
 
 /**
  * <i>Java Repräsentierung des JSON-Hashtag-Objekts.</i>
+ * <p>
+ * Wenn ein Hashtag einen {@linkplain HashtagMetatag Metatag} besitzt, sollte
+ * dieser anstelle des Hashtags verwendet werden.
  * 
  * @author damios
  * @since 0.4.0
@@ -103,23 +106,18 @@ public class Hashtag implements Serializable {
 	 * <i>Java Repräsentierung des JSON-Hashtag-Metatag-Objekts.</i>
 	 * <p>
 	 * Dient dazu, synonyme Hashtags unter einem Überbegriff zusammenzufassen.
+	 * <p>
+	 * Liefert bei {@linkplain Hashtag#getCategory getCategory()},
+	 * {@linkplain Hashtag#getUsageCount getUsageCount()} und
+	 * {@linkplain Hashtag#getMetatag getMetatag()} jeweils null.
 	 * 
 	 * @author damios
 	 * @since 0.4.2
 	 */
-	public class HashtagMetatag implements Serializable {
+	public class HashtagMetatag extends Hashtag implements Serializable {
 
 		private static final long serialVersionUID = 100L;
-		private int id;
-		private String name;
 
-		public int getId() {
-			return id;
-		}
-
-		public String getName() {
-			return name;
-		}
 	}
 
 }
