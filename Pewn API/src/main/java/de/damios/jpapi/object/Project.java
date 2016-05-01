@@ -92,6 +92,18 @@ public class Project implements Serializable {
 	}
 
 	/**
+	 * Liefert, ob überhaupt ein Downloadlink hinterlegt ist.
+	 * 
+	 * @return true, wenn ein Download vorhanden ist.
+	 */
+	public boolean hasDownload() {
+		return downloadWindows != null || downloadLinux != null
+				|| downloadMacOs != null || downloadWeb != null
+				|| downloadAndroid != null || downloadIos != null
+				|| downloadWindowsPhone != null;
+	}
+
+	/**
 	 * Liefert den Link zum Download einer Version für <i>Windows</i>.
 	 * 
 	 * @return Die Download-URL; wenn eine entsprechende Version nicht zum
@@ -302,16 +314,19 @@ public class Project implements Serializable {
 	public static enum OrderedBy implements Serializable {
 		/**
 		 * Nach Erstellungsdatum sortieren (Neuestes zuerst).
+		 * 
 		 * @see Project#creationDate
 		 */
 		CREATION_DATE("creation"),
 		/**
 		 * Nach Datum des letzten Updates sortieren (Neuestes zuerst).
+		 * 
 		 * @see Project#lastUpdateDate
 		 */
 		UPDATE_DATE("update"),
 		/**
 		 * Nach Bewertung sortieren (Höhere Bewertung zuerst).
+		 * 
 		 * @see Project#rating
 		 */
 		RATING("rating");
