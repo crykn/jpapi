@@ -60,6 +60,7 @@ public class Project implements Serializable {
 
 	/**
 	 * @return Liefert die Beschreibung des Spiels auf Pewn.
+	 * @see #getHashtags
 	 */
 	public String getDescriptionText() {
 		return description;
@@ -209,7 +210,7 @@ public class Project implements Serializable {
 	/**
 	 * Liefert alle Bewertungen eines Spiels.
 	 * 
-	 * @return Die Bewertungen als Rating-Array; wenn eine Projekt noch keine
+	 * @return Die Bewertungen als Rating-Array; wenn ein Projekt noch keine
 	 *         Bewertung erhalten hat, ein leeres Array.
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
@@ -224,7 +225,7 @@ public class Project implements Serializable {
 	/**
 	 * Liefert alle Hashtags in der Spielebeschreibung.
 	 * 
-	 * @return Die Hashtags als Hashtag-Array; wenn eine Projekt mit keinerlei
+	 * @return Die Hashtags als Hashtag-Array; wenn ein Projekt mit keinerlei
 	 *         Hashtags versehen ist, ein leeres Array.
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.

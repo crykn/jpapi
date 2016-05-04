@@ -38,7 +38,7 @@ public class Rating implements Serializable {
 	}
 
 	/**
-	 * @return Liefert den Zahlenwert der Bewertung; Dabei sind Werte von 0 bis
+	 * @return Liefert den Zahlenwert der Bewertung; dabei sind Werte von 0 bis
 	 *         10 möglich.
 	 */
 	public int getRating() {

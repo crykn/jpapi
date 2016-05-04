@@ -139,7 +139,7 @@ public class Hashtag implements Serializable {
 	 * @author damios
 	 * @since 0.4.2
 	 */
-	public class HashtagMetatag extends Hashtag implements Serializable {
+	public class HashtagMetatag extends Hashtag {
 
 		private static final long serialVersionUID = 100L;
 
