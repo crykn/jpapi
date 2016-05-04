@@ -15,6 +15,7 @@ import de.damios.jpapi.core.ApiRequest;
  * Zum Herunterladen des eigentlichen Bildes muss die
  * {@linkplain de.damios.jpapi.method.ImageProvider ImageProvider}-Klasse
  * verwendet werden. Das sieht im Normalfall folgendermaßen aus:
+ * 
  * <pre>
  * {@code  
  * BufferedImage bufferedImage = ImageProvider.get(project, image)  
@@ -34,6 +35,9 @@ public class Image implements Serializable {
 	@SerializedName("customer")
 	private User author;
 
+	/**
+	 * @return Liefert die individuelle ID des Bildes.
+	 */
 	public int getId() {
 		return id;
 	}
@@ -52,10 +56,16 @@ public class Image implements Serializable {
 		return fileSize;
 	}
 
+	/**
+	 * @return Liefert den Zeitpunkt des Hochladens des Bildes.
+	 */
 	public Timestamp getUploadDate() {
 		return uploadDate;
 	}
 
+	/**
+	 * @return Liefert den Nutzer, der das Bild hochgeladen hat.
+	 */
 	public User getAuthor() {
 		return author;
 	}
@@ -64,7 +74,7 @@ public class Image implements Serializable {
 	 * Liefert ein Array aller Bilder eines Spiels.
 	 * 
 	 * @param gameid
-	 *            Die Spieleid.
+	 *            Die Spiele-ID.
 	 * @return Image-Array
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.

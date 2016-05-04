@@ -28,10 +28,20 @@ public class Hashtag implements Serializable {
 	@SerializedName("hashtagMetaTag")
 	private HashtagMetatag metatag;
 
+	/**
+	 * @return Liefert die individuelle ID des Hashtags.
+	 */
 	public int getId() {
 		return id;
 	}
 
+	/**
+	 * Liefert den Namen des Hashtags.
+	 * <p>
+	 * Jeder Name ist einzigartig und stellt das Hauptmerkmal des Hashtags dar.
+	 * 
+	 * @return Name des Hashtags.
+	 */
 	public String getName() {
 		return name;
 	}
@@ -66,7 +76,7 @@ public class Hashtag implements Serializable {
 	 * Liefert ein Array aller Hashtags eines Spiels.
 	 * 
 	 * @param gameid
-	 *            Die Spieleid.
+	 *            Die Spiele-ID.
 	 * @return Die Hashtags als Hashtag-Array; wenn eine Projekt mit keinerlei
 	 *         Hashtags versehen ist, ein leeres Array.
 	 * @throws IOException
@@ -83,6 +93,9 @@ public class Hashtag implements Serializable {
 
 	/**
 	 * <i>Java Repräsentierung des JSON-Hashtag-Kategorie-Objekts.</i>
+	 * <p>
+	 * Dient dazu, Hashtags, die ähnliche Merkmale beschreiben, in Kategorien
+	 * zusammenzufassen (z.B.: Genres, Betriebssysteme).
 	 * 
 	 * @author damios
 	 * @since 0.4.0
@@ -93,10 +106,21 @@ public class Hashtag implements Serializable {
 		private int id;
 		private String name;
 
+		/**
+		 * @return Liefert die individuelle ID der Hashtag-Kategorie.
+		 */
 		public int getId() {
 			return id;
 		}
 
+		/**
+		 * Liefert den Namen der Hashtag-Kategorie.
+		 * <p>
+		 * Jeder Name ist einzigartig und stellt das Hauptmerkmal der Kategorie
+		 * dar.
+		 * 
+		 * @return Name der Kategorie.
+		 */
 		public String getName() {
 			return name;
 		}
@@ -107,7 +131,8 @@ public class Hashtag implements Serializable {
 	 * <p>
 	 * Dient dazu, synonyme Hashtags unter einem Überbegriff zusammenzufassen.
 	 * <p>
-	 * Liefert bei {@linkplain Hashtag#getCategory getCategory()},
+	 * Verhält sich genauso wie ein Hashtag, liefert allerdings bei
+	 * {@linkplain Hashtag#getCategory getCategory()},
 	 * {@linkplain Hashtag#getUsageCount getUsageCount()} und
 	 * {@linkplain Hashtag#getMetatag getMetatag()} jeweils null.
 	 * 

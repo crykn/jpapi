@@ -34,7 +34,7 @@ public class ImageProvider {
 	 * beizubehalten.</i>
 	 * 
 	 * @param gameid
-	 *            Die Spieleid.
+	 *            Die Spiele-ID.
 	 * @param filename
 	 *            Der Dateiname des Bildes.
 	 * @param width
@@ -69,7 +69,7 @@ public class ImageProvider {
 	 * Liefert ein Bild, das auf Pewn hochgeladen wurde.
 	 * 
 	 * @param gameid
-	 *            Die Spieleid.
+	 *            Die Spiele-ID.
 	 * @param filename
 	 *            Der Dateiname des Bildes.
 	 * @return Das Bild.
@@ -89,7 +89,7 @@ public class ImageProvider {
 	 * 
 	 * @param project
 	 *            Das Projekt zu dem das Bild gehört.
-	 * @param filename
+	 * @param image
 	 *            Das Image-Objekt des Bildes.
 	 * @return Das Bild.
 	 * @throws IOException

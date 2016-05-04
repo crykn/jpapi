@@ -23,8 +23,8 @@ public class Project implements Serializable {
 
 	private static final long serialVersionUID = 110L;
 	/**
-	 * Die individuelle Id eines jeden Spiels. Ist in der URL des Spiels auf
-	 * Pewn zu finden (Bsp.: "http://pewn.de/game/12345-test/" -> id: 12345).
+	 * Die individuelle ID eines jeden Spiels. Ist in der URL des Spiels auf
+	 * Pewn zu finden (Bsp.: "http://pewn.de/game/12345-test/" -&gt; ID: 12345).
 	 * 
 	 * @see #getId()
 	 */
@@ -51,29 +51,44 @@ public class Project implements Serializable {
 	private Image[] images;
 
 	/**
-	 * @return Liefert die individuelle Id eines Spiels.
+	 * @return Liefert die individuelle ID des Spiels.
 	 * @see #id
 	 */
 	public int getId() {
 		return id;
 	}
 
+	/**
+	 * @return Liefert die Beschreibung des Spiels auf Pewn.
+	 */
 	public String getDescriptionText() {
 		return description;
 	}
 
+	/**
+	 * @return Liefert den Namen des Spiels.
+	 */
 	public String getName() {
 		return title;
 	}
 
+	/**
+	 * @return Liefert das Erstellungsdatum des Spiels.
+	 */
 	public Timestamp getCreationDate() {
 		return creationDate;
 	}
 
+	/**
+	 * @return Liefert den Zeitpunkt des letzten Updates.
+	 */
 	public Timestamp getLastUpdateDate() {
 		return lastUpdateDate;
 	}
 
+	/**
+	 * @return Liefert den Entwickler des Spiels.
+	 */
 	public User getAuthor() {
 		return author;
 	}
@@ -173,6 +188,13 @@ public class Project implements Serializable {
 		return downloadWeb;
 	}
 
+	/**
+	 * Liefert die Version des Spiels.
+	 * <p>
+	 * Es gibt keinerlei Vorgaben zum Format der Versionierung.
+	 * 
+	 * @return Die Version.
+	 */
 	public String getVersion() {
 		return version;
 	}
@@ -235,10 +257,10 @@ public class Project implements Serializable {
 
 	/**
 	 * Liefert ein bestimmtes Spiel anhand dessen individueller {@linkplain #id
-	 * Id}.
+	 * ID}.
 	 * 
 	 * @param gameid
-	 *            Die Spieleid.
+	 *            Die Spiele-ID.
 	 * @return Das Spiel.
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt; speziell
@@ -302,10 +324,11 @@ public class Project implements Serializable {
 
 	/**
 	 * Gibt die Reihenfolge an, in der Spiele sortiert sein sollen.
-	 * <p>
-	 * <li>{@link #CREATION_DATE Erstellungsdatum}</li>
-	 * <li>{@link #UPDATE_DATE Letztes Update}</li>
-	 * <li>{@link #RATING Bewertung}</li>
+	 * <ul>
+	 * <li>{@link #CREATION_DATE Erstellungsdatum}
+	 * <li>{@link #UPDATE_DATE Letztes Update}
+	 * <li>{@link #RATING Bewertung}
+	 * </ul>
 	 * 
 	 * @author damios
 	 * @since 0.1.0

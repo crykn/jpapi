@@ -24,10 +24,21 @@ public class User implements Serializable {
 	private int xp;
 	private Timestamp registrationDate;
 
+	/**
+	 * @return Liefert die individuelle ID des Nutzers.
+	 */
 	public int getId() {
 		return id;
 	}
 
+	/**
+	 * Liefert den Namen des Nutzers.
+	 * <p>
+	 * Jeder Nutzername ist einzigartig; Länge zwischen 3 und 15 Zeichen; nur
+	 * folgende Zeichen sind erlaubt: a-z, 0-9, '.', '_', '-'.
+	 * 
+	 * @return Der Nutzername.
+	 */
 	public String getName() {
 		return username;
 	}
@@ -72,6 +83,9 @@ public class User implements Serializable {
 		return xp;
 	}
 
+	/**
+	 * @return Liefert das Registrierungsdatum des Nutzers.
+	 */
 	public Timestamp getRegistrationDate() {
 		return registrationDate;
 	}
@@ -79,8 +93,8 @@ public class User implements Serializable {
 	/**
 	 * Liefert alle Spiele des Nutzers.
 	 * 
-	 * @return Die Spiele als Project-Array; wenn ein Nutzer keine Spiele
-	 *         hat, ein leeres Array.
+	 * @return Die Spiele als Project-Array; wenn ein Nutzer keine Spiele hat,
+	 *         ein leeres Array.
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
 	 * @throws JsonSyntaxException
