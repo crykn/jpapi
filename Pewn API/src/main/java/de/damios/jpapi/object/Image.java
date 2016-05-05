@@ -43,7 +43,9 @@ public class Image implements Serializable {
 	}
 
 	/**
-	 * @return Liefert den Namen der Datei.
+	 * Liefert den Namen der Bild-Datei.
+	 * 
+	 * @return Der Name mit Dateinamenserweiterung.
 	 */
 	public String getFileName() {
 		return fileName;

@@ -67,7 +67,12 @@ public class Project implements Serializable {
 	}
 
 	/**
-	 * @return Liefert den Namen des Spiels.
+	 * Liefert den Namen des Spiels.
+	 * <p>
+	 * Der Name kann jederzeit geändert werden und sollte daher nicht als
+	 * Identifikationsmerkmal für Spiele verwendet werden.
+	 * 
+	 * @return Der Projektname.
 	 */
 	public String getName() {
 		return title;
@@ -88,7 +93,13 @@ public class Project implements Serializable {
 	}
 
 	/**
-	 * @return Liefert den Entwickler des Spiels.
+	 * Liefert den Ersteller des Spiels.
+	 * <p>
+	 * Sofern das Spiel nicht einem Entwickler-Team zugewiesen ist, ist der
+	 * Ersteller auch der Entwickler. Der Ersteller hat umfangreichere
+	 * Befugnisse als andere Entwickler des Spiels.
+	 * 
+	 * @return Ersteller des Spiels.
 	 */
 	public User getAuthor() {
 		return author;

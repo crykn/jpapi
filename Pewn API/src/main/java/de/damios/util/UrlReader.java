@@ -18,6 +18,8 @@ public class UrlReader {
 
 	/**
 	 * Liefert den Inhalt einer Seite als String.
+	 * <p>
+	 * Der verwendete Zeichensatz ist UTF-8.
 	 * 
 	 * @param url
 	 *            Die URL.
@@ -27,8 +29,24 @@ public class UrlReader {
 	 *             Seite auftritt.
 	 */
 	public static String read(URL url) throws IOException {
+		return read(url, "UTF-8");
+	}
+
+	/**
+	 * Liefert den Inhalt einer Seite als String.
+	 * 
+	 * @param url
+	 *            Die URL.
+	 * @param charset
+	 *            Der verwendete Zeichensatz.
+	 * @return Inhalt der Seite als Text.
+	 * @throws IOException
+	 *             wenn ein Fehler beim Öffnen des Streams oder beim Lesen der
+	 *             Seite auftritt.
+	 */
+	public static String read(URL url, String charset) throws IOException {
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(
-				url.openStream(), "UTF-8"))) {
+				url.openStream(), charset))) {
 			StringBuffer buffer = new StringBuffer();
 			int read;
 			char[] chars = new char[1024];

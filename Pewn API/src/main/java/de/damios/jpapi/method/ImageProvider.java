@@ -28,10 +28,11 @@ public class ImageProvider {
 	/**
 	 * Liefert ein Bild, das auf Pewn hochgeladen wurde.
 	 * <p>
-	 * <i>Von Breite und Höhe wird nur der Wert verwendet, dessen relative
-	 * Veränderung zum Ursprungswert am kleinsten ist (auch negativ Werte werden
-	 * beachtet!), um das ursprüngliche Seitenverhältnis des Bildes
-	 * beizubehalten.</i>
+	 * Von Breite und Höhe wird nur der Wert verwendet, dessen relative
+	 * Veränderung zum Ursprungswert am kleinsten ist (auch negative Werte
+	 * werden beachtet!), um das ursprüngliche Seitenverhältnis des Bildes
+	 * beizubehalten. Wenn einer oder beide der Parameter Breite und Höhe
+	 * kleiner als 0 sind, wird die ursprüngliche Größe des Bildes beibehalten.
 	 * 
 	 * @param gameid
 	 *            Die Spiele-ID.
@@ -44,8 +45,8 @@ public class ImageProvider {
 	 * @return Das Bild.
 	 * @throws IOException
 	 *             wenn ein Fehler beim Lesen des Bilds auftritt.
-	 * @see #get(int, String)
 	 * @see #get(Project, Image)
+	 * @see #get(Project, Image, int, int)
 	 * @see ImageIO#read(URL)
 	 */
 	public static BufferedImage get(int gameid, String filename, int width,
@@ -86,18 +87,51 @@ public class ImageProvider {
 
 	/**
 	 * Liefert ein Bild, das auf Pewn hochgeladen wurde.
+	 * <p>
+	 * Von Breite und Höhe wird nur der Wert verwendet, dessen relative
+	 * Veränderung zum Ursprungswert am kleinsten ist (auch negative Werte
+	 * werden beachtet!), um das ursprüngliche Seitenverhältnis des Bildes
+	 * beizubehalten. Wenn einer oder beide der Parameter Breite und Höhe
+	 * kleiner als 0 sind, wird die ursprüngliche Größe des Bildes beibehalten.
+	 * <p>
+	 * <i>Der Project-Parameter wird in absehbarer Zeit entfernt werden!</i>
 	 * 
 	 * @param project
-	 *            Das Projekt zu dem das Bild gehört.
+	 *            Das Spiel, zu dem das Bild gehört.
+	 * @param image
+	 *            Das Image-Objekt des Bildes.
+	 * @param width
+	 *            Die Bildbreite.
+	 * @param height
+	 *            Die Bildhöhe.
+	 * @return Das Bild.
+	 * @throws IOException
+	 *             wenn ein Fehler beim Lesen des Bilds auftritt.
+	 * @see #get(int, String, int, int)
+	 * @see #get(Project, Image)
+	 * @see ImageIO#read(URL)
+	 */
+	public static BufferedImage get(Project project, Image image, int width,
+			int height) throws IOException {
+		return get(project.getId(), image.getFileName(), width, height);
+	}
+
+	/**
+	 * Liefert ein Bild, das auf Pewn hochgeladen wurde.
+	 * <p>
+	 * <i>Der Project-Parameter wird in absehbarer Zeit entfernt werden!</i>
+	 * 
+	 * @param project
+	 *            Das Spiel, zu dem das Bild gehört.
 	 * @param image
 	 *            Das Image-Objekt des Bildes.
 	 * @return Das Bild.
 	 * @throws IOException
 	 *             wenn ein Fehler beim Lesen des Bilds auftritt.
-	 * @see #get(int, String, int, int)
+	 * @see #get(Project, Image, int, int)
 	 */
 	public static BufferedImage get(Project project, Image image)
 			throws IOException {
-		return get(project.getId(), image.getFileName());
+		return get(project, image, -1, -1);
 	}
 }
