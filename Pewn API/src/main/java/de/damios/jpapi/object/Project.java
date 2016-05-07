@@ -253,7 +253,8 @@ public class Project implements Serializable {
 	 * Erstellungsdatum sortiert.
 	 * 
 	 * @param username
-	 *            Nutzername
+	 *            Der Name des Entwicklers, dessen Spiele abgerufen werden
+	 *            sollen.
 	 * @return Die Spiele als Project-Array; wenn ein Nutzer keine Spiele hat,
 	 *         ein leeres Array.
 	 * @throws IOException
