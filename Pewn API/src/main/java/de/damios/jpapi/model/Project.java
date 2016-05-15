@@ -223,7 +223,10 @@ public class Project implements Serializable {
 	}
 
 	/**
-	 * @return Liefert alle Bilder, die dem Spiel zugeordnet sind.
+	 * Liefert alle Bilder, die dem Spiel zugeordnet sind.
+	 * 
+	 * @return Alle zugeordneten Bilder; wenn ein Projekt keine Bilder besitzt,
+	 *         ein leeres Array.
 	 */
 	public Image[] getImages() {
 		return images;
@@ -327,9 +330,8 @@ public class Project implements Serializable {
 	 * Sendet Requests an die Pewn-API um Hashtags und Ratings zu erhalten.
 	 * <p>
 	 * Sollte in Zukunft obsolet werden. Verlängert die Ladezeiten spürbar und
-	 * lässt sich mit
-	 * {@linkplain de.damios.jpapi.core.Api#disableMultipleRequests()
-	 * Api#disableMultipleRequests()} deaktivieren.
+	 * lässt sich mit {@linkplain de.damios.jpapi.core.Api#disabledPreLoading()
+	 * Api#disabledPreLoading()} deaktivieren.
 	 * 
 	 * @param p
 	 *            Zu ladendes Projekt.
@@ -338,7 +340,7 @@ public class Project implements Serializable {
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 */
 	private static Project loadProject(Project p) throws IOException {
-		if (Api.shouldDoMultipleRequests()) {
+		if (Api.shouldPreLoad()) {
 			p.ratings = Rating.get(p.getId());
 			p.hashtags = Hashtag.get(p.getId());
 		}
@@ -349,9 +351,8 @@ public class Project implements Serializable {
 	 * Sendet Requests an die Pewn-API um Hashtags und Ratings zu erhalten.
 	 * <p>
 	 * Sollte in Zukunft obsolet werden. Verlängert die Ladezeiten spürbar und
-	 * lässt sich mit
-	 * {@linkplain de.damios.jpapi.core.Api#disableMultipleRequests()
-	 * Api#disableMultipleRequests()} deaktivieren.
+	 * lässt sich mit {@linkplain de.damios.jpapi.core.Api#disabledPreLoading()
+	 * Api#disabledPreLoading()} deaktivieren.
 	 * 
 	 * @param ps
 	 *            Zu ladende Projekte.

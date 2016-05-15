@@ -21,7 +21,8 @@ import de.damios.jpapi.core.Api;
 public class Rating implements Serializable {
 
 	/**
-	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten beinhaltet.
+	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
+	 * beinhaltet.
 	 */
 	private static RatingService service = Api
 			.createService(RatingService.class);
@@ -76,8 +77,9 @@ public class Rating implements Serializable {
 	}
 
 	/**
-	 * @return Liefert den Kommentar des Entwicklers; null wenn keiner vorhanden
-	 *         ist.
+	 * Liefert den Kommentar des Entwicklers.
+	 * 
+	 * @return Der Kommentar des Entwicklers; null wenn keiner vorhanden ist.
 	 */
 	public RatingComment getComment() {
 		return comment;
@@ -86,8 +88,8 @@ public class Rating implements Serializable {
 	/**
 	 * Liefert die Version des Spiels, die bewertet wurde.
 	 * 
-	 * @return Die bewertete Version; bei alten Spielen null; sonderbarerweise
-	 *         manchmal einen leeren String.
+	 * @return Die bewertete Version; bei alten Bewertungen null;
+	 *         sonderbarerweise manchmal einen leeren String.
 	 * @see Project#version
 	 */
 	public String getRatedVersion() {

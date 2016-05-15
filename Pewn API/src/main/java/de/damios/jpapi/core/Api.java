@@ -28,13 +28,14 @@ import de.damios.jpapi.exception.JpapiInternalException;
  */
 public class Api {
 
-	private static boolean doMultipleReuqests = true;
+	private static boolean doPreLoad = true;
 
 	private Api() {
 	}
 
 	/**
 	 * URL-Type-Adapter.
+	 * @see #gson
 	 */
 	private static final TypeAdapter<URL> URL = new TypeAdapter<URL>() {
 		@Override
@@ -113,12 +114,12 @@ public class Api {
 	 * Das Deaktivieren sorgt für einen spürbaren Performance-Boost, da die
 	 * Anfragen sich um 2/3 reduzieren.
 	 */
-	public static void disableMultipleRequests() {
-		doMultipleReuqests = false;
+	public static void disabledPreLoading() {
+		doPreLoad = false;
 	}
 
-	public static boolean shouldDoMultipleRequests() {
-		return doMultipleReuqests;
+	public static boolean shouldPreLoad() {
+		return doPreLoad;
 	}
 
 }
