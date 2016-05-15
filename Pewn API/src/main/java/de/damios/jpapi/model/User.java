@@ -1,4 +1,4 @@
-package de.damios.jpapi.object;
+package de.damios.jpapi.model;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -8,7 +8,7 @@ import com.google.gson.JsonSyntaxException;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * <i>Java Repräsentierung des JSON-Benutzer-Objekts.</i>
+ * <i>Java-Modell des JSON-Benutzer-Objekts.</i>
  * 
  * @author damios
  * @since 0.1.0

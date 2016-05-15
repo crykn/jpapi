@@ -1,18 +1,20 @@
-package de.damios.jpapi.object;
+package de.damios.jpapi.model;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
 import java.net.URL;
 import java.sql.Timestamp;
 
+import retrofit2.Call;
+
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.annotations.SerializedName;
 
-import de.damios.jpapi.core.ApiRequest;
+import de.damios.jpapi.core.Api;
+import de.damios.jpapi.service.ProjectService;
 
 /**
- * <i>Java Repräsentierung des JSON-Projekt-Objekts.</i>
+ * <i>Java-Modell des JSON-Projekt-Objekts.</i>
  * <p>
  * Die zentrale Klasse zum Umgang mit den Spielen auf Pewn.
  * 
@@ -20,6 +22,9 @@ import de.damios.jpapi.core.ApiRequest;
  * @since 0.1.0
  */
 public class Project implements Serializable {
+
+	public static ProjectService service = Api.createService(
+			ProjectService.class);
 
 	private static final long serialVersionUID = 110L;
 	/**
@@ -224,9 +229,7 @@ public class Project implements Serializable {
 	 * @return Die Bewertungen als Rating-Array; wenn ein Projekt noch keine
 	 *         Bewertung erhalten hat, ein leeres Array.
 	 * @throws IOException
-	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
-	 * @throws JsonSyntaxException
-	 *             wenn ein Fehler beim Parsen auftritt.
+	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Rating#get(int)
 	 */
 	public Rating[] getRatings() throws JsonSyntaxException, IOException {
@@ -239,12 +242,10 @@ public class Project implements Serializable {
 	 * @return Die Hashtags als Hashtag-Array; wenn ein Projekt mit keinerlei
 	 *         Hashtags versehen ist, ein leeres Array.
 	 * @throws IOException
-	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
-	 * @throws JsonSyntaxException
-	 *             wenn ein Fehler beim Parsen auftritt.
+	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Hashtag#get(int)
 	 */
-	public Hashtag[] getHashtags() throws JsonSyntaxException, IOException {
+	public Hashtag[] getHashtags() throws IOException {
 		return Hashtag.get(id);
 	}
 
@@ -258,14 +259,11 @@ public class Project implements Serializable {
 	 * @return Die Spiele als Project-Array; wenn ein Nutzer keine Spiele hat,
 	 *         ein leeres Array.
 	 * @throws IOException
-	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
-	 * @throws JsonSyntaxException
-	 *             wenn ein Fehler beim Parsen auftritt.
-	 * @see ApiRequest#execute(String, Class)
+	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
+	 * @see Api#executeCall(Call)
 	 */
-	public static Project[] get(String username) throws JsonSyntaxException,
-			IOException {
-		return ApiRequest.execute("v1/game/user/" + username, Project[].class);
+	public static Project[] get(String username) throws IOException {
+		return Api.executeCall(service.get(username));
 	}
 
 	/**
@@ -274,18 +272,13 @@ public class Project implements Serializable {
 	 * 
 	 * @param gameid
 	 *            Die Spiele-ID.
-	 * @return Das Spiel.
+	 * @return Das Spiel; null, wenn das Spiel nicht existiert.
 	 * @throws IOException
-	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt; speziell
-	 *             eine {@linkplain FileNotFoundException}, wenn das Spiel nicht
-	 *             existiert.
-	 * @throws JsonSyntaxException
-	 *             wenn ein Fehler beim Parsen auftritt.
-	 * @see ApiRequest#execute(String, Class)
+	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
+	 * @see Api#executeCall(Call)
 	 */
-	public static Project get(int gameid) throws JsonSyntaxException,
-			IOException {
-		return ApiRequest.execute("v1/game/id/" + gameid, Project.class);
+	public static Project get(int gameid) throws IOException {
+		return Api.executeCall(service.get(gameid));
 	}
 
 	/**
@@ -293,13 +286,11 @@ public class Project implements Serializable {
 	 * 
 	 * @return Das Spiel.
 	 * @throws IOException
-	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
-	 * @throws JsonSyntaxException
-	 *             wenn ein Fehler beim Parsen auftritt.
-	 * @see ApiRequest#execute(String, Class)
+	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
+	 * @see Api#executeCall(Call)
 	 */
-	public static Project getLatest() throws JsonSyntaxException, IOException {
-		return ApiRequest.execute("v1/game/last", Project.class);
+	public static Project getLatest() throws IOException {
+		return Api.executeCall(service.getLatest());
 	}
 
 	/**
@@ -307,13 +298,11 @@ public class Project implements Serializable {
 	 * 
 	 * @return Das Spiel.
 	 * @throws IOException
-	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
-	 * @throws JsonSyntaxException
-	 *             wenn ein Fehler beim Parsen auftritt.
-	 * @see ApiRequest#execute(String, Class)
+	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
+	 * @see Api#executeCall(Call)
 	 */
-	public static Project getRandom() throws JsonSyntaxException, IOException {
-		return ApiRequest.execute("v1/game/random", Project.class);
+	public static Project getRandom() throws IOException {
+		return Api.executeCall(service.getRandom());
 	}
 
 	/**
@@ -324,15 +313,11 @@ public class Project implements Serializable {
 	 *            Reihenfolge, in der die Spiele sortiert sein sollen.
 	 * @return Alle Spiele als Project-Array.
 	 * @throws IOException
-	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
-	 * @throws JsonSyntaxException
-	 *             wenn ein Fehler beim Parsen auftritt.
-	 * @see ApiRequest#execute(String, Class)
+	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
+	 * @see Api#executeCall(Call)
 	 */
-	public static Project[] getAll(OrderedBy ord) throws JsonSyntaxException,
-			IOException {
-		return ApiRequest.execute("v1/game/all/" + ord.parameter,
-				Project[].class);
+	public static Project[] getAll(OrderedBy ord) throws IOException {
+		return Api.executeCall(service.getAll(ord.parameter));
 	}
 
 	/**

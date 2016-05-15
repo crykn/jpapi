@@ -2,16 +2,16 @@ package de.damios.jpapi.method;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLEncoder;
 
 import javax.imageio.ImageIO;
 
-import de.damios.jpapi.core.Constants;
-import de.damios.jpapi.exception.JpapiInternalException;
-import de.damios.jpapi.object.Image;
-import de.damios.jpapi.object.Project;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import de.damios.jpapi.core.Api;
+import de.damios.jpapi.model.Image;
+import de.damios.jpapi.model.Project;
+import de.damios.jpapi.service.ImageProviderService;
 
 /**
  * Beinhaltet ausschließlich statische Methoden zum Erhalten der auf Pewn
@@ -24,6 +24,9 @@ public class ImageProvider {
 
 	private ImageProvider() {
 	}
+
+	private static ImageProviderService service = Api
+			.createService(ImageProviderService.class);
 
 	/**
 	 * Liefert ein Bild, das auf Pewn hochgeladen wurde.
@@ -42,28 +45,22 @@ public class ImageProvider {
 	 *            Die Bildbreite.
 	 * @param height
 	 *            Die Bildhöhe.
-	 * @return Das Bild.
+	 * @return Das Bild; null, wenn das Bild nicht vorhanden ist.
 	 * @throws IOException
-	 *             wenn ein Fehler beim Lesen des Bilds auftritt.
+	 *             wenn ein Fehler bei der Anfrage oder beim Lesen des Bilds
+	 *             auftritt.
 	 * @see #get(Project, Image)
 	 * @see #get(Project, Image, int, int)
+	 * @see Api#executeCall(Call)
 	 * @see ImageIO#read(URL)
 	 */
 	public static BufferedImage get(int gameid, String filename, int width,
 			int height) throws IOException {
-		URL url;
-		try {
-			url = new URL(Constants.HOST
-					+ "image/projects/"
-					+ gameid
-					+ "/files/"
-					+ URLEncoder.encode(filename, "UTF-8")
-					+ ((width < 0 || height < 0) ? "" : ("?width=" + width
-							+ "&height=" + height)));
-		} catch (MalformedURLException e) {
-			throw new JpapiInternalException(e);
-		}
-		return ImageIO.read(url);
+		ResponseBody tmp = Api.executeCall(service.downloadImage(gameid,
+				filename, (width < 0 || height < 0) ? null : width,
+				(width < 0 || height < 0) ? null : height));
+
+		return tmp == null ? null : ImageIO.read(tmp.byteStream());
 	}
 
 	/**

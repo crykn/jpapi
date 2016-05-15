@@ -1,21 +1,26 @@
-package de.damios.jpapi.object;
+package de.damios.jpapi.model;
 
 import java.io.IOException;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-import com.google.gson.JsonSyntaxException;
+import retrofit2.Call;
+
 import com.google.gson.annotations.SerializedName;
 
-import de.damios.jpapi.core.ApiRequest;
+import de.damios.jpapi.core.Api;
+import de.damios.jpapi.service.RatingService;
 
 /**
- * <i>Java Repräsentierung des JSON-Bewertungs-Objekts.</i>
+ * <i>Java-Modell des JSON-Bewertungs-Objekts.</i>
  * 
  * @author damios
  * @since 0.4.0
  */
 public class Rating implements Serializable {
+
+	public static RatingService service = Api
+			.createService(RatingService.class);
 
 	private static final long serialVersionUID = 100L;
 	private int id;
@@ -93,21 +98,18 @@ public class Rating implements Serializable {
 	 * @return Die Bewertungen als Rating-Array; wenn eine Projekt noch keine
 	 *         Bewertung erhalten hat, ein leeres Array.
 	 * @throws IOException
-	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
-	 * @throws JsonSyntaxException
-	 *             wenn ein Fehler beim Parsen auftritt.
-	 * @see ApiRequest#execute(String, Class)
+	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
+	 * @see Api#executeCall(Call)
 	 */
-	public static Rating[] get(int gameid) throws JsonSyntaxException,
-			IOException {
-		return ApiRequest.execute("v1/game/id/" + gameid + "/ratings",
-				Rating[].class);
+	public static Rating[] get(int gameid) throws IOException {
+		return Api.executeCall(service.get(gameid));
 	}
 
 	/**
-	 * <i>Java Repräsentierung des JSON-Bewertungskommentar-Objekts.</i>
+	 * <i>Java-Modell des JSON-Bewertungskommentar-Objekts.</i>
 	 * <p>
-	 * Stellt die Antwort eines Entwicklers auf eine {@linkplain Rating Bewertung} da.
+	 * Stellt die Antwort eines Entwicklers auf eine {@linkplain Rating
+	 * Bewertung} da.
 	 * 
 	 * @author damios
 	 * @since 0.4.0

@@ -1,15 +1,17 @@
-package de.damios.jpapi.object;
+package de.damios.jpapi.model;
 
 import java.io.IOException;
 import java.io.Serializable;
 
-import com.google.gson.JsonSyntaxException;
+import retrofit2.Call;
+
 import com.google.gson.annotations.SerializedName;
 
-import de.damios.jpapi.core.ApiRequest;
+import de.damios.jpapi.core.Api;
+import de.damios.jpapi.service.HashtagService;
 
 /**
- * <i>Java Repräsentierung des JSON-Hashtag-Objekts.</i>
+ * <i>Java Modell des JSON-Hashtag-Objekts.</i>
  * <p>
  * Wenn ein Hashtag einen {@linkplain HashtagMetatag Metatag} besitzt, sollte
  * dieser anstelle des Hashtags verwendet werden.
@@ -18,6 +20,10 @@ import de.damios.jpapi.core.ApiRequest;
  * @since 0.4.0
  */
 public class Hashtag implements Serializable {
+
+	public static HashtagService service = Api
+			.createService(
+			HashtagService.class);
 
 	private static final long serialVersionUID = 100L;
 	private int id;
@@ -80,19 +86,16 @@ public class Hashtag implements Serializable {
 	 * @return Die Hashtags als Hashtag-Array; wenn eine Projekt mit keinerlei
 	 *         Hashtags versehen ist, ein leeres Array.
 	 * @throws IOException
-	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
-	 * @throws JsonSyntaxException
-	 *             wenn ein Fehler beim Parsen auftritt.
-	 * @see ApiRequest#execute(String, Class)
+	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
+	 * @see Api#executeCall(Call)
 	 */
-	public static Hashtag[] get(int gameid) throws JsonSyntaxException,
+	public static Hashtag[] get(int gameid) throws 
 			IOException {
-		return ApiRequest.execute("v1/game/id/" + gameid + "/hashtags",
-				Hashtag[].class);
+		return Api.executeCall(service.get(gameid));
 	}
 
 	/**
-	 * <i>Java Repräsentierung des JSON-Hashtag-Kategorie-Objekts.</i>
+	 * <i>Java-Modell des JSON-Hashtag-Kategorie-Objekts.</i>
 	 * <p>
 	 * Dient dazu, Hashtags, die ähnliche Merkmale beschreiben, in Kategorien
 	 * zusammenzufassen (z.B.: Genres, Betriebssysteme).
@@ -127,7 +130,7 @@ public class Hashtag implements Serializable {
 	}
 
 	/**
-	 * <i>Java Repräsentierung des JSON-Hashtag-Metatag-Objekts.</i>
+	 * <i>Java-Modell des JSON-Hashtag-Metatag-Objekts.</i>
 	 * <p>
 	 * Dient dazu, synonyme Hashtags unter einem Überbegriff zusammenzufassen.
 	 * <p>

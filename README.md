@@ -8,4 +8,6 @@ jpapi ist ein Java Wrapper für die [Pewn API](http://pewn.de/papi/). Ziel ist e
 Die aktuellste Version steht [hier](https://github.com/crykn/jpapi/releases/) zum Download bereit.
 
 ## Abhängigkeiten
-* [gson](http://search.maven.org/#artifactdetails%7Ccom.google.code.gson%7Cgson%7C2.6.2%7Cjar)
+* [Gson](http://mvnrepository.com/artifact/com.google.code.gson/gson/2.6.2)
+* [Retrofit](http://mvnrepository.com/artifact/com.squareup.retrofit2/retrofit/2.0.2)
+* [Retrofit Gson Adapter](http://mvnrepository.com/artifact/com.squareup.retrofit2/converter-gson/2.0.2)

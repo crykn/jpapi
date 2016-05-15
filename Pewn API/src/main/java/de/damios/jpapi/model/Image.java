@@ -1,20 +1,23 @@
-package de.damios.jpapi.object;
+package de.damios.jpapi.model;
 
 import java.io.IOException;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-import com.google.gson.JsonSyntaxException;
+import retrofit2.Call;
+
 import com.google.gson.annotations.SerializedName;
 
-import de.damios.jpapi.core.ApiRequest;
+import de.damios.jpapi.core.Api;
+import de.damios.jpapi.service.ImageService;
 
 /**
- * <i>Java Repräsentierung des JSON-Bild-Objekts.</i>
+ * <i>Java-Modell des JSON-Bild-Objekts.</i>
  * <p>
- * Zum Herunterladen des eigentlichen Bildes muss die
- * {@linkplain de.damios.jpapi.method.ImageProvider ImageProvider}-Klasse
- * verwendet werden. Das sieht im Normalfall folgendermaßen aus:
+ * Stellt nur die Metadaten eines Bildes dar; zum Herunterladen des eigentlichen
+ * Bildes muss die {@linkplain de.damios.jpapi.method.ImageProvider
+ * ImageProvider}-Klasse verwendet werden. Das sieht im Normalfall
+ * folgendermaßen aus:
  * 
  * <pre>
  * {@code  
@@ -26,6 +29,8 @@ import de.damios.jpapi.core.ApiRequest;
  * @since 0.1.0
  */
 public class Image implements Serializable {
+
+	public static ImageService service = Api.createService(ImageService.class);
 
 	private static final long serialVersionUID = 100L;
 	private int id;
@@ -79,15 +84,11 @@ public class Image implements Serializable {
 	 *            Die Spiele-ID.
 	 * @return Image-Array
 	 * @throws IOException
-	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
-	 * @throws JsonSyntaxException
-	 *             wenn ein Fehler beim Parsen auftritt.
-	 * @see ApiRequest#execute(String, Class)
+	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
+	 * @see Api#executeCall(Call)
 	 */
-	public static Image[] get(int gameid) throws JsonSyntaxException,
-			IOException {
-		return ApiRequest.execute("v1/game/id/" + gameid + "/images",
-				Image[].class);
+	public static Image[] get(int gameid) throws IOException {
+		return Api.executeCall(service.get(gameid));
 	}
 
 }
