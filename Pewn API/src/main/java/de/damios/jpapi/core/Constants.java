@@ -6,7 +6,7 @@ package de.damios.jpapi.core;
  * @author damios
  * @since 0.1.0
  */
-public class Constants {
+public final class Constants {
 
 	private Constants() {
 	}

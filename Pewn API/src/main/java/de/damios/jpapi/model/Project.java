@@ -6,11 +6,12 @@ import java.net.URL;
 import java.sql.Timestamp;
 
 import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 import com.google.gson.annotations.SerializedName;
 
 import de.damios.jpapi.core.Api;
-import de.damios.jpapi.service.ProjectService;
 
 /**
  * <i>Java-Modell des JSON-Projekt-Objekts.</i>
@@ -23,9 +24,9 @@ import de.damios.jpapi.service.ProjectService;
 public class Project implements Serializable {
 
 	/**
-	 * Der Service, der die Verbindung zu den API-Endpunkten beinhaltet.
+	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten beinhaltet.
 	 */
-	public static ProjectService service = Api
+	private static ProjectService service = Api
 			.createService(ProjectService.class);
 
 	private static final long serialVersionUID = 110L;
@@ -394,5 +395,31 @@ public class Project implements Serializable {
 		OrderedBy(String parameter) {
 			this.parameter = parameter;
 		}
+	}
+
+	/**
+	 * Das Service-Interface für die Verbindung zur Pewn-API, das für Projekte
+	 * zuständig ist.
+	 * 
+	 * @author damios
+	 * @since 0.5.0
+	 */
+	interface ProjectService {
+
+		@GET("v1/game/id/{id}?format=json")
+		Call<Project> get(@Path("id") int id);
+
+		@GET("v1/game/user/{username}?format=json")
+		Call<Project[]> get(@Path("username") String username);
+
+		@GET("v1/game/last?format=json")
+		Call<Project> getLatest();
+
+		@GET("v1/game/random?format=json")
+		Call<Project> getRandom();
+
+		@GET("v1/game/all/{order}?format=json")
+		Call<Project[]> getAll(@Path("order") String order);
+
 	}
 }

@@ -5,11 +5,12 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 import com.google.gson.annotations.SerializedName;
 
 import de.damios.jpapi.core.Api;
-import de.damios.jpapi.service.ImageService;
 
 /**
  * <i>Java-Modell des JSON-Bild-Objekts.</i>
@@ -31,9 +32,9 @@ import de.damios.jpapi.service.ImageService;
 public class Image implements Serializable {
 
 	/**
-	 * Der Service, der die Verbindung zu den API-Endpunkten beinhaltet.
+	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten beinhaltet.
 	 */
-	public static ImageService service = Api.createService(ImageService.class);
+	private static ImageService service = Api.createService(ImageService.class);
 
 	private static final long serialVersionUID = 100L;
 	private int id;
@@ -92,6 +93,20 @@ public class Image implements Serializable {
 	 */
 	public static Image[] get(int gameid) throws IOException {
 		return Api.executeCall(service.get(gameid));
+	}
+
+	/**
+	 * Das Service-Interface für die Verbindung zur Pewn-API, das für die
+	 * Metadaten von Bildern zuständig ist.
+	 * 
+	 * @author damios
+	 * @since 0.5.0
+	 */
+	interface ImageService {
+
+		@GET("v1/game/id/{id}/images?format=json")
+		Call<Image[]> get(@Path("id") int id);
+
 	}
 
 }

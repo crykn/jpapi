@@ -8,10 +8,12 @@ import javax.imageio.ImageIO;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 import de.damios.jpapi.core.Api;
 import de.damios.jpapi.model.Image;
 import de.damios.jpapi.model.Project;
-import de.damios.jpapi.service.ImageProviderService;
 
 /**
  * Beinhaltet ausschließlich statische Methoden zum Herunterladen der auf Pewn
@@ -25,6 +27,10 @@ public class ImageProvider {
 	private ImageProvider() {
 	}
 
+	/**
+	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
+	 * beinhaltet.
+	 */
 	private static ImageProviderService service = Api
 			.createService(ImageProviderService.class);
 
@@ -130,5 +136,21 @@ public class ImageProvider {
 	public static BufferedImage get(Project project, Image image)
 			throws IOException {
 		return get(project, image, -1, -1);
+	}
+
+	/**
+	 * Das Service-Interface für die Verbindung zur Pewn-API, das für
+	 * Bilder-Daten zuständig ist.
+	 * 
+	 * @author damios
+	 * @since 0.5.0
+	 */
+	interface ImageProviderService {
+
+		@GET("/image/projects/{gameid}/files/{filename}")
+		Call<ResponseBody> downloadImage(@Path("gameid") int gameid,
+				@Path("filename") String filename,
+				@Query("width") Integer width, @Query("height") Integer height);
+
 	}
 }

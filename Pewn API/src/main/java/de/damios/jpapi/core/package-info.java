@@ -1,6 +1,6 @@
 /**
  * Beinhaltet den Kern des Wrappers.
  * <p>
- * Für den Endnutzer des Wrappers belanglos.
+ * Alle hierin enthaltenen Klassen sind für den Endnutzer von jpapi belanglos.
  */
 package de.damios.jpapi.core;

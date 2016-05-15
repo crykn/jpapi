@@ -5,11 +5,12 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 import com.google.gson.annotations.SerializedName;
 
 import de.damios.jpapi.core.Api;
-import de.damios.jpapi.service.RatingService;
 
 /**
  * <i>Java-Modell des JSON-Bewertungs-Objekts.</i>
@@ -20,9 +21,9 @@ import de.damios.jpapi.service.RatingService;
 public class Rating implements Serializable {
 
 	/**
-	 * Der Service, der die Verbindung zu den API-Endpunkten beinhaltet.
+	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten beinhaltet.
 	 */
-	public static RatingService service = Api
+	private static RatingService service = Api
 			.createService(RatingService.class);
 
 	private static final long serialVersionUID = 100L;
@@ -156,6 +157,20 @@ public class Rating implements Serializable {
 		public User getAuthor() {
 			return author;
 		}
+
+	}
+
+	/**
+	 * Das Service-Interface für die Verbindung zur Pewn-API, das für Ratings
+	 * zuständig ist.
+	 * 
+	 * @author damios
+	 * @since 0.5.0
+	 */
+	interface RatingService {
+
+		@GET("v1/game/id/{id}/ratings?format=json")
+		Call<Rating[]> get(@Path("id") int id);
 
 	}
 
