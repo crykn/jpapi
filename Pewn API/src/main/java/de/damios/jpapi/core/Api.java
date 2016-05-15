@@ -28,6 +28,8 @@ import de.damios.jpapi.exception.JpapiInternalException;
  */
 public class Api {
 
+	private static boolean doMultipleReuqests = true;
+
 	private Api() {
 	}
 
@@ -102,6 +104,21 @@ public class Api {
 			else
 				throw e;
 		}
+	}
+
+	/**
+	 * Deaktiviert die automatischen Anfragen nach Hashtags und Ratings beim
+	 * Abrufen eines Projekts.
+	 * <p>
+	 * Das Deaktivieren sorgt für einen spürbaren Performance-Boost, da die
+	 * Anfragen sich um 2/3 reduzieren.
+	 */
+	public static void disableMultipleRequests() {
+		doMultipleReuqests = false;
+	}
+
+	public static boolean shouldDoMultipleRequests() {
+		return doMultipleReuqests;
 	}
 
 }

@@ -24,7 +24,8 @@ import de.damios.jpapi.core.Api;
 public class Project implements Serializable {
 
 	/**
-	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten beinhaltet.
+	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
+	 * beinhaltet.
 	 */
 	private static ProjectService service = Api
 			.createService(ProjectService.class);
@@ -325,7 +326,10 @@ public class Project implements Serializable {
 	/**
 	 * Sendet Requests an die Pewn-API um Hashtags und Ratings zu erhalten.
 	 * <p>
-	 * Sollten in Zukunft obsolet werden.
+	 * Sollte in Zukunft obsolet werden. Verlängert die Ladezeiten spürbar und
+	 * lässt sich mit
+	 * {@linkplain de.damios.jpapi.core.Api#disableMultipleRequests()
+	 * Api#disableMultipleRequests()} deaktivieren.
 	 * 
 	 * @param p
 	 *            Zu ladendes Projekt.
@@ -334,15 +338,20 @@ public class Project implements Serializable {
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 */
 	private static Project loadProject(Project p) throws IOException {
-		p.ratings = Rating.get(p.getId());
-		p.hashtags = Hashtag.get(p.getId());
+		if (Api.shouldDoMultipleRequests()) {
+			p.ratings = Rating.get(p.getId());
+			p.hashtags = Hashtag.get(p.getId());
+		}
 		return p;
 	}
 
 	/**
 	 * Sendet Requests an die Pewn-API um Hashtags und Ratings zu erhalten.
 	 * <p>
-	 * Sollten in Zukunft obsolet werden.
+	 * Sollte in Zukunft obsolet werden. Verlängert die Ladezeiten spürbar und
+	 * lässt sich mit
+	 * {@linkplain de.damios.jpapi.core.Api#disableMultipleRequests()
+	 * Api#disableMultipleRequests()} deaktivieren.
 	 * 
 	 * @param ps
 	 *            Zu ladende Projekte.
