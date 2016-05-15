@@ -21,9 +21,11 @@ import de.damios.jpapi.service.HashtagService;
  */
 public class Hashtag implements Serializable {
 
+	/**
+	 * Der Service, der die Verbindung zu den API-Endpunkten beinhaltet.
+	 */
 	public static HashtagService service = Api
-			.createService(
-			HashtagService.class);
+			.createService(HashtagService.class);
 
 	private static final long serialVersionUID = 100L;
 	private int id;
@@ -89,8 +91,7 @@ public class Hashtag implements Serializable {
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)
 	 */
-	public static Hashtag[] get(int gameid) throws 
-			IOException {
+	public static Hashtag[] get(int gameid) throws IOException {
 		return Api.executeCall(service.get(gameid));
 	}
 

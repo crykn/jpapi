@@ -52,12 +52,12 @@ public class Api {
 		}
 	};
 
-	private static GsonBuilder builder = new GsonBuilder().setDateFormat(
-			"yyyy-MM-dd HH:mm:ss").registerTypeAdapter(URL.class, URL);
 	/**
 	 * Gson-Parser.
 	 */
-	private static Gson gson = builder.create();
+	private static Gson gson = new GsonBuilder()
+			.setDateFormat("yyyy-MM-dd HH:mm:ss")
+			.registerTypeAdapter(URL.class, URL).create();
 
 	/**
 	 * REST-Adapter.
@@ -70,6 +70,8 @@ public class Api {
 	 * Erstellt eine Implementation der API-Endpunkte, die im übergebenen
 	 * Interface definiert werden.
 	 * 
+	 * @param <T>
+	 *            Der Typ des Services.
 	 * @param service
 	 *            Die Klasse des Service-Interfaces.
 	 * @return Der Service.
@@ -82,7 +84,7 @@ public class Api {
 	/**
 	 * Führt eine Anfrage an die Pewn-API aus und liefert die Antwort.
 	 * 
-	 * @param T
+	 * @param <T>
 	 *            Der Typ der Antwort.
 	 * @param call
 	 *            Die Anfrage.

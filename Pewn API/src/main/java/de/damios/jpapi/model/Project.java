@@ -7,7 +7,6 @@ import java.sql.Timestamp;
 
 import retrofit2.Call;
 
-import com.google.gson.JsonSyntaxException;
 import com.google.gson.annotations.SerializedName;
 
 import de.damios.jpapi.core.Api;
@@ -23,8 +22,11 @@ import de.damios.jpapi.service.ProjectService;
  */
 public class Project implements Serializable {
 
-	public static ProjectService service = Api.createService(
-			ProjectService.class);
+	/**
+	 * Der Service, der die Verbindung zu den API-Endpunkten beinhaltet.
+	 */
+	public static ProjectService service = Api
+			.createService(ProjectService.class);
 
 	private static final long serialVersionUID = 110L;
 	/**
@@ -54,6 +56,8 @@ public class Project implements Serializable {
 	private String version;
 	@SerializedName("fileContainers")
 	private Image[] images;
+	private Rating[] ratings;
+	private Hashtag[] hashtags;
 
 	/**
 	 * @return Liefert die individuelle ID des Spiels.
@@ -228,25 +232,21 @@ public class Project implements Serializable {
 	 * 
 	 * @return Die Bewertungen als Rating-Array; wenn ein Projekt noch keine
 	 *         Bewertung erhalten hat, ein leeres Array.
-	 * @throws IOException
-	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Rating#get(int)
 	 */
-	public Rating[] getRatings() throws JsonSyntaxException, IOException {
-		return Rating.get(id);
+	public Rating[] getRatings() {
+		return ratings;
 	}
 
 	/**
-	 * Liefert alle Hashtags in der Spielebeschreibung.
+	 * Liefert alle Hashtags, die mit dem Spiel verknüpft sind.
 	 * 
 	 * @return Die Hashtags als Hashtag-Array; wenn ein Projekt mit keinerlei
 	 *         Hashtags versehen ist, ein leeres Array.
-	 * @throws IOException
-	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Hashtag#get(int)
 	 */
-	public Hashtag[] getHashtags() throws IOException {
-		return Hashtag.get(id);
+	public Hashtag[] getHashtags() {
+		return hashtags;
 	}
 
 	/**
@@ -263,7 +263,7 @@ public class Project implements Serializable {
 	 * @see Api#executeCall(Call)
 	 */
 	public static Project[] get(String username) throws IOException {
-		return Api.executeCall(service.get(username));
+		return loadProject(Api.executeCall(service.get(username)));
 	}
 
 	/**
@@ -278,7 +278,8 @@ public class Project implements Serializable {
 	 * @see Api#executeCall(Call)
 	 */
 	public static Project get(int gameid) throws IOException {
-		return Api.executeCall(service.get(gameid));
+		Api.executeCall(service.get(gameid)).author = new User();
+		return loadProject(Api.executeCall(service.get(gameid)));
 	}
 
 	/**
@@ -290,7 +291,7 @@ public class Project implements Serializable {
 	 * @see Api#executeCall(Call)
 	 */
 	public static Project getLatest() throws IOException {
-		return Api.executeCall(service.getLatest());
+		return loadProject(Api.executeCall(service.getLatest()));
 	}
 
 	/**
@@ -302,7 +303,7 @@ public class Project implements Serializable {
 	 * @see Api#executeCall(Call)
 	 */
 	public static Project getRandom() throws IOException {
-		return Api.executeCall(service.getRandom());
+		return loadProject(Api.executeCall(service.getRandom()));
 	}
 
 	/**
@@ -317,7 +318,43 @@ public class Project implements Serializable {
 	 * @see Api#executeCall(Call)
 	 */
 	public static Project[] getAll(OrderedBy ord) throws IOException {
-		return Api.executeCall(service.getAll(ord.parameter));
+		return loadProject(Api.executeCall(service.getAll(ord.parameter)));
+	}
+
+	/**
+	 * Sendet Requests an die Pewn-API um Hashtags und Ratings zu erhalten.
+	 * <p>
+	 * Sollten in Zukunft obsolet werden.
+	 * 
+	 * @param p
+	 *            Zu ladendes Projekt.
+	 * @return Vollständiges Projekt.
+	 * @throws IOException
+	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
+	 */
+	private static Project loadProject(Project p) throws IOException {
+		p.ratings = Rating.get(p.getId());
+		p.hashtags = Hashtag.get(p.getId());
+		return p;
+	}
+
+	/**
+	 * Sendet Requests an die Pewn-API um Hashtags und Ratings zu erhalten.
+	 * <p>
+	 * Sollten in Zukunft obsolet werden.
+	 * 
+	 * @param ps
+	 *            Zu ladende Projekte.
+	 * @return Vollständige Projekte.
+	 * @throws IOException
+	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
+	 * @see {@link #loadProject(Project[])}
+	 */
+	private static Project[] loadProject(Project[] ps) throws IOException {
+		for (Project p : ps) {
+			loadProject(p);
+		}
+		return ps;
 	}
 
 	/**

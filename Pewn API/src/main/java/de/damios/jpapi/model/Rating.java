@@ -19,6 +19,9 @@ import de.damios.jpapi.service.RatingService;
  */
 public class Rating implements Serializable {
 
+	/**
+	 * Der Service, der die Verbindung zu den API-Endpunkten beinhaltet.
+	 */
 	public static RatingService service = Api
 			.createService(RatingService.class);
 
@@ -94,7 +97,7 @@ public class Rating implements Serializable {
 	 * Liefert ein Array aller Bewertungen eines Spiels.
 	 * 
 	 * @param gameid
-	 *            Die Spiele-ID
+	 *            Die Spiele-ID.
 	 * @return Die Bewertungen als Rating-Array; wenn eine Projekt noch keine
 	 *         Bewertung erhalten hat, ein leeres Array.
 	 * @throws IOException

@@ -30,6 +30,9 @@ import de.damios.jpapi.service.ImageService;
  */
 public class Image implements Serializable {
 
+	/**
+	 * Der Service, der die Verbindung zu den API-Endpunkten beinhaltet.
+	 */
 	public static ImageService service = Api.createService(ImageService.class);
 
 	private static final long serialVersionUID = 100L;

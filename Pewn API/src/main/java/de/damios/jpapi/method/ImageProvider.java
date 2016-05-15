@@ -14,7 +14,7 @@ import de.damios.jpapi.model.Project;
 import de.damios.jpapi.service.ImageProviderService;
 
 /**
- * Beinhaltet ausschlieﬂlich statische Methoden zum Erhalten der auf Pewn
+ * Beinhaltet ausschlieﬂlich statische Methoden zum Herunterladen der auf Pewn
  * gespeicherten Bilder.
  * 
  * @author damios
