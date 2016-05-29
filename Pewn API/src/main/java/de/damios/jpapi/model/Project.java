@@ -58,8 +58,9 @@ public class Project implements Serializable {
 	private String version;
 	@SerializedName("fileContainers")
 	private Image[] images;
-	private Rating[] ratings;
+	// private Rating[] ratings;
 	private Hashtag[] hashtags;
+	private Team team;
 
 	/**
 	 * @return Liefert die individuelle ID des Spiels.
@@ -106,14 +107,24 @@ public class Project implements Serializable {
 	/**
 	 * Liefert den Ersteller des Spiels.
 	 * <p>
-	 * Sofern das Spiel nicht einem Entwickler-Team zugewiesen ist, ist der
-	 * Ersteller auch der Entwickler. Der Ersteller hat umfangreichere
-	 * Befugnisse als andere Entwickler des Spiels.
+	 * Sofern das Spiel nicht einem {@linkplain #getTeam() Entwickler-Team}
+	 * zugewiesen ist, ist der Ersteller auch der Entwickler. Der Ersteller hat
+	 * umfangreichere Befugnisse als andere Entwickler des Spiels.
 	 * 
 	 * @return Ersteller des Spiels.
 	 */
 	public User getAuthor() {
 		return author;
+	}
+
+	/**
+	 * Liefert das Entwickler-Team, dem das Projekt gehört.
+	 * 
+	 * @return Das Entwickler-Team.
+	 * @see #getAuthor
+	 */
+	public Team getTeam() {
+		return team;
 	}
 
 	/**
@@ -237,10 +248,12 @@ public class Project implements Serializable {
 	 * 
 	 * @return Die Bewertungen als Rating-Array; wenn ein Projekt noch keine
 	 *         Bewertung erhalten hat, ein leeres Array.
+	 * @throws IOException
+	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Rating#get(int)
 	 */
-	public Rating[] getRatings() {
-		return ratings;
+	public Rating[] getRatings() throws IOException {
+		return Rating.get(id);
 	}
 
 	/**
@@ -248,7 +261,7 @@ public class Project implements Serializable {
 	 * 
 	 * @return Die Hashtags als Hashtag-Array; wenn ein Projekt mit keinerlei
 	 *         Hashtags versehen ist, ein leeres Array.
-	 * @see Hashtag#get(int)
+	 * @see Hashtag#getProjectHashtags(int)
 	 */
 	public Hashtag[] getHashtags() {
 		return hashtags;
@@ -268,7 +281,7 @@ public class Project implements Serializable {
 	 * @see Api#executeCall(Call)
 	 */
 	public static Project[] get(String username) throws IOException {
-		return loadProject(Api.executeCall(service.get(username)));
+		return Api.executeCall(service.get(username));
 	}
 
 	/**
@@ -283,8 +296,7 @@ public class Project implements Serializable {
 	 * @see Api#executeCall(Call)
 	 */
 	public static Project get(int gameid) throws IOException {
-		Api.executeCall(service.get(gameid)).author = new User();
-		return loadProject(Api.executeCall(service.get(gameid)));
+		return Api.executeCall(service.get(gameid));
 	}
 
 	/**
@@ -296,7 +308,7 @@ public class Project implements Serializable {
 	 * @see Api#executeCall(Call)
 	 */
 	public static Project getLatest() throws IOException {
-		return loadProject(Api.executeCall(service.getLatest()));
+		return Api.executeCall(service.getLatest());
 	}
 
 	/**
@@ -308,7 +320,7 @@ public class Project implements Serializable {
 	 * @see Api#executeCall(Call)
 	 */
 	public static Project getRandom() throws IOException {
-		return loadProject(Api.executeCall(service.getRandom()));
+		return Api.executeCall(service.getRandom());
 	}
 
 	/**
@@ -323,49 +335,7 @@ public class Project implements Serializable {
 	 * @see Api#executeCall(Call)
 	 */
 	public static Project[] getAll(OrderedBy ord) throws IOException {
-		return loadProject(Api.executeCall(service.getAll(ord.parameter)));
-	}
-
-	/**
-	 * Sendet Requests an die Pewn-API um Hashtags und Ratings zu erhalten.
-	 * <p>
-	 * Sollte in Zukunft obsolet werden. Verlängert die Ladezeiten spürbar und
-	 * lässt sich mit {@linkplain de.damios.jpapi.core.Api#disabledPreLoading()
-	 * Api#disabledPreLoading()} deaktivieren.
-	 * 
-	 * @param p
-	 *            Zu ladendes Projekt.
-	 * @return Vollständiges Projekt.
-	 * @throws IOException
-	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
-	 */
-	private static Project loadProject(Project p) throws IOException {
-		if (Api.shouldPreLoad()) {
-			p.ratings = Rating.get(p.getId());
-			p.hashtags = Hashtag.get(p.getId());
-		}
-		return p;
-	}
-
-	/**
-	 * Sendet Requests an die Pewn-API um Hashtags und Ratings zu erhalten.
-	 * <p>
-	 * Sollte in Zukunft obsolet werden. Verlängert die Ladezeiten spürbar und
-	 * lässt sich mit {@linkplain de.damios.jpapi.core.Api#disabledPreLoading()
-	 * Api#disabledPreLoading()} deaktivieren.
-	 * 
-	 * @param ps
-	 *            Zu ladende Projekte.
-	 * @return Vollständige Projekte.
-	 * @throws IOException
-	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
-	 * @see {@link #loadProject(Project[])}
-	 */
-	private static Project[] loadProject(Project[] ps) throws IOException {
-		for (Project p : ps) {
-			loadProject(p);
-		}
-		return ps;
+		return Api.executeCall(service.getAll(ord.parameter));
 	}
 
 	/**
@@ -419,8 +389,8 @@ public class Project implements Serializable {
 		@GET("v1/game/id/{id}?format=json")
 		Call<Project> get(@Path("id") int id);
 
-		@GET("v1/game/user/{username}?format=json")
-		Call<Project[]> get(@Path("username") String username);
+		@GET("v1/user/name/{username}/games?format=json")
+		Call<Project[]> get(@Path("name") String name);
 
 		@GET("v1/game/last?format=json")
 		Call<Project> getLatest();

@@ -28,13 +28,12 @@ import de.damios.jpapi.exception.JpapiInternalException;
  */
 public class Api {
 
-	private static boolean doPreLoad = true;
-
 	private Api() {
 	}
 
 	/**
 	 * URL-Type-Adapter.
+	 * 
 	 * @see #gson
 	 */
 	private static final TypeAdapter<URL> URL = new TypeAdapter<URL>() {
@@ -105,21 +104,6 @@ public class Api {
 			else
 				throw e;
 		}
-	}
-
-	/**
-	 * Deaktiviert die automatischen Anfragen nach Hashtags und Ratings beim
-	 * Abrufen eines Projekts.
-	 * <p>
-	 * Das Deaktivieren sorgt für einen spürbaren Performance-Boost, da die
-	 * Anfragen sich um 2/3 reduzieren.
-	 */
-	public static void disabledPreLoading() {
-		doPreLoad = false;
-	}
-
-	public static boolean shouldPreLoad() {
-		return doPreLoad;
 	}
 
 }

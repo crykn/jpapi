@@ -92,7 +92,7 @@ public class Hashtag implements Serializable {
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)
 	 */
-	public static Hashtag[] get(int gameid) throws IOException {
+	public static Hashtag[] getProjectHashtags(int gameid) throws IOException {
 		return Api.executeCall(service.get(gameid));
 	}
 
