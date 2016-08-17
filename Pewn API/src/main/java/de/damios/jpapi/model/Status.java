@@ -43,7 +43,7 @@ public class Status implements Serializable {
 	/**
 	 * Liefert den momentanen API-Status.
 	 * 
-	 * @return Der API-Status;
+	 * @return Der API-Status.
 	 * @throws IOException
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)
