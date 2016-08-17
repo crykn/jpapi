@@ -14,7 +14,7 @@ public final class Constants {
 	/**
 	 * Adresse des Hosts, an den alle Anfragen gehen ({@value}).
 	 */
-	public static final String HOST = "http://pewn.de/";
+	public static final String HOST = "https://pewn.de/";
 	/**
 	 * Root-Verzeichnis der API ({@value}).
 	 */
