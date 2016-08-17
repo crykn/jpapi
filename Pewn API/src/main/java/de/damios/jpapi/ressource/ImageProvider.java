@@ -79,11 +79,11 @@ public class ImageProvider {
 	 * @return Das Bild.
 	 * @throws IOException
 	 *             wenn ein Fehler beim Lesen des Bilds auftritt.
-	 * @see #get(int, String, int, int)
+	 * @see #get(long, String, int, int)
 	 * @deprecated Stattdessen {@link #get(Project, Image)} benutzen.
 	 */
 	@Deprecated
-	public static BufferedImage get(int gameid, String filename)
+	public static BufferedImage get(long gameid, String filename)
 			throws IOException {
 		return get(gameid, filename, -1, -1);
 	}
@@ -110,7 +110,7 @@ public class ImageProvider {
 	 * @return Das Bild.
 	 * @throws IOException
 	 *             wenn ein Fehler beim Lesen des Bilds auftritt.
-	 * @see #get(int, String, int, int)
+	 * @see #get(long, String, int, int)
 	 * @see #get(Project, Image)
 	 * @see ImageIO#read(URL)
 	 */

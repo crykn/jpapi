@@ -107,7 +107,7 @@ public class User implements Serializable {
 	 *         ein leeres Array.
 	 * @throws IOException
 	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
-	 * @see Project#get(String)
+	 * @see Project#getByUserId(long)
 	 */
 	public Project[] getProjects() throws IOException {
 		return Project.getByUserId(id);

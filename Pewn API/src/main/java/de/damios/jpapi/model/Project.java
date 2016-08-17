@@ -245,7 +245,7 @@ public class Project implements Serializable {
 	 *         Bewertung erhalten hat, ein leeres Array.
 	 * @throws IOException
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
-	 * @see Rating#get(int)
+	 * @see Rating#getByProjectId(long)
 	 */
 	public Rating[] getRatings() throws IOException {
 		return Rating.getByProjectId(id);
@@ -256,7 +256,7 @@ public class Project implements Serializable {
 	 * 
 	 * @return Die Hashtags als Hashtag-Array; wenn ein Projekt mit keinerlei
 	 *         Hashtags versehen ist, ein leeres Array.
-	 * @see Hashtag#getProjectHashtags(int)
+	 * @see Hashtag#getProjectHashtags(long)
 	 */
 	public Hashtag[] getHashtags() {
 		return hashtags;
