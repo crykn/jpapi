@@ -1,4 +1,4 @@
-package de.damios.jpapi.method;
+package de.damios.jpapi.ressource;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -60,7 +60,7 @@ public class ImageProvider {
 	 * @see Api#executeCall(Call)
 	 * @see ImageIO#read(URL)
 	 */
-	public static BufferedImage get(int gameid, String filename, int width,
+	public static BufferedImage get(long gameid, String filename, int width,
 			int height) throws IOException {
 		ResponseBody tmp = Api.executeCall(service.downloadImage(gameid,
 				filename, (width < 0 || height < 0) ? null : width,
@@ -148,7 +148,7 @@ public class ImageProvider {
 	interface ImageProviderService {
 
 		@GET("/image/projects/{gameid}/files/{filename}")
-		Call<ResponseBody> downloadImage(@Path("gameid") int gameid,
+		Call<ResponseBody> downloadImage(@Path("gameid") long gameid,
 				@Path("filename") String filename,
 				@Query("width") Integer width, @Query("height") Integer height);
 

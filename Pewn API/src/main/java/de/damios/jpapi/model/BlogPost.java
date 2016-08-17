@@ -28,7 +28,7 @@ public class BlogPost implements Serializable {
 			.createService(BlogPostService.class);
 
 	private static final long serialVersionUID = 100L;
-	private int id;
+	private long id;
 	@SerializedName("content")
 	private String text;
 	@SerializedName("headline")
@@ -41,14 +41,14 @@ public class BlogPost implements Serializable {
 	private Hashtag[] hashtags;
 
 	/**
-	 * @return Liefert die individuelle ID des Blog Posts.
+	 * @return Liefert die individuelle ID des Blog-Posts.
 	 */
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
 	/**
-	 * Liefert den Inhalt des Blog Posts.
+	 * Liefert den Inhalt des Blog-Posts.
 	 * 
 	 * @return Der Text.
 	 */
@@ -64,7 +64,7 @@ public class BlogPost implements Serializable {
 	}
 
 	/**
-	 * @return Liefert das Erstellungsdatum des Blog Posts.
+	 * @return Liefert das Erstellungsdatum des Blog-Posts.
 	 */
 	public Timestamp getCreationDate() {
 		return creationDate;
@@ -85,7 +85,7 @@ public class BlogPost implements Serializable {
 	}
 	
 	/**
-	 * Liefert alle Hashtags, die mit dem Blog Post verknüpft sind.
+	 * Liefert alle Hashtags, die mit dem Blog-Post verknüpft sind.
 	 * 
 	 * @return Die Hashtags als Hashtag-Array; wenn ein Blog mit keinerlei
 	 *         Hashtags versehen ist, ein leeres Array.
@@ -95,17 +95,17 @@ public class BlogPost implements Serializable {
 	}
 
 	/**
-	 * Liefert ein Array aller Blog Posts eines Nutzers.
+	 * Liefert ein Array aller Blog-Posts eines Nutzers.
 	 * 
-	 * @param username
-	 *            Der Nutzername.
+	 * @param id
+	 *            Die ID des Nutzers.
 	 * @return BlogPost-Array.
 	 * @throws IOException
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)
 	 */
-	public static BlogPost[] get(String username) throws IOException {
-		return Api.executeCall(service.get(username));
+	public static BlogPost[] get(long id) throws IOException {
+		return Api.executeCall(service.get(id));
 	}
 
 	/**
@@ -117,8 +117,8 @@ public class BlogPost implements Serializable {
 	 */
 	interface BlogPostService {
 
-		@GET("v1/user/name/{name}/blogs?format=json")
-		Call<BlogPost[]> get(@Path("name") String name);
+		@GET("v1/users/id/{id}/blogs?format=json")
+		Call<BlogPost[]> get(@Path("id") long id);
 
 	}
 

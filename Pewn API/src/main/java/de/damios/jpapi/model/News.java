@@ -4,32 +4,32 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+import com.google.gson.annotations.SerializedName;
+
+import de.damios.jpapi.core.Api;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
-import com.google.gson.annotations.SerializedName;
-
-import de.damios.jpapi.core.Api;
-
 /**
- * <i>Java-Modell des JSON-Design-Objekts.</i>
+ * <i>Java-Modell des JSON-Neuigkeit-Objekts.</i>
  * 
  * @author damios
  * @since 0.5.0
  */
-public class Design implements Serializable {
+public class News implements Serializable {
 
 	/**
 	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
 	 * beinhaltet.
 	 */
-	private static DesignService service = Api
-			.createService(DesignService.class);
+	private static NewsService service = Api.createService(NewsService.class);
 
 	private static final long serialVersionUID = 100L;
 	private long id;
-	private String description;
+	@SerializedName("content")
+	private String text;
+	@SerializedName("headline")
 	private String title;
 	private Timestamp creationDate;
 	@SerializedName("lastUpdate")
@@ -38,87 +38,89 @@ public class Design implements Serializable {
 	private User author;
 	private Hashtag[] hashtags;
 	@SerializedName("fileContainer")
-	private Image image;
+	private Image[] images;
 
 	/**
-	 * @return Liefert die individuelle ID des Designs.
+	 * @return Liefert die individuelle ID der Neugikeit.
 	 */
 	public long getId() {
 		return id;
 	}
 
 	/**
-	 * Liefert die Beschreibung des Designs.
-	 * 
-	 * @return Die Beschreibung.
+	 * @return Liefert den Text der Neuigkeit.
 	 */
-	public String getDescription() {
-		return description;
+	public String getText() {
+		return text;
 	}
 
 	/**
-	 * @return Liefert den Titel des Designs.
+	 * @return Liefert den Titel.
 	 */
 	public String getTitle() {
 		return title;
 	}
 
 	/**
-	 * @return Liefert das Erstellungsdatum des Designs.
+	 * @return Liefert das Erstellungsdatum.
 	 */
 	public Timestamp getCreationDate() {
 		return creationDate;
 	}
 
 	/**
-	 * @return Liefert den Zeitpunkt des letzten Updates.
+	 * @return Liefert das Datum des letzten Updates.
 	 */
 	public Timestamp getLastUpdateDate() {
 		return lastUpdateDate;
 	}
 
 	/**
-	 * @return Liefert den Nutzer, der das Design erstellt hat.
+	 * @return Liefert den Autor der Neuigkeit.
 	 */
 	public User getAuthor() {
 		return author;
 	}
 
 	/**
-	 * Liefert alle Hashtags, die mit dem Design verknüpft sind.
-	 * 
-	 * @return Die Hashtags als Hashtag-Array; wenn ein Design mit keinerlei
-	 *         Hashtags versehen ist, ein leeres Array.
+	 * @return Liefert alle Hashtags, die der Neugikeit zugeordnet sind.
 	 */
 	public Hashtag[] getHashtags() {
 		return hashtags;
 	}
 
 	/**
-	 * Liefert ein Array aller Designs eines Nutzers.
+	 * @return Liefert alle Bilder, die zur Neuigkeit gehören.
+	 */
+	public Image[] getImages() {
+		return images;
+	}
+
+	/**
+	 * Liefert ein Array aller News eines Nutzers.
 	 * 
 	 * @param id
 	 *            Die ID des Nutzers.
-	 * @return Design-Array
+	 * @return News-Array
 	 * @throws IOException
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)
 	 */
-	public static Design[] getByUserId(long id) throws IOException {
+	public static News[] getByUserId(long id) throws IOException {
 		return Api.executeCall(service.getByUserId(id));
 	}
 
 	/**
-	 * Das Service-Interface für die Verbindung zur Pewn-API, das für Designs
+	 * Das Service-Interface für die Verbindung zur Pewn-API, das für News
 	 * zuständig ist.
 	 * 
 	 * @author damios
 	 * @since 0.5.0
 	 */
-	interface DesignService {
+	interface NewsService {
 
-		@GET("v1/users/id/{id}/designs?format=json")
-		Call<Design[]> getByUserId(@Path("id") long id);
+		@GET("v1/users/id/{id}/news?format=json")
+		Call<News[]> getByUserId(@Path("id") long id);
 
 	}
 

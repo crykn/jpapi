@@ -28,7 +28,7 @@ public class Rating implements Serializable {
 			.createService(RatingService.class);
 
 	private static final long serialVersionUID = 100L;
-	private int id;
+	private long id;
 	private int rating;
 	@SerializedName("ratingDate")
 	private Timestamp date;
@@ -43,7 +43,7 @@ public class Rating implements Serializable {
 	/**
 	 * @return Liefert die individuelle ID der Bewertung.
 	 */
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
@@ -107,8 +107,8 @@ public class Rating implements Serializable {
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)
 	 */
-	public static Rating[] get(int gameid) throws IOException {
-		return Api.executeCall(service.get(gameid));
+	public static Rating[] getByProjectId(long gameid) throws IOException {
+		return Api.executeCall(service.getByProjectId(gameid));
 	}
 
 	/**
@@ -124,7 +124,7 @@ public class Rating implements Serializable {
 	public class RatingComment implements Serializable {
 
 		private static final long serialVersionUID = 100L;
-		private int id;
+		private long id;
 		@SerializedName("content")
 		private String text;
 		@SerializedName("creationDate")
@@ -135,7 +135,7 @@ public class Rating implements Serializable {
 		/**
 		 * @return Liefert die individuelle ID des Bewertungskommentars.
 		 */
-		public int getId() {
+		public long getId() {
 			return id;
 		}
 
@@ -171,8 +171,8 @@ public class Rating implements Serializable {
 	 */
 	interface RatingService {
 
-		@GET("v1/game/id/{id}/ratings?format=json")
-		Call<Rating[]> get(@Path("id") int id);
+		@GET("v1/games/id/{id}/ratings?format=json")
+		Call<Rating[]> getByProjectId(@Path("id") long id);
 
 	}
 

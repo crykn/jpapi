@@ -16,7 +16,7 @@ import de.damios.jpapi.core.Api;
  * <i>Java-Modell des JSON-Bild-Objekts.</i>
  * <p>
  * Stellt nur die Metadaten eines Bildes dar; zum Herunterladen des eigentlichen
- * Bildes muss die {@linkplain de.damios.jpapi.method.ImageProvider
+ * Bildes muss die {@linkplain de.damios.jpapi.ressource.ImageProvider
  * ImageProvider}-Klasse verwendet werden. Das sieht im Normalfall
  * folgendermaﬂen aus:
  * 
@@ -37,7 +37,7 @@ public class Image implements Serializable {
 	private static ImageService service = Api.createService(ImageService.class);
 
 	private static final long serialVersionUID = 100L;
-	private int id;
+	private long id;
 	private String fileName;
 	private int fileSize;
 	private Timestamp uploadDate;
@@ -47,7 +47,7 @@ public class Image implements Serializable {
 	/**
 	 * @return Liefert die individuelle ID des Bildes.
 	 */
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
@@ -91,7 +91,7 @@ public class Image implements Serializable {
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)
 	 */
-	public static Image[] get(int gameid) throws IOException {
+	public static Image[] get(long gameid) throws IOException {
 		return Api.executeCall(service.get(gameid));
 	}
 
@@ -104,8 +104,8 @@ public class Image implements Serializable {
 	 */
 	interface ImageService {
 
-		@GET("v1/game/id/{id}/images?format=json")
-		Call<Image[]> get(@Path("id") int id);
+		@GET("v1/games/id/{id}/images?format=json")
+		Call<Image[]> get(@Path("id") long id);
 
 	}
 

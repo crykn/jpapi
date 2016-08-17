@@ -4,13 +4,12 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-import retrofit2.Call;
-import retrofit2.http.GET;
-import retrofit2.http.Path;
-
 import com.google.gson.annotations.SerializedName;
 
 import de.damios.jpapi.core.Api;
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 /**
  * <i>Java-Modell des JSON-Benutzer-Objekts.</i>
@@ -27,9 +26,9 @@ public class User implements Serializable {
 	private static UserService service = Api.createService(UserService.class);
 
 	private static final long serialVersionUID = 100L;
-	private int id;
+	private long id;
 	private String username;
-	private String about;
+	private Profile profile;
 	@SerializedName("gamificationLevel")
 	private int level;
 	private int xp;
@@ -38,7 +37,7 @@ public class User implements Serializable {
 	/**
 	 * @return Liefert die individuelle ID des Nutzers.
 	 */
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
@@ -52,13 +51,6 @@ public class User implements Serializable {
 	 */
 	public String getName() {
 		return username;
-	}
-
-	/**
-	 * @return Liefert die Profilbeschreibung des Nutzers.
-	 */
-	public String getAboutText() {
-		return about;
 	}
 
 	/**
@@ -102,6 +94,13 @@ public class User implements Serializable {
 	}
 
 	/**
+	 * @return Liefert das Profil des Nutzers.
+	 */
+	public Profile getProfile() {
+		return profile;
+	}
+
+	/**
 	 * Liefert alle Spiele des Nutzers.
 	 * 
 	 * @return Die Spiele als Project-Array; wenn ein Nutzer keine Spiele hat,
@@ -111,7 +110,7 @@ public class User implements Serializable {
 	 * @see Project#get(String)
 	 */
 	public Project[] getProjects() throws IOException {
-		return Project.get(username);
+		return Project.getByUserId(id);
 	}
 
 	/**
@@ -124,7 +123,7 @@ public class User implements Serializable {
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)
 	 */
-	public static User get(int userid) throws IOException {
+	public static User get(long userid) throws IOException {
 		return Api.executeCall(service.get(userid));
 	}
 
@@ -143,6 +142,37 @@ public class User implements Serializable {
 	}
 
 	/**
+	 * <i>Java-Modell des JSON-User-Profil-Objekts.</i>
+	 * <p>
+	 * Dient dazu, die Nutzerprofile zu kapseln.
+	 * 
+	 * @author damios
+	 * @since 0.5.0
+	 */
+	public class Profile implements Serializable {
+
+		private static final long serialVersionUID = 100L;
+		private String about;
+		private String website;
+
+		/**
+		 * @return Liefert die Profilbeschreibung des Nutzers.
+		 */
+		public String getAboutText() {
+			return about;
+		}
+		
+		/**
+		 * Liefert die Webseite des Nutzers.
+		 * 
+		 * @return Die Website-URL als String.
+		 */
+		public String getWebsite() {
+			return website;
+		}
+	}
+
+	/**
 	 * Das Service-Interface für die Verbindung zur Pewn-API, das für Benutzer
 	 * zuständig ist.
 	 * 
@@ -151,10 +181,10 @@ public class User implements Serializable {
 	 */
 	interface UserService {
 
-		@GET("v1/user/id/{id}?format=json")
-		Call<User> get(@Path("id") int id);
+		@GET("v1/users/id/{id}?format=json")
+		Call<User> get(@Path("id") long id);
 
-		@GET("v1/user/name/{name}?format=json")
+		@GET("v1/users/name/{name}?format=json")
 		Call<User> get(@Path("name") String name);
 
 	}

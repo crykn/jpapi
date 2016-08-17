@@ -29,7 +29,7 @@ public class Hashtag implements Serializable {
 			.createService(HashtagService.class);
 
 	private static final long serialVersionUID = 100L;
-	private int id;
+	private long id;
 	private String name;
 	private int usedInProjectsCount;
 	@SerializedName("hashtagCategory")
@@ -40,7 +40,7 @@ public class Hashtag implements Serializable {
 	/**
 	 * @return Liefert die individuelle ID des Hashtags.
 	 */
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
@@ -108,13 +108,13 @@ public class Hashtag implements Serializable {
 	public class HashtagCategory implements Serializable {
 
 		private static final long serialVersionUID = 100L;
-		private int id;
+		private long id;
 		private String name;
 
 		/**
 		 * @return Liefert die individuelle ID der Hashtag-Kategorie.
 		 */
-		public int getId() {
+		public long getId() {
 			return id;
 		}
 
@@ -159,7 +159,7 @@ public class Hashtag implements Serializable {
 	 */
 	interface HashtagService {
 
-		@GET("v1/game/id/{id}/hashtags?format=json")
+		@GET("v1/games/id/{id}/hashtags?format=json")
 		Call<Hashtag[]> get(@Path("id") int id);
 
 	}

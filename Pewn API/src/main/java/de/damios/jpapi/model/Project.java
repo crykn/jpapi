@@ -5,13 +5,13 @@ import java.io.Serializable;
 import java.net.URL;
 import java.sql.Timestamp;
 
-import retrofit2.Call;
-import retrofit2.http.GET;
-import retrofit2.http.Path;
-
 import com.google.gson.annotations.SerializedName;
 
 import de.damios.jpapi.core.Api;
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * <i>Java-Modell des JSON-Projekt-Objekts.</i>
@@ -27,8 +27,7 @@ public class Project implements Serializable {
 	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
 	 * beinhaltet.
 	 */
-	private static ProjectService service = Api
-			.createService(ProjectService.class);
+	private static ProjectService service = Api.createService(ProjectService.class);
 
 	private static final long serialVersionUID = 110L;
 	/**
@@ -37,7 +36,7 @@ public class Project implements Serializable {
 	 * 
 	 * @see #getId()
 	 */
-	private int id;
+	private long id;
 	@SerializedName("content")
 	private String description;
 	@SerializedName("headline")
@@ -58,15 +57,16 @@ public class Project implements Serializable {
 	private String version;
 	@SerializedName("fileContainers")
 	private Image[] images;
-	// private Rating[] ratings;
 	private Hashtag[] hashtags;
 	private Team team;
+	// private String website;
+	private String advertisement;
 
 	/**
 	 * @return Liefert die individuelle ID des Spiels.
 	 * @see #id
 	 */
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
@@ -129,9 +129,6 @@ public class Project implements Serializable {
 
 	/**
 	 * Liefert die Durchschnitts-Bewertung des Spiels.
-	 * <p>
-	 * <i>Der Rückgabetyp wird eventuell noch zu float geändert, sobald die
-	 * Pewn-API auch die Nachkommastellen der Bewertung liefert. </i>
 	 * 
 	 * @return Die Durchschnitts-Bewertung des Spiels (Nachkommastellen
 	 *         weggelassen).
@@ -146,10 +143,8 @@ public class Project implements Serializable {
 	 * @return true, wenn ein Download vorhanden ist.
 	 */
 	public boolean hasDownload() {
-		return downloadWindows != null || downloadLinux != null
-				|| downloadMacOs != null || downloadWeb != null
-				|| downloadAndroid != null || downloadIos != null
-				|| downloadWindowsPhone != null;
+		return downloadWindows != null || downloadLinux != null || downloadMacOs != null || downloadWeb != null
+				|| downloadAndroid != null || downloadIos != null || downloadWindowsPhone != null;
 	}
 
 	/**
@@ -253,7 +248,7 @@ public class Project implements Serializable {
 	 * @see Rating#get(int)
 	 */
 	public Rating[] getRatings() throws IOException {
-		return Rating.get(id);
+		return Rating.getByProjectId(id);
 	}
 
 	/**
@@ -268,20 +263,12 @@ public class Project implements Serializable {
 	}
 
 	/**
-	 * Liefert alle Spiele eines bestimmten Nutzers, aufsteigend nach
-	 * Erstellungsdatum sortiert.
+	 * Liefert die Kurzbeschreibung des Spiels.
 	 * 
-	 * @param username
-	 *            Der Name des Entwicklers, dessen Spiele abgerufen werden
-	 *            sollen.
-	 * @return Die Spiele als Project-Array; wenn ein Nutzer keine Spiele hat,
-	 *         ein leeres Array.
-	 * @throws IOException
-	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
-	 * @see Api#executeCall(Call)
+	 * @return Die Kurzbeschreibung; zwischen 45 und 250 Zeichen lang.
 	 */
-	public static Project[] get(String username) throws IOException {
-		return Api.executeCall(service.get(username));
+	public String getAdvertisement() {
+		return advertisement;
 	}
 
 	/**
@@ -295,8 +282,24 @@ public class Project implements Serializable {
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)
 	 */
-	public static Project get(int gameid) throws IOException {
+	public static Project get(long gameid) throws IOException {
 		return Api.executeCall(service.get(gameid));
+	}
+	
+	/**
+	 * Liefert alle Spiele eines bestimmten Nutzers, aufsteigend nach
+	 * Erstellungsdatum sortiert.
+	 * 
+	 * @param userId
+	 *            Die ID des Entwicklers, dessen Spiele abgerufen werden sollen.
+	 * @return Die Spiele als Project-Array; wenn ein Nutzer keine Spiele hat,
+	 *         ein leeres Array.
+	 * @throws IOException
+	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
+	 * @see Api#executeCall(Call)
+	 */
+	public static Project[] getByUserId(long userId) throws IOException {
+		return Api.executeCall(service.getByUserId(userId));
 	}
 
 	/**
@@ -336,6 +339,30 @@ public class Project implements Serializable {
 	 */
 	public static Project[] getAll(OrderedBy ord) throws IOException {
 		return Api.executeCall(service.getAll(ord.parameter));
+	}
+
+	/**
+	 * Liefert alle Spiele in der 'Neueste Spiele'-Box auf der Startseite.
+	 * 
+	 * @return Alle Spiele als Project-Array.
+	 * @throws IOException
+	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
+	 * @see Api#executeCall(Call)
+	 */
+	public static Project[] getInLatestBox() throws IOException {
+		return Api.executeCall(service.getLatestBox());
+	}
+
+	/**
+	 * Liefert alle Spiele in der 'Am meisten gesehen'-Box auf der Startseite.
+	 * 
+	 * @return Alle Spiele als Project-Array.
+	 * @throws IOException
+	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
+	 * @see Api#executeCall(Call)
+	 */
+	public static Project[] getInMostViewedBox() throws IOException {
+		return Api.executeCall(service.getMostViewedBox());
 	}
 
 	/**
@@ -385,21 +412,28 @@ public class Project implements Serializable {
 	 * @since 0.5.0
 	 */
 	interface ProjectService {
+		
+		@GET("v1/contents/games/views?format=json")
+		Call<Project[]> getMostViewedBox();
 
-		@GET("v1/game/id/{id}?format=json")
-		Call<Project> get(@Path("id") int id);
+		@GET("v1/contents/games/creation?format=json")
+		Call<Project[]> getLatestBox();		
+		
+		@GET("v1/games/id/{id}?format=json")
+		Call<Project> get(@Path("id") long id);
 
-		@GET("v1/user/name/{username}/games?format=json")
-		Call<Project[]> get(@Path("name") String name);
-
-		@GET("v1/game/last?format=json")
+		@GET("v1/games/last?format=json")
 		Call<Project> getLatest();
 
-		@GET("v1/game/random?format=json")
+		@GET("v1/games/random?format=json")
 		Call<Project> getRandom();
 
-		@GET("v1/game/all/{order}?format=json")
-		Call<Project[]> getAll(@Path("order") String order);
+		@GET("v1/games/all?format=json")
+		Call<Project[]> getAll(@Query("order") String order);
+		
+		@GET("v1/users/id/{id}/games?format=json")
+		Call<Project[]> getByUserId(@Path("id") long userId);
+
 
 	}
 }
