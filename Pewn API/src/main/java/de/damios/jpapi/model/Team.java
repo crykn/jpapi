@@ -137,7 +137,7 @@ public class Team implements Serializable {
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)
 	 */
-	public static Team[] get(long id) throws IOException {
+	public static Team get(long id) throws IOException {
 		return Api.executeCall(service.get(id));
 	}
 
@@ -166,7 +166,7 @@ public class Team implements Serializable {
 	interface TeamService {
 
 		@GET("v1/teams/id/{id}?format=json")
-		Call<Team[]> get(@Path("id") long id);
+		Call<Team> get(@Path("id") long id);
 
 		@GET("v1/users/id/{id}/teams?format=json")
 		Call<Team[]> getByUserId(@Path("id") long userId);
