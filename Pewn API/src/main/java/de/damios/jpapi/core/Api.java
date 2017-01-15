@@ -3,11 +3,6 @@ package de.damios.jpapi.core;
 import java.io.IOException;
 import java.net.URL;
 
-import retrofit2.Call;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.TypeAdapter;
@@ -17,6 +12,10 @@ import com.google.gson.stream.JsonWriter;
 import com.google.gson.stream.MalformedJsonException;
 
 import de.damios.jpapi.exception.JpapiInternalException;
+import de.damios.jpapi.model.Token;
+import retrofit2.Call;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Diese Klasse besteht ausschließlich aus statischen Methoden, die zum
@@ -44,8 +43,7 @@ public class Api {
 				return null;
 			}
 			String nextString = in.nextString();
-			return ("".equals(nextString) || "null".equals(nextString)) ? null
-					: new URL(nextString);
+			return ("".equals(nextString) || "null".equals(nextString)) ? null : new URL(nextString);
 		}
 
 		@Override
@@ -57,16 +55,75 @@ public class Api {
 	/**
 	 * Gson-Parser.
 	 */
-	private static Gson gson = new GsonBuilder()
-			.setDateFormat("yyyy-MM-dd HH:mm:ss")
+	private static Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss")
 			.registerTypeAdapter(URL.class, URL).create();
 
 	/**
 	 * REST-Adapter.
 	 */
-	private static Retrofit restAdapter = new Retrofit.Builder()
-			.baseUrl(Constants.HOST + Constants.API_ROOT)
+	private static Retrofit restAdapter = new Retrofit.Builder().baseUrl(Constants.HOST + Constants.API_ROOT)
 			.addConverterFactory(GsonConverterFactory.create(gson)).build();
+
+	private static String clientId, clientSecret, refreshToken;
+
+	/**
+	 * Initialisiert die API für die Authentifizierung.
+	 * <p>
+	 * Die Einrichtung über diese Methode erlaubt auch den Zugriff auf
+	 * geschützte Ressourcen.
+	 * 
+	 * @param clientId
+	 *            Die ID der API-Anwendung.
+	 * @param clientSecret
+	 *            Das Secret der Anwendung.
+	 * @param refreshToken
+	 *            Der nutzer- und anwendungsspezifische Refresh-Token.
+	 * 
+	 * @see #authForFirstTime(String, String, String, String)
+	 */
+	public static void initAuth(String clientId, String clientSecret, String refreshToken) {
+		Api.clientId = clientId;
+		Api.clientSecret = clientSecret;
+		Api.refreshToken = refreshToken;
+	}
+
+	public static String getClientId() {
+		return clientId;
+	}
+
+	public static String getClientSecret() {
+		return clientSecret;
+	}
+
+	public static String getRefreshToken() {
+		return refreshToken;
+	}
+
+	/**
+	 * Authentifiziert den Nutzer das erste Mal.
+	 * <p>
+	 * Hier wird ein temporärer Auth-Code gegen einen dauerhaften Refresh-Token
+	 * ausgetauscht.
+	 * 
+	 * @param clientId
+	 *            Die ID der API-Anwendung.
+	 * @param clientSecret
+	 *            Das Secret der Anwendung.
+	 * @param authCode
+	 *            Der nutzer- und anwendungsspezifische Authorization-Code.
+	 * @param redirectUri
+	 *            Die für die Anwendung hinterlegte Weiterleitungs-URI.
+	 * @return Der nutzer- und anwendungsspezifische Refresh-Token.
+	 * @throws IOException
+	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
+	 * 
+	 * @see Token#getFirstToken(String, String, String, String)
+	 */
+	public static String authForFirstTime(String clientId, String clientSecret, String authCode, String redirectUri)
+			throws IOException {
+		Token t = Token.getFirstToken(clientId, clientSecret, authCode, redirectUri);
+		return t.getRefreshToken();
+	}
 
 	/**
 	 * Erstellt eine Implementation der API-Endpunkte, die im übergebenen
@@ -80,6 +137,8 @@ public class Api {
 	 * @see #restAdapter
 	 */
 	public static <T> T createService(Class<T> service) {
+		if (restAdapter == null)
+			throw new IllegalStateException("Die API wurde nicht initialisiert.");
 		return restAdapter.create(service);
 	}
 
@@ -96,7 +155,7 @@ public class Api {
 	 */
 	public static <T> T executeCall(Call<T> call) throws IOException {
 		try {
-			Response<T> response = call.execute();
+			retrofit2.Response<T> response = call.execute();
 			return response.body();
 		} catch (IOException e) {
 			if (e instanceof MalformedJsonException)
