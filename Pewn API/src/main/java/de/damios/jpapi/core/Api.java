@@ -137,8 +137,6 @@ public class Api {
 	 * @see #restAdapter
 	 */
 	public static <T> T createService(Class<T> service) {
-		if (restAdapter == null)
-			throw new IllegalStateException("Die API wurde nicht initialisiert.");
 		return restAdapter.create(service);
 	}
 

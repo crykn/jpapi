@@ -61,7 +61,7 @@ public class UserData implements Serializable {
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)
 	 */
-	public static UserData get() throws IOException {
+	public static UserData get() throws IOException, IllegalStateException {
 		Token token = Token.getRefreshedToken();
 		return Api.executeCall(service.get( "Bearer " + token.getAccessToken()));
 	}

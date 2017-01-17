@@ -7,6 +7,7 @@ import java.sql.Timestamp;
 import com.google.gson.annotations.SerializedName;
 
 import de.damios.jpapi.core.Api;
+import de.damios.jpapi.ressource.ImageProvider;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -154,6 +155,7 @@ public class User implements Serializable {
 		private static final long serialVersionUID = 100L;
 		private String about;
 		private String website;
+		private String avatar;
 
 		/**
 		 * @return Liefert die Profilbeschreibung des Nutzers.
@@ -169,6 +171,16 @@ public class User implements Serializable {
 		 */
 		public String getWebsite() {
 			return website;
+		}
+		
+		/**
+		 * Liefert den Dateinamen des auf Pewn gespeicherten Avatars.
+		 * 
+		 * @return Der Dateiname des Avatars.
+		 * @see ImageProvider#getAvatar(User)
+		 */
+		public String getAvatar() {
+			return avatar;
 		}
 	}
 
