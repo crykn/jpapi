@@ -282,8 +282,8 @@ public class Project implements Serializable {
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)
 	 */
-	public static Project get(long gameid) throws IOException {
-		return Api.executeCall(service.get(gameid));
+	public static Project getByProjectId(long gameid) throws IOException {
+		return Api.executeCall(service.getByProjectId(gameid));
 	}
 	
 	/**
@@ -350,7 +350,7 @@ public class Project implements Serializable {
 	 * @see Api#executeCall(Call)
 	 */
 	public static Project[] getInLatestBox() throws IOException {
-		return Api.executeCall(service.getLatestBox());
+		return Api.executeCall(service.getLastUpdateBox());
 	}
 
 	/**
@@ -416,11 +416,11 @@ public class Project implements Serializable {
 		@GET("v1/contents/games/views?format=json")
 		Call<Project[]> getMostViewedBox();
 
-		@GET("v1/contents/games/creation?format=json")
-		Call<Project[]> getLatestBox();		
+		@GET("v1/contents/games/update?format=json")
+		Call<Project[]> getLastUpdateBox();		
 		
 		@GET("v1/games/id/{id}?format=json")
-		Call<Project> get(@Path("id") long id);
+		Call<Project> getByProjectId(@Path("id") long id);
 
 		@GET("v1/games/last?format=json")
 		Call<Project> getLatest();

@@ -19,6 +19,7 @@ import retrofit2.http.Path;
  */
 public class DesignComment implements Serializable {
 
+	private static final long serialVersionUID = 110L;
 	@SerializedName("content")
 	private String text;
 	private Timestamp creationDate;

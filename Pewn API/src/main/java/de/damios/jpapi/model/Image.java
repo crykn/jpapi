@@ -91,8 +91,8 @@ public class Image implements Serializable {
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)
 	 */
-	public static Image[] get(long gameid) throws IOException {
-		return Api.executeCall(service.get(gameid));
+	public static Image[] getByProjectId(long gameid) throws IOException {
+		return Api.executeCall(service.getByProjectId(gameid));
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class Image implements Serializable {
 	interface ImageService {
 
 		@GET("v1/games/id/{id}/images?format=json")
-		Call<Image[]> get(@Path("id") long id);
+		Call<Image[]> getByProjectId(@Path("id") long id);
 
 	}
 

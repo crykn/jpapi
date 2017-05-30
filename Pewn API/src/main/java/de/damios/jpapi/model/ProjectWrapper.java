@@ -52,8 +52,8 @@ public class ProjectWrapper implements Serializable {
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)
 	 */
-	public static ProjectWrapper[] getTopProjects() throws IOException {
-		return Api.executeCall(service.getTopProjects());
+	public static ProjectWrapper[] getTopProjectBox() throws IOException {
+		return Api.executeCall(service.getTopProjectBox());
 	}
 
 	/**
@@ -66,7 +66,7 @@ public class ProjectWrapper implements Serializable {
 	interface ProjectWrapperService {
 
 		@GET("v1/contents/games/top?format=json")
-		Call<ProjectWrapper[]> getTopProjects();
+		Call<ProjectWrapper[]> getTopProjectBox();
 
 	}
 }

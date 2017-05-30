@@ -86,7 +86,7 @@ public class Team implements Serializable {
 	 * @see User#get(long)
 	 */
 	public User getFounder() throws IOException {
-		return User.get(founderId);
+		return User.getByUserId(founderId);
 	}
 
 	/**
@@ -101,7 +101,7 @@ public class Team implements Serializable {
 		User[] members = new User[memberIds.length];
 
 		for (int i = 0; i < memberIds.length; i++)
-			members[i] = User.get(memberIds[i]);
+			members[i] = User.getByUserId(memberIds[i]);
 
 		return members;
 	}
@@ -113,7 +113,7 @@ public class Team implements Serializable {
 	 *         besitzt, ein leeres Array.
 	 * @throws IOException
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
-	 * @see Project#get(long)
+	 * @see Project#getByProjectId(long)
 	 */
 	public Project[] getProjects() throws IOException {
 		if (projectIds == null || projectIds.length == 0)
@@ -122,7 +122,7 @@ public class Team implements Serializable {
 		Project[] projects = new Project[projectIds.length];
 
 		for (int i = 0; i < projectIds.length; i++)
-			projects[i] = Project.get(projectIds[i]);
+			projects[i] = Project.getByProjectId(projectIds[i]);
 
 		return projects;
 	}
@@ -137,8 +137,8 @@ public class Team implements Serializable {
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)
 	 */
-	public static Team get(long id) throws IOException {
-		return Api.executeCall(service.get(id));
+	public static Team getByTeamId(long id) throws IOException {
+		return Api.executeCall(service.getByTeamId(id));
 	}
 
 	/**
@@ -166,7 +166,7 @@ public class Team implements Serializable {
 	interface TeamService {
 
 		@GET("v1/teams/id/{id}?format=json")
-		Call<Team> get(@Path("id") long id);
+		Call<Team> getByTeamId(@Path("id") long id);
 
 		@GET("v1/users/id/{id}/teams?format=json")
 		Call<Team[]> getByUserId(@Path("id") long userId);

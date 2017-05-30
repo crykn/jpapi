@@ -124,8 +124,8 @@ public class User implements Serializable {
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)
 	 */
-	public static User get(long userid) throws IOException {
-		return Api.executeCall(service.get(userid));
+	public static User getByUserId(long userid) throws IOException {
+		return Api.executeCall(service.getByUserId(userid));
 	}
 
 	/**
@@ -138,8 +138,8 @@ public class User implements Serializable {
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)
 	 */
-	public static User get(String username) throws IOException {
-		return Api.executeCall(service.get(username));
+	public static User getByUsername(String username) throws IOException {
+		return Api.executeCall(service.getByUsername(username));
 	}
 
 	/**
@@ -194,10 +194,10 @@ public class User implements Serializable {
 	interface UserService {
 
 		@GET("v1/users/id/{id}?format=json")
-		Call<User> get(@Path("id") long id);
+		Call<User> getByUserId(@Path("id") long id);
 
 		@GET("v1/users/name/{name}?format=json")
-		Call<User> get(@Path("name") String name);
+		Call<User> getByUsername(@Path("name") String name);
 
 	}
 

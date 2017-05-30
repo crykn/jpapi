@@ -4,13 +4,12 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-import retrofit2.Call;
-import retrofit2.http.GET;
-import retrofit2.http.Path;
-
 import com.google.gson.annotations.SerializedName;
 
 import de.damios.jpapi.core.Api;
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 /**
  * <i>Java-Modell des JSON-Blog-Post-Objekts.</i>
@@ -24,8 +23,7 @@ public class BlogPost implements Serializable {
 	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
 	 * beinhaltet.
 	 */
-	private static BlogPostService service = Api
-			.createService(BlogPostService.class);
+	private static BlogPostService service = Api.createService(BlogPostService.class);
 
 	private static final long serialVersionUID = 100L;
 	private long id;
@@ -39,6 +37,7 @@ public class BlogPost implements Serializable {
 	@SerializedName("customer")
 	private User author;
 	private Hashtag[] hashtags;
+	private long projectId = -1;
 
 	/**
 	 * @return Liefert die individuelle ID des Blog-Posts.
@@ -83,7 +82,7 @@ public class BlogPost implements Serializable {
 	public User getAuthor() {
 		return author;
 	}
-	
+
 	/**
 	 * Liefert alle Hashtags, die mit dem Blog-Post verknüpft sind.
 	 * 
@@ -92,6 +91,20 @@ public class BlogPost implements Serializable {
 	 */
 	public Hashtag[] getHashtags() {
 		return hashtags;
+	}
+
+	/**
+	 * Liefert das Spiel, welchem der BlogPost zugeordnet wurde.
+	 * 
+	 * @return Das Spiel; null, wenn der Blog keinem Spiel zugeordnet wurde.
+	 * @throws IOException
+	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
+	 * @see Project#getByProjectId(long)
+	 */
+	public Project getProject() throws IOException {
+		if (projectId == -1)
+			return null;
+		return Project.getByProjectId(projectId);
 	}
 
 	/**
@@ -104,8 +117,8 @@ public class BlogPost implements Serializable {
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)
 	 */
-	public static BlogPost[] get(long id) throws IOException {
-		return Api.executeCall(service.get(id));
+	public static BlogPost[] getByUserId(long id) throws IOException {
+		return Api.executeCall(service.getByUserId(id));
 	}
 
 	/**
@@ -118,7 +131,7 @@ public class BlogPost implements Serializable {
 	interface BlogPostService {
 
 		@GET("v1/users/id/{id}/blogs?format=json")
-		Call<BlogPost[]> get(@Path("id") long id);
+		Call<BlogPost[]> getByUserId(@Path("id") long id);
 
 	}
 

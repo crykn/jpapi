@@ -107,7 +107,7 @@ public class ForumTopic implements Serializable {
 	 * @see ForumPost#getByTopicId(int)
 	 */
 	/*public ForumPost[] getPosts() throws IOException {
-		return ForumPost.getByTopicId(id);
+		return Api.executeCall(service.getByTopicId(id));
 	}*/
 
 }
