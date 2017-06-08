@@ -4,13 +4,12 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-import retrofit2.Call;
-import retrofit2.http.GET;
-import retrofit2.http.Path;
-
 import com.google.gson.annotations.SerializedName;
 
 import de.damios.jpapi.core.Api;
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 /**
  * <i>Java-Modell des JSON-Bewertungs-Objekts.</i>
@@ -39,6 +38,7 @@ public class Rating implements Serializable {
 	@SerializedName("ratingComment")
 	private RatingComment comment;
 	private String ratedVersion;
+	private boolean curated;
 
 	/**
 	 * @return Liefert die individuelle ID der Bewertung.
@@ -94,6 +94,15 @@ public class Rating implements Serializable {
 	 */
 	public String getRatedVersion() {
 		return ratedVersion;
+	}
+
+	/**
+	 * Gibt an, ob eine Bewertung als kuriert markiert wurde.
+	 * 
+	 * @return Ob die Bewertung ausgezeichnet wurde.
+	 */
+	public boolean isCurated() {
+		return curated;
 	}
 
 	/**
