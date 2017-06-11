@@ -25,7 +25,8 @@ public class Release implements Serializable {
 	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
 	 * beinhaltet.
 	 */
-	private static ReleaseService service = Api.createService(ReleaseService.class);
+	private static ReleaseService service = Api
+			.createService(ReleaseService.class);
 
 	private static final long serialVersionUID = 110L;
 	private long id;
@@ -115,8 +116,8 @@ public class Release implements Serializable {
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)
 	 */
-	public static Release[] getByProjectId(int id) throws IOException {
-		return Api.executeCall(service.getByProjectId(id));
+	public static Release[] getByProjectId(int gameid) throws IOException {
+		return Api.executeCall(service.getByProjectId(gameid));
 	}
 
 	/**

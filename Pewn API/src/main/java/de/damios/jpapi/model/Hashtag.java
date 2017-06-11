@@ -3,13 +3,12 @@ package de.damios.jpapi.model;
 import java.io.IOException;
 import java.io.Serializable;
 
-import retrofit2.Call;
-import retrofit2.http.GET;
-import retrofit2.http.Path;
-
 import com.google.gson.annotations.SerializedName;
 
 import de.damios.jpapi.core.Api;
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 /**
  * <i>Java Modell des JSON-Hashtag-Objekts.</i>
@@ -23,7 +22,8 @@ import de.damios.jpapi.core.Api;
 public class Hashtag implements Serializable {
 
 	/**
-	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten beinhaltet.
+	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
+	 * beinhaltet.
 	 */
 	private static HashtagService service = Api
 			.createService(HashtagService.class);
@@ -92,7 +92,7 @@ public class Hashtag implements Serializable {
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)
 	 */
-	public static Hashtag[] getByGameId(long gameid) throws IOException {
+	public static Hashtag[] getByProjectId(long gameid) throws IOException {
 		return Api.executeCall(service.getByProjectId(gameid));
 	}
 

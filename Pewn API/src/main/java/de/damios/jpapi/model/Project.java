@@ -256,7 +256,7 @@ public class Project implements Serializable {
 	 * 
 	 * @return Die Hashtags als Hashtag-Array; wenn ein Projekt mit keinerlei
 	 *         Hashtags versehen ist, ein leeres Array.
-	 * @see Hashtag#getProjectHashtags(long)
+	 * @see Hashtag#getByProjectId(long)
 	 */
 	public Hashtag[] getHashtags() {
 		return hashtags;

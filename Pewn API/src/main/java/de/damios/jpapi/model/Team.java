@@ -83,7 +83,7 @@ public class Team implements Serializable {
 	 * @return Der Gründer des Teams.
 	 * @throws IOException
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
-	 * @see User#get(long)
+	 * @see User#getByUserId(long)
 	 */
 	public User getFounder() throws IOException {
 		return User.getByUserId(founderId);
@@ -95,7 +95,7 @@ public class Team implements Serializable {
 	 * @return Die Mitlgieder des Teams.
 	 * @throws IOException
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
-	 * @see User#get(long)
+	 * @see User#getByUserId(long)
 	 */
 	public User[] getMembers() throws IOException {
 		User[] members = new User[memberIds.length];

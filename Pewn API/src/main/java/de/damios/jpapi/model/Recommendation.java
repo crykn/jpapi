@@ -62,8 +62,8 @@ public class Recommendation implements Serializable {
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)
 	 */
-	public static Recommendation[] getByGameId(int id) throws IOException {
-		return Api.executeCall(service.getByGameId(id));
+	public static Recommendation[] getByProjectId(int gameid) throws IOException {
+		return Api.executeCall(service.getByProjectId(gameid));
 	}
 
 	/**
@@ -76,7 +76,7 @@ public class Recommendation implements Serializable {
 	interface RecommendationService {
 
 		@GET("v1/games/id/{id}/recommendations?format=json")
-		Call<Recommendation[]> getByGameId(@Path("id") long id);
+		Call<Recommendation[]> getByProjectId(@Path("id") long id);
 
 	}
 
