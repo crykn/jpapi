@@ -121,6 +121,22 @@ public class Rating implements Serializable {
 	}
 
 	/**
+	 * Liefert ein Array aller Bewertungen eines Spiels.
+	 * 
+	 * @param userId
+	 *            Die ID des Entwicklers, dessen Bewertungen abgerufen werden
+	 *            sollen.
+	 * @return Die Bewertungen als Rating-Array; wenn eine Benutzer noch keine
+	 *         Bewertungen verfasst hat, ein leeres Array.
+	 * @throws IOException
+	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
+	 * @see Api#executeCall(Call)
+	 */
+	public static Rating[] getByUserId(long userId) throws IOException {
+		return Api.executeCall(service.getByUserId(userId));
+	}
+
+	/**
 	 * <i>Java-Modell des JSON-Bewertungskommentar-Objekts.</i>
 	 * <p>
 	 * Stellt die Antwort eines Entwicklers auf eine {@linkplain Rating
@@ -182,6 +198,9 @@ public class Rating implements Serializable {
 
 		@GET("v1/games/id/{id}/ratings?format=json")
 		Call<Rating[]> getByProjectId(@Path("id") long id);
+
+		@GET("v1/users/id/{id}/ratings?format=json")
+		Call<Rating[]> getByUserId(@Path("id") long id);
 
 	}
 

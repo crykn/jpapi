@@ -27,7 +27,8 @@ public class Project implements Serializable {
 	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
 	 * beinhaltet.
 	 */
-	private static ProjectService service = Api.createService(ProjectService.class);
+	private static ProjectService service = Api
+			.createService(ProjectService.class);
 
 	private static final long serialVersionUID = 110L;
 	/**
@@ -143,8 +144,10 @@ public class Project implements Serializable {
 	 * @return true, wenn ein Download vorhanden ist.
 	 */
 	public boolean hasDownload() {
-		return downloadWindows != null || downloadLinux != null || downloadMacOs != null || downloadWeb != null
-				|| downloadAndroid != null || downloadIos != null || downloadWindowsPhone != null;
+		return downloadWindows != null || downloadLinux != null
+				|| downloadMacOs != null || downloadWeb != null
+				|| downloadAndroid != null || downloadIos != null
+				|| downloadWindowsPhone != null;
 	}
 
 	/**
@@ -285,7 +288,7 @@ public class Project implements Serializable {
 	public static Project getByProjectId(long gameid) throws IOException {
 		return Api.executeCall(service.getByProjectId(gameid));
 	}
-	
+
 	/**
 	 * Liefert alle Spiele eines bestimmten Nutzers, aufsteigend nach
 	 * Erstellungsdatum sortiert.
@@ -300,6 +303,23 @@ public class Project implements Serializable {
 	 */
 	public static Project[] getByUserId(long userId) throws IOException {
 		return Api.executeCall(service.getByUserId(userId));
+	}
+
+	/**
+	 * Liefert alle Spiele, die ein bestimmter Benutzer gelikt hat.
+	 * 
+	 * @param userId
+	 *            Die ID des Entwicklers, dessen gelikte Spiele abgerufen werden
+	 *            sollen.
+	 * @return Die Spiele als Project-Array; wenn ein Nutzer keine Spiele
+	 *         geliket hat, ein leeres Array.
+	 * @throws IOException
+	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
+	 * @see Api#executeCall(Call)
+	 */
+	public static Project[] getLikedProjectsByUserId(long userId)
+			throws IOException {
+		return Api.executeCall(service.getLikedProjectsByUserId(userId));
 	}
 
 	/**
@@ -412,13 +432,13 @@ public class Project implements Serializable {
 	 * @since 0.5.0
 	 */
 	interface ProjectService {
-		
+
 		@GET("v1/contents/games/views?format=json")
 		Call<Project[]> getMostViewedBox();
 
 		@GET("v1/contents/games/update?format=json")
-		Call<Project[]> getLastUpdateBox();		
-		
+		Call<Project[]> getLastUpdateBox();
+
 		@GET("v1/games/id/{id}?format=json")
 		Call<Project> getByProjectId(@Path("id") long id);
 
@@ -430,10 +450,12 @@ public class Project implements Serializable {
 
 		@GET("v1/games/all?format=json")
 		Call<Project[]> getAll(@Query("order") String order);
-		
+
 		@GET("v1/users/id/{id}/games?format=json")
 		Call<Project[]> getByUserId(@Path("id") long userId);
 
+		@GET("v1/users/id/{id}/likes?format=json")
+		Call<Project[]> getLikedProjectsByUserId(@Path("id") long userId);
 
 	}
 }
