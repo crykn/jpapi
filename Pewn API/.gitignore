@@ -10,3 +10,4 @@
 #Gradle directories
 /.gradle/
 /gradle/
+/build.properties
