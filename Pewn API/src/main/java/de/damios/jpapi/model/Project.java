@@ -386,6 +386,22 @@ public class Project implements Serializable {
 	}
 
 	/**
+	 * Liefert ein Array aller Empfehlungen zu einem Spiel.
+	 * 
+	 * @param gameid
+	 *            Die Spiele-ID.
+	 * @return Alle empfohlenen Spiele als Project-Array.
+	 * @throws IOException
+	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
+	 * @see Api#executeCall(Call)
+	 */
+	public static Project[] getRecommendedProjectsByProjectId(int gameid)
+			throws IOException {
+		return Api
+				.executeCall(service.getRecommendedProjectsByProjectId(gameid));
+	}
+
+	/**
 	 * Gibt die Reihenfolge an, in der Spiele sortiert sein sollen.
 	 * <ul>
 	 * <li>{@link #CREATION_DATE Erstellungsdatum}
@@ -456,6 +472,9 @@ public class Project implements Serializable {
 
 		@GET("v1/users/id/{id}/likes?format=json")
 		Call<Project[]> getLikedProjectsByUserId(@Path("id") long userId);
+
+		@GET("v1/games/id/{id}/recommendations?format=json")
+		Call<Project[]> getRecommendedProjectsByProjectId(@Path("id") long id);
 
 	}
 }
