@@ -22,7 +22,8 @@ public class Recommendation implements Serializable {
 	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
 	 * beinhaltet.
 	 */
-	private static RecommendationService service = Api.createService(RecommendationService.class);
+	private static RecommendationService service = Api
+			.createService(RecommendationService.class);
 
 	private static final long serialVersionUID = 110L;
 	private long id;
@@ -62,7 +63,8 @@ public class Recommendation implements Serializable {
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)
 	 */
-	public static Recommendation[] getByProjectId(int gameid) throws IOException {
+	public static Recommendation[] getByProjectId(int gameid)
+			throws IOException {
 		return Api.executeCall(service.getByProjectId(gameid));
 	}
 

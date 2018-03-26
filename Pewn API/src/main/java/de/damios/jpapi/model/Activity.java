@@ -22,7 +22,8 @@ public class Activity implements Serializable {
 	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
 	 * beinhaltet.
 	 */
-	private static ActivityService service = Api.createService(ActivityService.class);
+	private static ActivityService service = Api
+			.createService(ActivityService.class);
 
 	private static final long serialVersionUID = 110L;
 	private String type;
@@ -58,28 +59,32 @@ public class Activity implements Serializable {
 	}
 
 	/**
-	 * @return Liefert den Design-Kommentar; null wenn der Typ nicht 'DESIGN_COMMENT' ist.
+	 * @return Liefert den Design-Kommentar; null wenn der Typ nicht
+	 *         'DESIGN_COMMENT' ist.
 	 */
 	public DesignComment getDesignComment() {
 		return designComment;
 	}
 
 	/**
-	 * @return Liefert den Neuigkeiten-Kommentar; null wenn der Typ nicht 'NEWS_COMMENT' ist.
+	 * @return Liefert den Neuigkeiten-Kommentar; null wenn der Typ nicht
+	 *         'NEWS_COMMENT' ist.
 	 */
 	public NewsComment getNewsComment() {
 		return newsComment;
 	}
 
 	/**
-	 * @return Liefert den Projekt-Kommentar; null wenn der Typ nicht 'PROJECT_COMMENT' ist.
+	 * @return Liefert den Projekt-Kommentar; null wenn der Typ nicht
+	 *         'PROJECT_COMMENT' ist.
 	 */
 	public ProjectComment getProjectComment() {
 		return projectComment;
 	}
 
 	/**
-	 * @return Liefert das Foren-Topic; null wenn der Typ nicht 'FORUM_TOPIC' ist.
+	 * @return Liefert das Foren-Topic; null wenn der Typ nicht 'FORUM_TOPIC'
+	 *         ist.
 	 */
 	public ForumTopic getForumTopic() {
 		return forumTopic;

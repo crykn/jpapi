@@ -63,9 +63,10 @@ public class Token implements Serializable {
 	 * @see Api#executeCall(Call)
 	 * @see Api#authForFirstTime(String, String, String, String)
 	 */
-	public static Token getFirstToken(String clientId, String clientSecret, String code, String redirectUri)
-			throws IOException {
-		return Api.executeCall(service.getFirstToken(clientId, clientSecret, "authorization_code", code, redirectUri));
+	public static Token getFirstToken(String clientId, String clientSecret,
+			String code, String redirectUri) throws IOException {
+		return Api.executeCall(service.getFirstToken(clientId, clientSecret,
+				"authorization_code", code, redirectUri));
 	}
 
 	/**
@@ -81,12 +82,14 @@ public class Token implements Serializable {
 	 * @see Api#executeCall(Call)
 	 * @see Api#initAuth(String, String, String)
 	 */
-	public static Token getRefreshedToken() throws IOException, IllegalStateException {
-		if (Api.getClientId() == null || Api.getClientSecret() == null || Api.getRefreshToken() == null) {
+	public static Token getRefreshedToken()
+			throws IOException, IllegalStateException {
+		if (Api.getClientId() == null || Api.getClientSecret() == null
+				|| Api.getRefreshToken() == null) {
 			throw new IllegalStateException("API nicht richtig initialisiert");
 		}
-		return Api.executeCall(
-				service.refreshToken(Api.getClientId(), Api.getClientSecret(), "refresh_token", Api.getRefreshToken()));
+		return Api.executeCall(service.refreshToken(Api.getClientId(),
+				Api.getClientSecret(), "refresh_token", Api.getRefreshToken()));
 	}
 
 	/**
@@ -100,14 +103,18 @@ public class Token implements Serializable {
 
 		@FormUrlEncoded
 		@POST("v1/oauth/token")
-		Call<Token> getFirstToken(@Field("client_id") String client_id, @Field("client_secret") String client_secret,
-				@Field("grant_type") String grant_type, @Field("code") String code,
+		Call<Token> getFirstToken(@Field("client_id") String client_id,
+				@Field("client_secret") String client_secret,
+				@Field("grant_type") String grant_type,
+				@Field("code") String code,
 				@Field("redirect_uri") String redirect_uri);
 
 		@FormUrlEncoded
 		@POST("v1/oauth/token")
-		Call<Token> refreshToken(@Field("client_id") String client_id, @Field("client_secret") String client_secret,
-				@Field("grant_type") String grant_type, @Field("refresh_token") String refresh_token);
+		Call<Token> refreshToken(@Field("client_id") String client_id,
+				@Field("client_secret") String client_secret,
+				@Field("grant_type") String grant_type,
+				@Field("refresh_token") String refresh_token);
 
 	}
 

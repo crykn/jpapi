@@ -74,8 +74,9 @@ public class DesignComment implements Serializable {
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)
 	 */
-	/*public static DesignComment[] get(int designId) throws IOException {
-		return Api.executeCall(service.get(designId));
-	}*/
+	/*
+	 * public static DesignComment[] get(int designId) throws IOException {
+	 * return Api.executeCall(service.get(designId)); }
+	 */
 
 }

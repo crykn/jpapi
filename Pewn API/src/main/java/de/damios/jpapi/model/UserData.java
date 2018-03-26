@@ -20,7 +20,8 @@ public class UserData implements Serializable {
 	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
 	 * beinhaltet.
 	 */
-	private static UserDataService service = Api.createService(UserDataService.class);
+	private static UserDataService service = Api
+			.createService(UserDataService.class);
 
 	private static final long serialVersionUID = 100L;
 	private long id;
@@ -63,7 +64,7 @@ public class UserData implements Serializable {
 	 */
 	public static UserData get() throws IOException, IllegalStateException {
 		Token token = Token.getRefreshedToken();
-		return Api.executeCall(service.get( "Bearer " + token.getAccessToken()));
+		return Api.executeCall(service.get("Bearer " + token.getAccessToken()));
 	}
 
 	/**

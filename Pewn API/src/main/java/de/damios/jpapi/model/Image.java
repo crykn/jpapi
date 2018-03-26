@@ -32,7 +32,8 @@ import de.damios.jpapi.core.Api;
 public class Image implements Serializable {
 
 	/**
-	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten beinhaltet.
+	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
+	 * beinhaltet.
 	 */
 	private static ImageService service = Api.createService(ImageService.class);
 

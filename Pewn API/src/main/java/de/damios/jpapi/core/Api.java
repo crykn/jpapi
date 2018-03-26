@@ -43,7 +43,9 @@ public class Api {
 				return null;
 			}
 			String nextString = in.nextString();
-			return ("".equals(nextString) || "null".equals(nextString)) ? null : new URL(nextString);
+			return ("".equals(nextString) || "null".equals(nextString))
+					? null
+					: new URL(nextString);
 		}
 
 		@Override
@@ -55,13 +57,15 @@ public class Api {
 	/**
 	 * Gson-Parser.
 	 */
-	private static Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss")
+	private static Gson gson = new GsonBuilder()
+			.setDateFormat("yyyy-MM-dd HH:mm:ss")
 			.registerTypeAdapter(URL.class, URL).create();
 
 	/**
 	 * REST-Adapter.
 	 */
-	private static Retrofit restAdapter = new Retrofit.Builder().baseUrl(Constants.HOST + Constants.API_ROOT)
+	private static Retrofit restAdapter = new Retrofit.Builder()
+			.baseUrl(Constants.HOST + Constants.API_ROOT)
 			.addConverterFactory(GsonConverterFactory.create(gson)).build();
 
 	private static String clientId, clientSecret, refreshToken;
@@ -81,7 +85,8 @@ public class Api {
 	 * 
 	 * @see #authForFirstTime(String, String, String, String)
 	 */
-	public static void initAuth(String clientId, String clientSecret, String refreshToken) {
+	public static void initAuth(String clientId, String clientSecret,
+			String refreshToken) {
 		Api.clientId = clientId;
 		Api.clientSecret = clientSecret;
 		Api.refreshToken = refreshToken;
@@ -119,9 +124,10 @@ public class Api {
 	 * 
 	 * @see Token#getFirstToken(String, String, String, String)
 	 */
-	public static String authForFirstTime(String clientId, String clientSecret, String authCode, String redirectUri)
-			throws IOException {
-		Token t = Token.getFirstToken(clientId, clientSecret, authCode, redirectUri);
+	public static String authForFirstTime(String clientId, String clientSecret,
+			String authCode, String redirectUri) throws IOException {
+		Token t = Token.getFirstToken(clientId, clientSecret, authCode,
+				redirectUri);
 		return t.getRefreshToken();
 	}
 

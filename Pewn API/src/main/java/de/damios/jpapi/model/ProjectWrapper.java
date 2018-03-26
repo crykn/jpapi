@@ -22,7 +22,8 @@ public class ProjectWrapper implements Serializable {
 	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
 	 * beinhaltet.
 	 */
-	private static ProjectWrapperService service = Api.createService(ProjectWrapperService.class);
+	private static ProjectWrapperService service = Api
+			.createService(ProjectWrapperService.class);
 
 	private static final long serialVersionUID = 110L;
 	private String reason;

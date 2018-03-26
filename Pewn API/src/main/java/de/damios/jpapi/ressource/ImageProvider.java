@@ -32,7 +32,8 @@ public class ImageProvider {
 	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
 	 * beinhaltet.
 	 */
-	private static ImageProviderService service = Api.createService(ImageProviderService.class);
+	private static ImageProviderService service = Api
+			.createService(ImageProviderService.class);
 
 	/**
 	 * Liefert ein Bild, das auf Pewn hochgeladen wurde.
@@ -60,9 +61,11 @@ public class ImageProvider {
 	 * @see Api#executeCall(Call)
 	 * @see ImageIO#read(URL)
 	 */
-	public static BufferedImage get(long gameid, String filename, int width, int height) throws IOException {
-		ResponseBody tmp = Api.executeCall(service.downloadImage(gameid, filename,
-				(width < 0 || height < 0) ? null : width, (width < 0 || height < 0) ? null : height));
+	public static BufferedImage get(long gameid, String filename, int width,
+			int height) throws IOException {
+		ResponseBody tmp = Api.executeCall(service.downloadImage(gameid,
+				filename, (width < 0 || height < 0) ? null : width,
+				(width < 0 || height < 0) ? null : height));
 
 		return tmp == null ? null : ImageIO.read(tmp.byteStream());
 	}
@@ -81,7 +84,8 @@ public class ImageProvider {
 	 * @deprecated Stattdessen {@link #get(Project, Image)} benutzen.
 	 */
 	@Deprecated
-	public static BufferedImage get(long gameid, String filename) throws IOException {
+	public static BufferedImage get(long gameid, String filename)
+			throws IOException {
 		return get(gameid, filename, -1, -1);
 	}
 
@@ -111,7 +115,8 @@ public class ImageProvider {
 	 * @see #get(Project, Image)
 	 * @see ImageIO#read(URL)
 	 */
-	public static BufferedImage get(Project project, Image image, int width, int height) throws IOException {
+	public static BufferedImage get(Project project, Image image, int width,
+			int height) throws IOException {
 		return get(project.getId(), image.getFileName(), width, height);
 	}
 
@@ -129,7 +134,8 @@ public class ImageProvider {
 	 *             wenn ein Fehler beim Lesen des Bilds auftritt.
 	 * @see #get(Project, Image, int, int)
 	 */
-	public static BufferedImage get(Project project, Image image) throws IOException {
+	public static BufferedImage get(Project project, Image image)
+			throws IOException {
 		return get(project, image, -1, -1);
 	}
 
@@ -148,8 +154,10 @@ public class ImageProvider {
 	 */
 	public static BufferedImage getAvatar(User user) throws IOException {
 		if (user.getProfile().getAvatar() == null)
-			throw new IllegalArgumentException("Der Avatar des Nutzers darf nicht null sein");
-		ResponseBody tmp = Api.executeCall(service.downloadAvatar(user.getName(), user.getProfile().getAvatar()));
+			throw new IllegalArgumentException(
+					"Der Avatar des Nutzers darf nicht null sein");
+		ResponseBody tmp = Api.executeCall(service
+				.downloadAvatar(user.getName(), user.getProfile().getAvatar()));
 
 		return tmp == null ? null : ImageIO.read(tmp.byteStream());
 	}
@@ -164,11 +172,13 @@ public class ImageProvider {
 	interface ImageProviderService {
 
 		@GET("/image/projects/{gameid}/files/{filename}")
-		Call<ResponseBody> downloadImage(@Path("gameid") long gameid, @Path("filename") String filename,
+		Call<ResponseBody> downloadImage(@Path("gameid") long gameid,
+				@Path("filename") String filename,
 				@Query("width") Integer width, @Query("height") Integer height);
 
 		@GET("/download/users/{username}/avatar/{filename}")
-		Call<ResponseBody> downloadAvatar(@Path("username") String username, @Path("filename") String filename);
+		Call<ResponseBody> downloadAvatar(@Path("username") String username,
+				@Path("filename") String filename);
 
 	}
 }

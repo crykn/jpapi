@@ -20,7 +20,8 @@ public class Status implements Serializable {
 	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
 	 * beinhaltet.
 	 */
-	private static StatusService service = Api.createService(StatusService.class);
+	private static StatusService service = Api
+			.createService(StatusService.class);
 
 	private static final long serialVersionUID = 100L;
 	private String status;

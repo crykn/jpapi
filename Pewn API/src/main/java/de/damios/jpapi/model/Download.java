@@ -28,7 +28,6 @@ public class Download implements Serializable {
 	private Timestamp creationDate;
 	private long count;
 
-	
 	/**
 	 * @return Liefert die individuelle ID des Downloads.
 	 */

@@ -163,7 +163,7 @@ public class User implements Serializable {
 		public String getAboutText() {
 			return about;
 		}
-		
+
 		/**
 		 * Liefert die Webseite des Nutzers.
 		 * 
@@ -172,7 +172,7 @@ public class User implements Serializable {
 		public String getWebsite() {
 			return website;
 		}
-		
+
 		/**
 		 * Liefert den Dateinamen des auf Pewn gespeicherten Avatars.
 		 * 

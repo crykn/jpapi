@@ -64,14 +64,13 @@ public class ForumTopic implements Serializable {
 		return lastUpdateDate;
 	}
 
-
 	/**
 	 * @return Liefert den Titel.
 	 */
 	public String getTitle() {
 		return title;
 	}
-	
+
 	/**
 	 * @return Liefert alle Hashtags, die dem Topic zugeordnet sind.
 	 */
@@ -93,21 +92,22 @@ public class ForumTopic implements Serializable {
 		return locked;
 	}
 
-	/*public long getForumSectionId() {
-		return forumSectionId;
-	}*/
-	
+	/*
+	 * public long getForumSectionId() { return forumSectionId; }
+	 */
+
 	/**
 	 * Liefert alle Posts im Topic.
 	 * 
-	 * @return Die Posts als ForumPost-Array; wenn ein Topic noch keine
-	 *         Posts enthält, ein leeres Array.
+	 * @return Die Posts als ForumPost-Array; wenn ein Topic noch keine Posts
+	 *         enthält, ein leeres Array.
 	 * @throws IOException
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see ForumPost#getByTopicId(int)
 	 */
-	/*public ForumPost[] getPosts() throws IOException {
-		return Api.executeCall(service.getByTopicId(id));
-	}*/
+	/*
+	 * public ForumPost[] getPosts() throws IOException { return
+	 * Api.executeCall(service.getByTopicId(id)); }
+	 */
 
 }
