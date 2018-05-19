@@ -48,13 +48,6 @@ public class Project implements Serializable {
 	@SerializedName("customer")
 	private User author;
 	private int rating;
-	private URL downloadWindows;
-	private URL downloadLinux;
-	private URL downloadMacOs;
-	private URL downloadAndroid;
-	private URL downloadIos;
-	private URL downloadWindowsPhone;
-	private URL downloadWeb;
 	private String version;
 	@SerializedName("fileContainers")
 	private Image[] images;
@@ -136,88 +129,6 @@ public class Project implements Serializable {
 	 */
 	public int getRating() {
 		return rating;
-	}
-
-	/**
-	 * Liefert, ob überhaupt ein Downloadlink hinterlegt ist.
-	 * 
-	 * @return true, wenn ein Download vorhanden ist.
-	 */
-	public boolean hasDownload() {
-		return downloadWindows != null || downloadLinux != null
-				|| downloadMacOs != null || downloadWeb != null
-				|| downloadAndroid != null || downloadIos != null
-				|| downloadWindowsPhone != null;
-	}
-
-	/**
-	 * Liefert den Link zum Download einer Version für <i>Windows</i>.
-	 * 
-	 * @return Die Download-URL; wenn eine entsprechende Version nicht zum
-	 *         Download steht, null.
-	 */
-	public URL getDownloadUrlWindows() {
-		return downloadWindows;
-	}
-
-	/**
-	 * Liefert den Link zum Download einer Version für <i>Linux</i>.
-	 * 
-	 * @return Die Download-URL; wenn eine entsprechende Version nicht zum
-	 *         Download steht, null.
-	 */
-	public URL getDownloadUrlLinux() {
-		return downloadLinux;
-	}
-
-	/**
-	 * Liefert den Link zum Download einer Version für <i>Mac OS X</i>.
-	 * 
-	 * @return Die Download-URL; wenn eine entsprechende Version nicht zum
-	 *         Download steht, null.
-	 */
-	public URL getDownloadUrlMacOS() {
-		return downloadMacOs;
-	}
-
-	/**
-	 * Liefert den Link zum Download einer Version für <i>Android</i>.
-	 * 
-	 * @return Die Download-URL; wenn eine entsprechende Version nicht zum
-	 *         Download steht, null.
-	 */
-	public URL getDownloadUrlAndroid() {
-		return downloadAndroid;
-	}
-
-	/**
-	 * Liefert den Link zum Download einer Version für <i>iOS</i>.
-	 * 
-	 * @return Die Download-URL; wenn eine entsprechende Version nicht zum
-	 *         Download steht, null.
-	 */
-	public URL getDownloadUrlIos() {
-		return downloadIos;
-	}
-
-	/**
-	 * Liefert den Link zum Download einer Version für <i>Windows Phone</i>.
-	 * 
-	 * @return Die Download-URL; wenn eine entsprechende Version nicht zum
-	 *         Download steht, null.
-	 */
-	public URL getDownloadUrlWindowsPhone() {
-		return downloadWindowsPhone;
-	}
-
-	/**
-	 * Liefert den Link zum Ausführen des Spiels im Browser.
-	 * 
-	 * @return Die URL; wenn eine entsprechende Version nicht verfügbar ist,
-	 *         null.
-	 */
-	public URL getWebDownloadUrl() {
-		return downloadWeb;
 	}
 
 	/**

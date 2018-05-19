@@ -1,15 +1,11 @@
 package de.damios.jpapi.model;
 
-import java.io.IOException;
 import java.io.Serializable;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.sql.Timestamp;
 
-import com.google.gson.annotations.SerializedName;
-
-import de.damios.jpapi.core.Api;
-import retrofit2.Call;
-import retrofit2.http.GET;
-import retrofit2.http.Path;
+import de.damios.jpapi.core.Constants;
 
 /**
  * <i>Java-Modell des JSON-Download-Objekts.</i>
@@ -26,6 +22,7 @@ public class Download implements Serializable {
 	private long id;
 	private String title;
 	private Timestamp creationDate;
+	private String icon;
 	private long count;
 
 	/**
@@ -54,6 +51,41 @@ public class Download implements Serializable {
 	 */
 	public long getCount() {
 		return count;
+	}
+
+	/**
+	 * Liefert das Icon des Downloads. Das ist hilfreich zur Bestimmmung, um welche
+	 * Art von Download es sich handelt und für welches Betriebssystem dieser
+	 * bestimmt ist.
+	 * <p>
+	 * Mögliche Icons sind:
+	 * <ul>
+	 * <li><code>fa-windows</code>
+	 * <li><code>fa-linux</code>
+	 * <li><code>fa-apple</code>
+	 * <li><code>fa-android</code>
+	 * <li><code>fa-mobile</code>
+	 * <li><code>fa-globe</code>
+	 * <li><code>fa-code</code>
+	 * <li><code>fa-file-archive-o</code>
+	 * </ul>
+	 * 
+	 * @return Das Icon des Downloads.
+	 */
+	public String getIcon() {
+		return icon;
+	}
+
+	/**
+	 * Liefert die URL, unter der der Download aufgerufen werden kann. Meist erfolgt
+	 * dabei zunächst noch eine Weiterleitung.
+	 * 
+	 * @return Die URL des Downloads.
+	 * @throws MalformedURLException
+	 * @see {@link #getId()}
+	 */
+	public URL getDownloadUrl() throws MalformedURLException {
+		return new URL(Constants.DOWNLOAD_URL + id);
 	}
 
 }

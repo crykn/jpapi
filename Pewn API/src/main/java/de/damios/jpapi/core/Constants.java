@@ -20,4 +20,6 @@ public final class Constants {
 	 */
 	public static final String API_ROOT = "api/";
 
+	public static final String DOWNLOAD_URL = HOST + API_ROOT + "v1/analytics/downloads/";
+
 }
