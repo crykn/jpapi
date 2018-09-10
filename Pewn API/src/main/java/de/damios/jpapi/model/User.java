@@ -119,7 +119,7 @@ public class User implements Serializable {
 	 * 
 	 * @param userid
 	 *            Die Nutzer-ID.
-	 * @return Der Nutzer; null, wenn der Nutzer nicht existiert.
+	 * @return Der Nutzer; <code>null</code>, wenn der Nutzer nicht existiert.
 	 * @throws IOException
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)
@@ -133,7 +133,7 @@ public class User implements Serializable {
 	 * 
 	 * @param username
 	 *            Der Name des Nutzers.
-	 * @return Der Nutzer; null, wenn der Nutzer nicht existiert.
+	 * @return Der Nutzer; <code>null</code>, wenn der Nutzer nicht existiert.
 	 * @throws IOException
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)

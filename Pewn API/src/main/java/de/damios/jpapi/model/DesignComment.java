@@ -1,15 +1,9 @@
 package de.damios.jpapi.model;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
 import com.google.gson.annotations.SerializedName;
-
-import de.damios.jpapi.core.Api;
-import retrofit2.Call;
-import retrofit2.http.GET;
-import retrofit2.http.Path;
 
 /**
  * <i>Java-Modell des JSON-Design-Kommentar-Objekts.</i>

@@ -2,7 +2,6 @@ package de.damios.jpapi.model;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.net.URL;
 import java.sql.Timestamp;
 
 import com.google.gson.annotations.SerializedName;
@@ -191,7 +190,7 @@ public class Project implements Serializable {
 	 * 
 	 * @param gameid
 	 *            Die Spiele-ID.
-	 * @return Das Spiel; null, wenn das Spiel nicht existiert.
+	 * @return Das Spiel; <code>null</code>, wenn das Spiel nicht existiert.
 	 * @throws IOException
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)

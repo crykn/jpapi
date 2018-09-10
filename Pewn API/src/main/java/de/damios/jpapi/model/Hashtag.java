@@ -75,7 +75,8 @@ public class Hashtag implements Serializable {
 	 * einem Überbegriff zusammenzufassen. Wenn ein Metatag vorhanden ist,
 	 * sollte der Metatag anstelle des eigentlichen Hashtags verwendet werden.
 	 * 
-	 * @return Der Metatag des Hashtags; null wenn keiner vorhanden ist.
+	 * @return Der Metatag des Hashtags; <code>null</code> wenn keiner vorhanden
+	 *         ist.
 	 */
 	public HashtagMetatag getMetatag() {
 		return metatag;
@@ -139,7 +140,7 @@ public class Hashtag implements Serializable {
 	 * Verhält sich genauso wie ein Hashtag, liefert allerdings bei
 	 * {@linkplain Hashtag#getCategory getCategory()},
 	 * {@linkplain Hashtag#getUsageCount getUsageCount()} und
-	 * {@linkplain Hashtag#getMetatag getMetatag()} jeweils null.
+	 * {@linkplain Hashtag#getMetatag getMetatag()} jeweils <code>null</code>.
 	 * 
 	 * @author damios
 	 * @since 0.4.2

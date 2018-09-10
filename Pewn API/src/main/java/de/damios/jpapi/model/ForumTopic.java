@@ -1,6 +1,5 @@
 package de.damios.jpapi.model;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.sql.Timestamp;
 

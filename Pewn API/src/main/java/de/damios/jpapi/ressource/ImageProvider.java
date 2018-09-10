@@ -52,7 +52,7 @@ public class ImageProvider {
 	 *            Die Bildbreite.
 	 * @param height
 	 *            Die Bildhöhe.
-	 * @return Das Bild; null, wenn das Bild nicht vorhanden ist.
+	 * @return Das Bild; <code>null</code>, wenn das Bild nicht vorhanden ist.
 	 * @throws IOException
 	 *             wenn ein Fehler bei der Anfrage oder beim Lesen des Bilds
 	 *             auftritt.
@@ -143,9 +143,9 @@ public class ImageProvider {
 	 * Liefert den Avatar eines Nutzers.
 	 * 
 	 * @param user
-	 *            Der jeweilige Nutzer. Der Avatar des Nutzers darf nicht null
-	 *            sein!
-	 * @return Das Bild; null, wenn das Bild nicht vorhanden ist.
+	 *            Der jeweilige Nutzer. Der Avatar des Nutzers darf nicht
+	 *            <code>null</code> sein!
+	 * @return Das Bild; <code>null</code>, wenn das Bild nicht vorhanden ist.
 	 * @throws IOException
 	 *             wenn ein Fehler bei der Anfrage oder beim Lesen des Bilds
 	 *             auftritt.

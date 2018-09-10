@@ -52,39 +52,40 @@ public class Activity implements Serializable {
 	}
 
 	/**
-	 * @return Liefert den Blogpost; null wenn der Typ nicht 'BLOG_POST' ist.
+	 * @return Liefert den Blogpost; <code>null</code> wenn der Typ nicht
+	 *         'BLOG_POST' ist.
 	 */
 	public BlogPost getBlogPost() {
 		return blogPost;
 	}
 
 	/**
-	 * @return Liefert den Design-Kommentar; null wenn der Typ nicht
-	 *         'DESIGN_COMMENT' ist.
+	 * @return Liefert den Design-Kommentar; <code>null</code> wenn der Typ
+	 *         nicht 'DESIGN_COMMENT' ist.
 	 */
 	public DesignComment getDesignComment() {
 		return designComment;
 	}
 
 	/**
-	 * @return Liefert den Neuigkeiten-Kommentar; null wenn der Typ nicht
-	 *         'NEWS_COMMENT' ist.
+	 * @return Liefert den Neuigkeiten-Kommentar; <code>null</code> wenn der Typ
+	 *         nicht 'NEWS_COMMENT' ist.
 	 */
 	public NewsComment getNewsComment() {
 		return newsComment;
 	}
 
 	/**
-	 * @return Liefert den Projekt-Kommentar; null wenn der Typ nicht
-	 *         'PROJECT_COMMENT' ist.
+	 * @return Liefert den Projekt-Kommentar; <code>null</code> wenn der Typ
+	 *         nicht 'PROJECT_COMMENT' ist.
 	 */
 	public ProjectComment getProjectComment() {
 		return projectComment;
 	}
 
 	/**
-	 * @return Liefert das Foren-Topic; null wenn der Typ nicht 'FORUM_TOPIC'
-	 *         ist.
+	 * @return Liefert das Foren-Topic; <code>null</code> wenn der Typ nicht
+	 *         'FORUM_TOPIC' ist.
 	 */
 	public ForumTopic getForumTopic() {
 		return forumTopic;

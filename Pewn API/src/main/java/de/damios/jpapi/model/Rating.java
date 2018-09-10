@@ -79,7 +79,8 @@ public class Rating implements Serializable {
 	/**
 	 * Liefert den Kommentar des Entwicklers.
 	 * 
-	 * @return Der Kommentar des Entwicklers; null wenn keiner vorhanden ist.
+	 * @return Der Kommentar des Entwicklers; <code>null</code> wenn keiner
+	 *         vorhanden ist.
 	 */
 	public RatingComment getComment() {
 		return comment;
@@ -88,7 +89,7 @@ public class Rating implements Serializable {
 	/**
 	 * Liefert die Version des Spiels, die bewertet wurde.
 	 * 
-	 * @return Die bewertete Version; bei alten Bewertungen null;
+	 * @return Die bewertete Version; bei alten Bewertungen <code>null</code>;
 	 *         sonderbarerweise manchmal einen leeren String.
 	 * @see Project#version
 	 */
