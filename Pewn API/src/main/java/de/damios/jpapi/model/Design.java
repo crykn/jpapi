@@ -21,7 +21,7 @@ import de.damios.jpapi.core.Api;
 public class Design implements Serializable {
 
 	/**
-	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
+	 * Der Service, der die Verbindung zu den benÃ¶tigten API-Endpunkten
 	 * beinhaltet.
 	 */
 	private static DesignService service = Api
@@ -85,7 +85,7 @@ public class Design implements Serializable {
 	}
 
 	/**
-	 * Liefert alle Hashtags, die mit dem Design verknüpft sind.
+	 * Liefert alle Hashtags, die mit dem Design verknÃ¼pft sind.
 	 * 
 	 * @return Die Hashtags als Hashtag-Array; wenn ein Design mit keinerlei
 	 *         Hashtags versehen ist, ein leeres Array.
@@ -109,8 +109,8 @@ public class Design implements Serializable {
 	}
 
 	/**
-	 * Das Service-Interface für die Verbindung zur Pewn-API, das für Designs
-	 * zuständig ist.
+	 * Das Service-Interface fÃ¼r die Verbindung zur Pewn-API, das fÃ¼r Designs
+	 * zustÃ¤ndig ist.
 	 * 
 	 * @author damios
 	 * @since 0.5.0

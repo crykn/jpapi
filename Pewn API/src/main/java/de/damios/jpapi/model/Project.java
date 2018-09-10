@@ -24,7 +24,7 @@ import retrofit2.http.Query;
 public class Project implements Serializable {
 
 	/**
-	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
+	 * Der Service, der die Verbindung zu den benÃ¶tigten API-Endpunkten
 	 * beinhaltet.
 	 */
 	private static ProjectService service = Api
@@ -75,8 +75,8 @@ public class Project implements Serializable {
 	/**
 	 * Liefert den Namen des Spiels.
 	 * <p>
-	 * Der Name kann jederzeit geändert werden und sollte daher nicht als
-	 * Identifikationsmerkmal für Spiele verwendet werden.
+	 * Der Name kann jederzeit geÃ¤ndert werden und sollte daher nicht als
+	 * Identifikationsmerkmal fÃ¼r Spiele verwendet werden.
 	 * 
 	 * @return Der Projektname.
 	 */
@@ -112,7 +112,7 @@ public class Project implements Serializable {
 	}
 
 	/**
-	 * Liefert das Entwickler-Team, dem das Projekt gehört.
+	 * Liefert das Entwickler-Team, dem das Projekt gehÃ¶rt.
 	 * 
 	 * @return Das Entwickler-Team.
 	 * @see #getAuthor
@@ -166,7 +166,7 @@ public class Project implements Serializable {
 	}
 
 	/**
-	 * Liefert alle Hashtags, die mit dem Spiel verknüpft sind.
+	 * Liefert alle Hashtags, die mit dem Spiel verknÃ¼pft sind.
 	 * 
 	 * @return Die Hashtags als Hashtag-Array; wenn ein Projekt mit keinerlei
 	 *         Hashtags versehen ist, ein leeres Array.
@@ -246,7 +246,7 @@ public class Project implements Serializable {
 	}
 
 	/**
-	 * Liefert ein zufälliges Spiel.
+	 * Liefert ein zufÃ¤lliges Spiel.
 	 * 
 	 * @return Das Spiel.
 	 * @throws IOException
@@ -338,7 +338,7 @@ public class Project implements Serializable {
 		 */
 		UPDATE_DATE("update"),
 		/**
-		 * Nach Bewertung sortieren (Höhere Bewertung zuerst).
+		 * Nach Bewertung sortieren (HÃ¶here Bewertung zuerst).
 		 * 
 		 * @see Project#rating
 		 */
@@ -352,8 +352,8 @@ public class Project implements Serializable {
 	}
 
 	/**
-	 * Das Service-Interface für die Verbindung zur Pewn-API, das für Projekte
-	 * zuständig ist.
+	 * Das Service-Interface fÃ¼r die Verbindung zur Pewn-API, das fÃ¼r Projekte
+	 * zustÃ¤ndig ist.
 	 * 
 	 * @author damios
 	 * @since 0.5.0

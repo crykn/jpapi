@@ -18,8 +18,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Diese Klasse besteht ausschließlich aus statischen Methoden, die zum
- * Ausführen der Anfragen an die <a href="http://pewn.de/papi/">Pewn-API</a>
+ * Diese Klasse besteht ausschlieÃŸlich aus statischen Methoden, die zum
+ * AusfÃ¼hren der Anfragen an die <a href="http://pewn.de/papi/">Pewn-API</a>
  * notwendig sind.
  * 
  * @author damios
@@ -43,8 +43,7 @@ public class Api {
 				return null;
 			}
 			String nextString = in.nextString();
-			return ("".equals(nextString) || "null".equals(nextString))
-					? null
+			return ("".equals(nextString) || "null".equals(nextString)) ? null
 					: new URL(nextString);
 		}
 
@@ -71,10 +70,10 @@ public class Api {
 	private static String clientId, clientSecret, refreshToken;
 
 	/**
-	 * Initialisiert die API für die Authentifizierung.
+	 * Initialisiert die API fÃ¼r die Authentifizierung.
 	 * <p>
-	 * Die Einrichtung über diese Methode erlaubt auch den Zugriff auf
-	 * geschützte Ressourcen.
+	 * Die Einrichtung Ã¼ber diese Methode erlaubt auch den Zugriff auf
+	 * geschÃ¼tzte Ressourcen.
 	 * 
 	 * @param clientId
 	 *            Die ID der API-Anwendung.
@@ -107,7 +106,7 @@ public class Api {
 	/**
 	 * Authentifiziert den Nutzer das erste Mal.
 	 * <p>
-	 * Hier wird ein temporärer Auth-Code gegen einen dauerhaften Refresh-Token
+	 * Hier wird ein temporÃ¤rer Auth-Code gegen einen dauerhaften Refresh-Token
 	 * ausgetauscht.
 	 * 
 	 * @param clientId
@@ -117,7 +116,7 @@ public class Api {
 	 * @param authCode
 	 *            Der nutzer- und anwendungsspezifische Authorization-Code.
 	 * @param redirectUri
-	 *            Die für die Anwendung hinterlegte Weiterleitungs-URI.
+	 *            Die fÃ¼r die Anwendung hinterlegte Weiterleitungs-URI.
 	 * @return Der nutzer- und anwendungsspezifische Refresh-Token.
 	 * @throws IOException
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
@@ -132,7 +131,7 @@ public class Api {
 	}
 
 	/**
-	 * Erstellt eine Implementation der API-Endpunkte, die im übergebenen
+	 * Erstellt eine Implementation der API-Endpunkte, die im Ã¼bergebenen
 	 * Interface definiert werden.
 	 * 
 	 * @param <T>
@@ -147,7 +146,7 @@ public class Api {
 	}
 
 	/**
-	 * Führt eine Anfrage an die Pewn-API aus und liefert die Antwort.
+	 * FÃ¼hrt eine Anfrage an die Pewn-API aus und liefert die Antwort.
 	 * 
 	 * @param <T>
 	 *            Der Typ der Antwort.

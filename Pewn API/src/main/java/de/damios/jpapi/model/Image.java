@@ -18,7 +18,7 @@ import de.damios.jpapi.core.Api;
  * Stellt nur die Metadaten eines Bildes dar; zum Herunterladen des eigentlichen
  * Bildes muss die {@linkplain de.damios.jpapi.ressource.ImageProvider
  * ImageProvider}-Klasse verwendet werden. Das sieht im Normalfall
- * folgendermaßen aus:
+ * folgendermaÃŸen aus:
  * 
  * <pre>
  * {@code  
@@ -32,7 +32,7 @@ import de.damios.jpapi.core.Api;
 public class Image implements Serializable {
 
 	/**
-	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
+	 * Der Service, der die Verbindung zu den benÃ¶tigten API-Endpunkten
 	 * beinhaltet.
 	 */
 	private static ImageService service = Api.createService(ImageService.class);
@@ -62,7 +62,7 @@ public class Image implements Serializable {
 	}
 
 	/**
-	 * @return Liefert die Größe des Bildes in Kilobyte.
+	 * @return Liefert die GrÃ¶ÃŸe des Bildes in Kilobyte.
 	 */
 	public int getFileSize() {
 		return fileSize;
@@ -97,8 +97,8 @@ public class Image implements Serializable {
 	}
 
 	/**
-	 * Das Service-Interface für die Verbindung zur Pewn-API, das für die
-	 * Metadaten von Bildern zuständig ist.
+	 * Das Service-Interface fÃ¼r die Verbindung zur Pewn-API, das fÃ¼r die
+	 * Metadaten von Bildern zustÃ¤ndig ist.
 	 * 
 	 * @author damios
 	 * @since 0.5.0

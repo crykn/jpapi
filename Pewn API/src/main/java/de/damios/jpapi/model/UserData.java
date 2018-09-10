@@ -17,7 +17,7 @@ import retrofit2.http.Header;
 public class UserData implements Serializable {
 
 	/**
-	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
+	 * Der Service, der die Verbindung zu den benÃ¶tigten API-Endpunkten
 	 * beinhaltet.
 	 */
 	private static UserDataService service = Api
@@ -68,8 +68,8 @@ public class UserData implements Serializable {
 	}
 
 	/**
-	 * Das Service-Interface für die Verbindung zur Pewn-API, das für
-	 * Benutzer-Daten zuständig ist.
+	 * Das Service-Interface fÃ¼r die Verbindung zur Pewn-API, das fÃ¼r
+	 * Benutzer-Daten zustÃ¤ndig ist.
 	 * 
 	 * @author damios
 	 * @since 0.5.0

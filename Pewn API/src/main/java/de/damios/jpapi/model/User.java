@@ -21,7 +21,7 @@ import retrofit2.http.Path;
 public class User implements Serializable {
 
 	/**
-	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
+	 * Der Service, der die Verbindung zu den benÃ¶tigten API-Endpunkten
 	 * beinhaltet.
 	 */
 	private static UserService service = Api.createService(UserService.class);
@@ -45,7 +45,7 @@ public class User implements Serializable {
 	/**
 	 * Liefert den Namen des Nutzers.
 	 * <p>
-	 * Jeder Nutzername ist einzigartig; Länge zwischen 3 und 15 Zeichen; nur
+	 * Jeder Nutzername ist einzigartig; LÃ¤nge zwischen 3 und 15 Zeichen; nur
 	 * folgende Zeichen sind erlaubt: a-z, 0-9, '.', '_', '-'.
 	 * 
 	 * @return Der Nutzername.
@@ -56,7 +56,7 @@ public class User implements Serializable {
 
 	/**
 	 * Liefert das Level eines Nutzers. <br>
-	 * Neue Nutzer starten mit Level 0; alle 1000 erreichte XP erhöht sich das
+	 * Neue Nutzer starten mit Level 0; alle 1000 erreichte XP erhÃ¶ht sich das
 	 * Level.
 	 * 
 	 * @return Das Level.
@@ -69,14 +69,14 @@ public class User implements Serializable {
 	/**
 	 * Liefert die Anzahl der XP eines Nutzers.
 	 * <p>
-	 * Erfahrung erhält man für die folgenden Aktionen:
+	 * Erfahrung erhÃ¤lt man fÃ¼r die folgenden Aktionen:
 	 * <ul>
 	 * <li>Spiele hochladen (500 XP)
-	 * <li>Blogeinträge verfassen (100 XP)
+	 * <li>BlogeintrÃ¤ge verfassen (100 XP)
 	 * <li>Designs einreichen (100 XP)
 	 * <li>Spiele bewerten (75 XP)
-	 * <li>Blogeinträge kommentieren (50 XP)
-	 * <li>Forenbeiträge verfassen (10 XP)
+	 * <li>BlogeintrÃ¤ge kommentieren (50 XP)
+	 * <li>ForenbeitrÃ¤ge verfassen (10 XP)
 	 * </ul>
 	 * <p>
 	 * 
@@ -107,7 +107,7 @@ public class User implements Serializable {
 	 * @return Die Spiele als Project-Array; wenn ein Nutzer keine Spiele hat,
 	 *         ein leeres Array.
 	 * @throws IOException
-	 *             wenn ein Fehler beim Ausführen der Anfrage auftritt.
+	 *             wenn ein Fehler beim AusfÃ¼hren der Anfrage auftritt.
 	 * @see Project#getByUserId(long)
 	 */
 	public Project[] getProjects() throws IOException {
@@ -185,8 +185,8 @@ public class User implements Serializable {
 	}
 
 	/**
-	 * Das Service-Interface für die Verbindung zur Pewn-API, das für Benutzer
-	 * zuständig ist.
+	 * Das Service-Interface fÃ¼r die Verbindung zur Pewn-API, das fÃ¼r Benutzer
+	 * zustÃ¤ndig ist.
 	 * 
 	 * @author damios
 	 * @since 0.5.0

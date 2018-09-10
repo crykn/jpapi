@@ -22,7 +22,7 @@ import retrofit2.http.Path;
 public class Hashtag implements Serializable {
 
 	/**
-	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
+	 * Der Service, der die Verbindung zu den benÃ¶tigten API-Endpunkten
 	 * beinhaltet.
 	 */
 	private static HashtagService service = Api
@@ -72,7 +72,7 @@ public class Hashtag implements Serializable {
 
 	/**
 	 * Liefert den Metatag des Hashtags, der dazu dient, synonyme Hashtags unter
-	 * einem Überbegriff zusammenzufassen. Wenn ein Metatag vorhanden ist,
+	 * einem Ãœberbegriff zusammenzufassen. Wenn ein Metatag vorhanden ist,
 	 * sollte der Metatag anstelle des eigentlichen Hashtags verwendet werden.
 	 * 
 	 * @return Der Metatag des Hashtags; null wenn keiner vorhanden ist.
@@ -99,7 +99,7 @@ public class Hashtag implements Serializable {
 	/**
 	 * <i>Java-Modell des JSON-Hashtag-Kategorie-Objekts.</i>
 	 * <p>
-	 * Dient dazu, Hashtags, die ähnliche Merkmale beschreiben, in Kategorien
+	 * Dient dazu, Hashtags, die Ã¤hnliche Merkmale beschreiben, in Kategorien
 	 * zusammenzufassen (z.B.: Genres, Betriebssysteme).
 	 * 
 	 * @author damios
@@ -134,9 +134,9 @@ public class Hashtag implements Serializable {
 	/**
 	 * <i>Java-Modell des JSON-Hashtag-Metatag-Objekts.</i>
 	 * <p>
-	 * Dient dazu, synonyme Hashtags unter einem Überbegriff zusammenzufassen.
+	 * Dient dazu, synonyme Hashtags unter einem Ãœberbegriff zusammenzufassen.
 	 * <p>
-	 * Verhält sich genauso wie ein Hashtag, liefert allerdings bei
+	 * VerhÃ¤lt sich genauso wie ein Hashtag, liefert allerdings bei
 	 * {@linkplain Hashtag#getCategory getCategory()},
 	 * {@linkplain Hashtag#getUsageCount getUsageCount()} und
 	 * {@linkplain Hashtag#getMetatag getMetatag()} jeweils null.
@@ -151,8 +151,8 @@ public class Hashtag implements Serializable {
 	}
 
 	/**
-	 * Das Service-Interface für die Verbindung zur Pewn-API, das für Hashtags
-	 * zuständig ist.
+	 * Das Service-Interface fÃ¼r die Verbindung zur Pewn-API, das fÃ¼r Hashtags
+	 * zustÃ¤ndig ist.
 	 * 
 	 * @author damios
 	 * @since 0.5.0

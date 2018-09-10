@@ -11,7 +11,7 @@ import retrofit2.http.Query;
 /**
  * <i>Java-Modell des JSON-Activity-Wrapper-Objekts.</i>
  * <p>
- * Die zentrale Klasse um die neuesten Aktivit‰ten auf Pewn zu erhalten.
+ * Die zentrale Klasse um die neuesten Aktivit√§ten auf Pewn zu erhalten.
  * 
  * @author damios
  * @since 0.5.0
@@ -19,7 +19,7 @@ import retrofit2.http.Query;
 public class Activity implements Serializable {
 
 	/**
-	 * Der Service, der die Verbindung zu den benˆtigten API-Endpunkten
+	 * Der Service, der die Verbindung zu den ben√∂tigten API-Endpunkten
 	 * beinhaltet.
 	 */
 	private static ActivityService service = Api
@@ -34,9 +34,9 @@ public class Activity implements Serializable {
 	private ForumTopic forumTopic;
 
 	/**
-	 * Liefert den Typ der Aktivit‰t.
+	 * Liefert den Typ der Aktivit√§t.
 	 * <p>
-	 * Mˆgliche Werte:
+	 * M√∂gliche Werte:
 	 * <ul>
 	 * <li>FORUM_TOPIC
 	 * <li>BLOG_POST
@@ -91,10 +91,10 @@ public class Activity implements Serializable {
 	}
 
 	/**
-	 * Liefert die letzten Aktivit‰ten auf Pewn.
+	 * Liefert die letzten Aktivit√§ten auf Pewn.
 	 * 
 	 * @param x
-	 *            Die Anzahl der Aktivit‰ten.
+	 *            Die Anzahl der Aktivit√§ten.
 	 * @return Die Spiele als ProjectWrapper-Array; wenn ein Nutzer keine Spiele
 	 *         hat, ein leeres Array.
 	 * @throws IOException
@@ -106,8 +106,8 @@ public class Activity implements Serializable {
 	}
 
 	/**
-	 * Das Service-Interface f¸r die Verbindung zur Pewn-API, das f¸r
-	 * Aktivit‰ten zust‰ndig ist.
+	 * Das Service-Interface f√ºr die Verbindung zur Pewn-API, das f√ºr
+	 * Aktivit√§ten zust√§ndig ist.
 	 * 
 	 * @author damios
 	 * @since 0.5.0

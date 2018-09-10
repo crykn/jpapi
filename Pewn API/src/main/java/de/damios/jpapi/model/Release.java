@@ -22,7 +22,7 @@ import retrofit2.http.Path;
 public class Release implements Serializable {
 
 	/**
-	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
+	 * Der Service, der die Verbindung zu den benÃ¶tigten API-Endpunkten
 	 * beinhaltet.
 	 */
 	private static ReleaseService service = Api
@@ -69,7 +69,7 @@ public class Release implements Serializable {
 	}
 
 	/**
-	 * @return Liefert das Datum, an welchem das Release veröffentlicht wurde.
+	 * @return Liefert das Datum, an welchem das Release verÃ¶ffentlicht wurde.
 	 */
 	public Timestamp getReleaseDate() {
 		return releaseDate;
@@ -84,7 +84,7 @@ public class Release implements Serializable {
 	}
 
 	/**
-	 * Liefert alle Downloads, die zu einem Release gehören.
+	 * Liefert alle Downloads, die zu einem Release gehÃ¶ren.
 	 * 
 	 * @return Download-Array
 	 */
@@ -121,8 +121,8 @@ public class Release implements Serializable {
 	}
 
 	/**
-	 * Das Service-Interface für die Verbindung zur Pewn-API, das für Releases
-	 * zuständig ist.
+	 * Das Service-Interface fÃ¼r die Verbindung zur Pewn-API, das fÃ¼r Releases
+	 * zustÃ¤ndig ist.
 	 * 
 	 * @author damios
 	 * @since 0.6.0

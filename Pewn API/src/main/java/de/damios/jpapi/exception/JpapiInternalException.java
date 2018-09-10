@@ -12,7 +12,8 @@ public class JpapiInternalException extends RuntimeException {
 	private static final long serialVersionUID = 100L;
 
 	/**
-	 * Erstellt eine neue JpapiInternalException mit null als Fehlermeldung.
+	 * Erstellt eine neue JpapiInternalException mit <code>null</code> als
+	 * Fehlermeldung.
 	 * 
 	 * @see RuntimeException#RuntimeException() RuntimeException()
 	 */
@@ -21,7 +22,7 @@ public class JpapiInternalException extends RuntimeException {
 	}
 
 	/**
-	 * Erstellt eine neue JpapiInternalException mit der übergebenen
+	 * Erstellt eine neue JpapiInternalException mit der Ã¼bergebenen
 	 * Fehlermeldung.
 	 * 
 	 * @param message
@@ -34,7 +35,7 @@ public class JpapiInternalException extends RuntimeException {
 
 	/**
 	 * 
-	 * Erstellt eine neue JpapiInternalException mit der übergebenen Ursache und
+	 * Erstellt eine neue JpapiInternalException mit der Ã¼bergebenen Ursache und
 	 * Fehlermeldung.
 	 * 
 	 * @param message
@@ -49,8 +50,8 @@ public class JpapiInternalException extends RuntimeException {
 	}
 
 	/**
-	 * Erstellt eine neue JpapiInternalException mit der übergebenen Ursache und
-	 * einer folgendermaßen lautenden Fehlermeldung:
+	 * Erstellt eine neue JpapiInternalException mit der Ã¼bergebenen Ursache und
+	 * einer folgendermaÃŸen lautenden Fehlermeldung:
 	 * {@code (cause==null ? null :
 	 * cause.toString())} (Normalerweise die Klasse und Fehlermeldung der
 	 * Ursache).

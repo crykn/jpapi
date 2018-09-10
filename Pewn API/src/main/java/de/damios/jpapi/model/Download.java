@@ -54,11 +54,11 @@ public class Download implements Serializable {
 	}
 
 	/**
-	 * Liefert das Icon des Downloads. Das ist hilfreich zur Bestimmmung, um welche
-	 * Art von Download es sich handelt und für welches Betriebssystem dieser
-	 * bestimmt ist.
+	 * Liefert das Icon des Downloads. Das ist hilfreich zur Bestimmmung, um
+	 * welche Art von Download es sich handelt und fÃ¼r welches Betriebssystem
+	 * dieser bestimmt ist.
 	 * <p>
-	 * Mögliche Icons sind:
+	 * MÃ¶gliche Icons sind:
 	 * <ul>
 	 * <li><code>fa-windows</code>
 	 * <li><code>fa-linux</code>
@@ -77,8 +77,8 @@ public class Download implements Serializable {
 	}
 
 	/**
-	 * Liefert die URL, unter der der Download aufgerufen werden kann. Meist erfolgt
-	 * dabei zunächst noch eine Weiterleitung.
+	 * Liefert die URL, unter der der Download aufgerufen werden kann. Meist
+	 * erfolgt dabei zunÃ¤chst noch eine Weiterleitung.
 	 * 
 	 * @return Die URL des Downloads.
 	 * @throws MalformedURLException

@@ -12,7 +12,7 @@ import retrofit2.http.POST;
 /**
  * <i>Java-Modell eines API-Tokens.</i>
  * <p>
- * Die zentrale Klasse für die Authentifizierung.
+ * Die zentrale Klasse fÃ¼r die Authentifizierung.
  * 
  * @author damios
  * @since 0.5.0
@@ -20,7 +20,7 @@ import retrofit2.http.POST;
 public class Token implements Serializable {
 
 	/**
-	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
+	 * Der Service, der die Verbindung zu den benÃ¶tigten API-Endpunkten
 	 * beinhaltet.
 	 */
 	private static TokenService service = Api.createService(TokenService.class);
@@ -45,7 +45,7 @@ public class Token implements Serializable {
 	}
 
 	/**
-	 * Liefert einen vollständigen Token.
+	 * Liefert einen vollstÃ¤ndigen Token.
 	 * <p>
 	 * Muss vom Nutzer normalerweise nie selbst aufgerufen werden.
 	 * 
@@ -57,7 +57,7 @@ public class Token implements Serializable {
 	 *            Der auth_code.
 	 * @param redirectUri
 	 *            Die redirect_uri, die die Anwendung auf Pewn hinterlegt hat.
-	 * @return Ein vollständiger Token (mit access_token und refresh_token)
+	 * @return Ein vollstÃ¤ndiger Token (mit access_token und refresh_token)
 	 * @throws IOException
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Api#executeCall(Call)
@@ -93,8 +93,8 @@ public class Token implements Serializable {
 	}
 
 	/**
-	 * Das Service-Interface für die Verbindung zur Pewn-API, das für Tokens
-	 * zuständig ist.
+	 * Das Service-Interface fÃ¼r die Verbindung zur Pewn-API, das fÃ¼r Tokens
+	 * zustÃ¤ndig ist.
 	 * 
 	 * @author damios
 	 * @since 0.5.0

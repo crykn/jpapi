@@ -17,7 +17,7 @@ import retrofit2.http.GET;
 public class Status implements Serializable {
 
 	/**
-	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
+	 * Der Service, der die Verbindung zu den benÃ¶tigten API-Endpunkten
 	 * beinhaltet.
 	 */
 	private static StatusService service = Api
@@ -54,8 +54,8 @@ public class Status implements Serializable {
 	}
 
 	/**
-	 * Das Service-Interface für die Verbindung zur Pewn-API, das für den
-	 * API-Status zuständig ist.
+	 * Das Service-Interface fÃ¼r die Verbindung zur Pewn-API, das fÃ¼r den
+	 * API-Status zustÃ¤ndig ist.
 	 * 
 	 * @author damios
 	 * @since 0.5.0

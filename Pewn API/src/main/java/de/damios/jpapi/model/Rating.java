@@ -20,7 +20,7 @@ import retrofit2.http.Path;
 public class Rating implements Serializable {
 
 	/**
-	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
+	 * Der Service, der die Verbindung zu den benÃ¶tigten API-Endpunkten
 	 * beinhaltet.
 	 */
 	private static RatingService service = Api
@@ -49,14 +49,14 @@ public class Rating implements Serializable {
 
 	/**
 	 * @return Liefert den Zahlenwert der Bewertung; dabei sind Werte von 0 bis
-	 *         10 möglich.
+	 *         10 mÃ¶glich.
 	 */
 	public int getRating() {
 		return rating;
 	}
 
 	/**
-	 * @return Liefert das Datum des letzten Veränderns der Bewertung.
+	 * @return Liefert das Datum des letzten VerÃ¤nderns der Bewertung.
 	 */
 	public Timestamp getDate() {
 		return date;
@@ -188,8 +188,8 @@ public class Rating implements Serializable {
 	}
 
 	/**
-	 * Das Service-Interface für die Verbindung zur Pewn-API, das für Ratings
-	 * zuständig ist.
+	 * Das Service-Interface fÃ¼r die Verbindung zur Pewn-API, das fÃ¼r Ratings
+	 * zustÃ¤ndig ist.
 	 * 
 	 * @author damios
 	 * @since 0.5.0

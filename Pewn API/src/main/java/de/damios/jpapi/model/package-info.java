@@ -1,4 +1,4 @@
 /**
- * Beinhaltet die Java-Äquivalente zu den JSON-Objekten.
+ * Beinhaltet die Java-Ã„quivalente zu den JSON-Objekten.
  */
 package de.damios.jpapi.model;

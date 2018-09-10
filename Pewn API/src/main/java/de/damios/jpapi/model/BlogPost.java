@@ -20,7 +20,7 @@ import retrofit2.http.Path;
 public class BlogPost implements Serializable {
 
 	/**
-	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
+	 * Der Service, der die Verbindung zu den benÃ¶tigten API-Endpunkten
 	 * beinhaltet.
 	 */
 	private static BlogPostService service = Api
@@ -85,7 +85,7 @@ public class BlogPost implements Serializable {
 	}
 
 	/**
-	 * Liefert alle Hashtags, die mit dem Blog-Post verknüpft sind.
+	 * Liefert alle Hashtags, die mit dem Blog-Post verknÃ¼pft sind.
 	 * 
 	 * @return Die Hashtags als Hashtag-Array; wenn ein Blog mit keinerlei
 	 *         Hashtags versehen ist, ein leeres Array.
@@ -97,7 +97,7 @@ public class BlogPost implements Serializable {
 	/**
 	 * Liefert das Spiel, welchem der BlogPost zugeordnet wurde.
 	 * 
-	 * @return Das Spiel; null, wenn der Blog keinem Spiel zugeordnet wurde.
+	 * @return Das Spiel; <code>null</code>, wenn der Blog keinem Spiel zugeordnet wurde.
 	 * @throws IOException
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Project#getByProjectId(long)
@@ -123,8 +123,8 @@ public class BlogPost implements Serializable {
 	}
 
 	/**
-	 * Das Service-Interface für die Verbindung zur Pewn-API, das für Blog Posts
-	 * zuständig ist.
+	 * Das Service-Interface fÃ¼r die Verbindung zur Pewn-API, das fÃ¼r Blog Posts
+	 * zustÃ¤ndig ist.
 	 * 
 	 * @author damios
 	 * @since 0.5.0

@@ -19,7 +19,7 @@ import retrofit2.http.GET;
 public class ProjectWrapper implements Serializable {
 
 	/**
-	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
+	 * Der Service, der die Verbindung zu den benÃ¶tigten API-Endpunkten
 	 * beinhaltet.
 	 */
 	private static ProjectWrapperService service = Api
@@ -30,7 +30,7 @@ public class ProjectWrapper implements Serializable {
 	private Project project;
 
 	/**
-	 * @return Liefert den Grund dafür, dass das Spiel auf der Startseite
+	 * @return Liefert den Grund dafÃ¼r, dass das Spiel auf der Startseite
 	 *         angezeigt wird.
 	 */
 	public String getReason() {
@@ -58,8 +58,8 @@ public class ProjectWrapper implements Serializable {
 	}
 
 	/**
-	 * Das Service-Interface für die Verbindung zur Pewn-API, das für Projekte
-	 * in der Top-Box auf der Startseite von Pewn zuständig ist.
+	 * Das Service-Interface fÃ¼r die Verbindung zur Pewn-API, das fÃ¼r Projekte
+	 * in der Top-Box auf der Startseite von Pewn zustÃ¤ndig ist.
 	 * 
 	 * @author damios
 	 * @since 0.5.0

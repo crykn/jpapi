@@ -20,7 +20,7 @@ import retrofit2.http.Path;
 public class News implements Serializable {
 
 	/**
-	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
+	 * Der Service, der die Verbindung zu den benÃ¶tigten API-Endpunkten
 	 * beinhaltet.
 	 */
 	private static NewsService service = Api.createService(NewsService.class);
@@ -90,7 +90,7 @@ public class News implements Serializable {
 	}
 
 	/**
-	 * @return Liefert alle Bilder, die zur Neuigkeit gehören.
+	 * @return Liefert alle Bilder, die zur Neuigkeit gehÃ¶ren.
 	 */
 	public Image[] getImages() {
 		return images;
@@ -111,8 +111,8 @@ public class News implements Serializable {
 	}
 
 	/**
-	 * Das Service-Interface für die Verbindung zur Pewn-API, das für News
-	 * zuständig ist.
+	 * Das Service-Interface fÃ¼r die Verbindung zur Pewn-API, das fÃ¼r News
+	 * zustÃ¤ndig ist.
 	 * 
 	 * @author damios
 	 * @since 0.5.0

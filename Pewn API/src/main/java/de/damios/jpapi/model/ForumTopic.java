@@ -100,7 +100,7 @@ public class ForumTopic implements Serializable {
 	 * Liefert alle Posts im Topic.
 	 * 
 	 * @return Die Posts als ForumPost-Array; wenn ein Topic noch keine Posts
-	 *         enth‰lt, ein leeres Array.
+	 *         enth√§lt, ein leeres Array.
 	 * @throws IOException
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see ForumPost#getByTopicId(int)

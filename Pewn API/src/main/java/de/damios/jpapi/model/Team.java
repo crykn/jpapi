@@ -20,7 +20,7 @@ import retrofit2.http.Path;
 public class Team implements Serializable {
 
 	/**
-	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
+	 * Der Service, der die Verbindung zu den benÃ¶tigten API-Endpunkten
 	 * beinhaltet.
 	 */
 	private static TeamService service = Api.createService(TeamService.class);
@@ -57,7 +57,7 @@ public class Team implements Serializable {
 	}
 
 	/**
-	 * @return Liefert den Namen des Teams; Länge zwischen 3 und 30 Zeichen.
+	 * @return Liefert den Namen des Teams; LÃ¤nge zwischen 3 und 30 Zeichen.
 	 */
 	public String getName() {
 		return name;
@@ -78,9 +78,9 @@ public class Team implements Serializable {
 	}
 
 	/**
-	 * Liefert den Teamgründer.
+	 * Liefert den TeamgrÃ¼nder.
 	 * 
-	 * @return Der Gründer des Teams.
+	 * @return Der GrÃ¼nder des Teams.
 	 * @throws IOException
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see User#getByUserId(long)
@@ -146,7 +146,7 @@ public class Team implements Serializable {
 	 * 
 	 * @param userId
 	 *            Die ID des Nutzers, dessen Teams abgerufen werden sollen.
-	 * @return Die Teams als Team-Array; wenn ein Nutzer keinem Team angehört,
+	 * @return Die Teams als Team-Array; wenn ein Nutzer keinem Team angehÃ¶rt,
 	 *         ein leeres Array.
 	 * @throws IOException
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
@@ -157,8 +157,8 @@ public class Team implements Serializable {
 	}
 
 	/**
-	 * Das Service-Interface für die Verbindung zur Pewn-API, das für Designs
-	 * zuständig ist.
+	 * Das Service-Interface fÃ¼r die Verbindung zur Pewn-API, das fÃ¼r Designs
+	 * zustÃ¤ndig ist.
 	 * 
 	 * @author damios
 	 * @since 0.5.0

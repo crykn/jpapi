@@ -17,7 +17,7 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**
- * Beinhaltet ausschließlich statische Methoden zum Herunterladen der auf Pewn
+ * Beinhaltet ausschlieÃŸlich statische Methoden zum Herunterladen der auf Pewn
  * gespeicherten Bilder.
  * 
  * @author damios
@@ -29,7 +29,7 @@ public class ImageProvider {
 	}
 
 	/**
-	 * Der Service, der die Verbindung zu den benötigten API-Endpunkten
+	 * Der Service, der die Verbindung zu den benÃ¶tigten API-Endpunkten
 	 * beinhaltet.
 	 */
 	private static ImageProviderService service = Api
@@ -38,11 +38,11 @@ public class ImageProvider {
 	/**
 	 * Liefert ein Bild, das auf Pewn hochgeladen wurde.
 	 * <p>
-	 * Von Breite und Höhe wird nur der Wert verwendet, dessen relative
-	 * Veränderung zum Ursprungswert am kleinsten ist (auch negative Werte
-	 * werden beachtet!), um das ursprüngliche Seitenverhältnis des Bildes
-	 * beizubehalten. Wenn einer oder beide der Parameter Breite und Höhe
-	 * kleiner als 0 sind, wird die ursprüngliche Größe des Bildes beibehalten.
+	 * Von Breite und HÃ¶he wird nur der Wert verwendet, dessen relative
+	 * VerÃ¤nderung zum Ursprungswert am kleinsten ist (auch negative Werte
+	 * werden beachtet!), um das ursprÃ¼ngliche SeitenverhÃ¤ltnis des Bildes
+	 * beizubehalten. Wenn einer oder beide der Parameter Breite und HÃ¶he
+	 * kleiner als 0 sind, wird die ursprÃ¼ngliche GrÃ¶ÃŸe des Bildes beibehalten.
 	 * 
 	 * @param gameid
 	 *            Die Spiele-ID.
@@ -51,7 +51,7 @@ public class ImageProvider {
 	 * @param width
 	 *            Die Bildbreite.
 	 * @param height
-	 *            Die Bildhöhe.
+	 *            Die BildhÃ¶he.
 	 * @return Das Bild; null, wenn das Bild nicht vorhanden ist.
 	 * @throws IOException
 	 *             wenn ein Fehler bei der Anfrage oder beim Lesen des Bilds
@@ -92,22 +92,22 @@ public class ImageProvider {
 	/**
 	 * Liefert ein Bild, das auf Pewn hochgeladen wurde.
 	 * <p>
-	 * Von Breite und Höhe wird nur der Wert verwendet, dessen relative
-	 * Veränderung zum Ursprungswert am kleinsten ist (auch negative Werte
-	 * werden beachtet!), um das ursprüngliche Seitenverhältnis des Bildes
-	 * beizubehalten. Wenn einer oder beide der Parameter Breite und Höhe
-	 * kleiner als 0 sind, wird die ursprüngliche Größe des Bildes beibehalten.
+	 * Von Breite und HÃ¶he wird nur der Wert verwendet, dessen relative
+	 * VerÃ¤nderung zum Ursprungswert am kleinsten ist (auch negative Werte
+	 * werden beachtet!), um das ursprÃ¼ngliche SeitenverhÃ¤ltnis des Bildes
+	 * beizubehalten. Wenn einer oder beide der Parameter Breite und HÃ¶he
+	 * kleiner als 0 sind, wird die ursprÃ¼ngliche GrÃ¶ÃŸe des Bildes beibehalten.
 	 * <p>
 	 * <i>Der Project-Parameter wird in absehbarer Zeit entfernt werden!</i>
 	 * 
 	 * @param project
-	 *            Das Spiel, zu dem das Bild gehört.
+	 *            Das Spiel, zu dem das Bild gehÃ¶rt.
 	 * @param image
 	 *            Das Image-Objekt des Bildes.
 	 * @param width
 	 *            Die Bildbreite.
 	 * @param height
-	 *            Die Bildhöhe.
+	 *            Die BildhÃ¶he.
 	 * @return Das Bild.
 	 * @throws IOException
 	 *             wenn ein Fehler beim Lesen des Bilds auftritt.
@@ -126,7 +126,7 @@ public class ImageProvider {
 	 * <i>Der Project-Parameter wird in absehbarer Zeit entfernt werden!</i>
 	 * 
 	 * @param project
-	 *            Das Spiel, zu dem das Bild gehört.
+	 *            Das Spiel, zu dem das Bild gehÃ¶rt.
 	 * @param image
 	 *            Das Image-Objekt des Bildes.
 	 * @return Das Bild.
@@ -163,8 +163,8 @@ public class ImageProvider {
 	}
 
 	/**
-	 * Das Service-Interface für die Verbindung zur Pewn-API, das für
-	 * Bilder-Daten zuständig ist.
+	 * Das Service-Interface fÃ¼r die Verbindung zur Pewn-API, das fÃ¼r
+	 * Bilder-Daten zustÃ¤ndig ist.
 	 * 
 	 * @author damios
 	 * @since 0.5.0
