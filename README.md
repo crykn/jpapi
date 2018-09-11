@@ -21,6 +21,8 @@ System.out.println(Project.getRandom().getImages()[0].getFileName());
 ## Download
 Die aktuellste Version steht [hier](https://github.com/crykn/jpapi/releases/) zum Download bereit.
 
+[![Release](https://jitpack.io/v/crykn/jpapi.svg)](https://jitpack.io/#crykn/jpapi)
+
 ## Abhängigkeiten
 * [Gson](http://mvnrepository.com/artifact/com.google.code.gson/gson/2.8.5)
 * [Retrofit](http://mvnrepository.com/artifact/com.squareup.retrofit2/retrofit/2.4.0)

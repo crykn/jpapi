@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 
 //VERSION
-version = '0.6.2'
+version = '0.7.0'
 
 def archivename = 'jpapi'
 sourceCompatibility = 1.9
@@ -16,6 +16,8 @@ dependencies {
 	compile 'com.google.code.gson:gson:2.8.5'
 	compile 'com.squareup.retrofit2:retrofit:2.4.0'
 	compile 'com.squareup.retrofit2:converter-gson:2.4.0'
+	
+	testCompile 'org.junit.jupiter:junit-jupiter-engine:5.2.0'
 }
 
 jar {
