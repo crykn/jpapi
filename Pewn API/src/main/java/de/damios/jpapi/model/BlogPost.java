@@ -97,7 +97,8 @@ public class BlogPost implements Serializable {
 	/**
 	 * Liefert das Spiel, welchem der BlogPost zugeordnet wurde.
 	 * 
-	 * @return Das Spiel; <code>null</code>, wenn der Blog keinem Spiel zugeordnet wurde.
+	 * @return Das Spiel; <code>null</code>, wenn der Blog keinem Spiel
+	 *         zugeordnet wurde.
 	 * @throws IOException
 	 *             wenn ein Fehler bei der Kommunikation mit Pewn auftritt.
 	 * @see Project#getByProjectId(long)
@@ -106,6 +107,20 @@ public class BlogPost implements Serializable {
 		if (projectId == -1)
 			return null;
 		return Project.getByProjectId(projectId);
+	}
+
+	@Override
+	public int hashCode() {
+		return 31 + (int) (id ^ (id >>> 32));
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		return this.id == ((BlogPost) obj).id;
 	}
 
 	/**

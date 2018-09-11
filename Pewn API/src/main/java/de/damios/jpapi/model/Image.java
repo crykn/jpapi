@@ -81,6 +81,20 @@ public class Image implements Serializable {
 		return author;
 	}
 
+	@Override
+	public int hashCode() {
+		return 31 + (int) (id ^ (id >>> 32));
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		return this.id == ((Image) obj).id;
+	}
+
 	/**
 	 * Liefert ein Array aller Bilder eines Spiels.
 	 * 

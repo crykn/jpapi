@@ -184,6 +184,20 @@ public class Project implements Serializable {
 		return advertisement;
 	}
 
+	@Override
+	public int hashCode() {
+		return 31 + (int) (id ^ (id >>> 32));
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		return this.id == ((Project) obj).id;
+	}
+
 	/**
 	 * Liefert ein bestimmtes Spiel anhand dessen individueller {@linkplain #id
 	 * ID}.

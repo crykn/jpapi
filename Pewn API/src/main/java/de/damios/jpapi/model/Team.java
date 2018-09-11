@@ -127,6 +127,20 @@ public class Team implements Serializable {
 		return projects;
 	}
 
+	@Override
+	public int hashCode() {
+		return 31 + (int) (id ^ (id >>> 32));
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		return this.id == ((Team) obj).id;
+	}
+
 	/**
 	 * Liefert ein Team anhand seiner ID.
 	 * 

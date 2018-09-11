@@ -95,6 +95,20 @@ public class News implements Serializable {
 	public Image[] getImages() {
 		return images;
 	}
+	
+	@Override
+	public int hashCode() {
+		return 31 + (int) (id ^ (id >>> 32));
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		return this.id == ((News) obj).id;
+	}
 
 	/**
 	 * Liefert ein Array aller News eines Nutzers.

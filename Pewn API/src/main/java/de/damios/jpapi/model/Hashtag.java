@@ -35,7 +35,7 @@ public class Hashtag implements Serializable {
 	@SerializedName("hashtagCategory")
 	private HashtagCategory category;
 	@SerializedName("hashtagMetaTag")
-	private HashtagMetatag metatag;
+	private HashtagMetatag metaTag;
 
 	/**
 	 * @return Liefert die individuelle ID des Hashtags.
@@ -50,6 +50,7 @@ public class Hashtag implements Serializable {
 	 * Jeder Name ist einzigartig und stellt das Hauptmerkmal des Hashtags dar.
 	 * 
 	 * @return Name des Hashtags.
+	 * @see #getTag()
 	 */
 	public String getName() {
 		return name;
@@ -77,9 +78,32 @@ public class Hashtag implements Serializable {
 	 * 
 	 * @return Der Metatag des Hashtags; <code>null</code> wenn keiner vorhanden
 	 *         ist.
+	 * @see #getTag()
 	 */
 	public HashtagMetatag getMetatag() {
-		return metatag;
+		return metaTag;
+	}
+
+	/**
+	 * @return Der Name des Metatags, bzw., sofern dieser nicht gesetzt ist, der
+	 *         Name des Hashtags selbst.
+	 */
+	public String getTag() {
+		return metaTag == null ? name : metaTag.getName();
+	}
+
+	@Override
+	public int hashCode() {
+		return 31 + (int) (id ^ (id >>> 32));
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		return this.id == ((Hashtag) obj).id;
 	}
 
 	/**
