@@ -82,7 +82,9 @@ public class Download implements Serializable {
 	 * 
 	 * @return Die URL des Downloads.
 	 * @throws MalformedURLException
-	 * @see {@link #getId()}
+	 *             wenn die angegebene URL nicht gültig ist.
+	 * 
+	 * @see #getId()
 	 */
 	public URL getDownloadUrl() throws MalformedURLException {
 		return new URL(Constants.DOWNLOAD_URL + id);
