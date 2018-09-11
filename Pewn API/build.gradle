@@ -34,7 +34,7 @@ jar {
 //Javadoc
 javadoc {
 	title = "jpapi $version"
-	options.encoding = 'cp1252' 
+	options.encoding = 'UTF-8' 
 	options.docEncoding = 'UTF-8'
 	options.charSet = 'UTF-8'
 }
